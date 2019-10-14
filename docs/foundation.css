@@ -107,34 +107,34 @@
 }
 
 #coverContainer #title h1 {
-	"font-size": "42px"
-	,"font-family": "Ubuntu, Roboto"
-	,"color": "#E81193" /* #FF008F */
-	,"line-height": "42px"
-	,"margin": "0"
-	,"font-weight": "normal"
+	font-size: 42px;
+	font-family: Ubuntu, Roboto;
+	color: #E81193; /* #FF008F */
+	line-height: 42px;
+	margin: 0;
+	font-weight: normal;
 }
 
 #coverContainer #logoType {
-	"text-align": "right"
+	text-align: right;
 }
 
-'coverContainer .version {
-	"background-color": "#FAFAFA"
-	,"font-size": "14px"
-	,"font-weight": "bold"
-	,"border": "solid 1px #D9D9D9"
-	,"border-radius": "4px"
-	,"padding": "1.5px 4px"
-	,"line-height": "24px"
+#coverContainer .version {
+	background-color: #FAFAFA;
+	font-size: 14px;
+	font-weight: bold;
+	border: solid 1px #D9D9D9;
+	border-radius: 4px;
+	padding: 1.5px 4px;
+	line-height: 24px;
 }
 
 #coverContainer #confDoc {
-	"font-size": "14px"
-	,"line-height": "22px"
+	font-size: 14px;
+	line-height: 22px;
 }
 
 #coverContainer #confDoc a {
-	"color": "#E81193" /* #FF008F */
-	,"text-decoration": "underline"
+	color: #E81193; /* #FF008F */
+	text-decoration: underline;
 }
