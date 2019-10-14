@@ -2,6 +2,16 @@
 *	Foundation: Styles
 ****************************************************************/
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://use.fontawesome.com/releases/v5.0.10/css/all.css');
+@import url('https://l-lin.github.io/font-awesome-animation/dist/font-awesome-animation.min.css');
+
+/****************************************************************
+*	Common
+****************************************************************/
+
 .hidden {
 	display: none;
 }
