@@ -21,29 +21,28 @@
 	width: 100%;
 	height: 40px;
 	overflow: hidden;
-	border-radius: 4px;
+	border-radius: 3px;
 }
 
 #foundationToolbar #toolbarOptions, 
 #foundationToolbar #toolbarInfo {
+	display: flex;
+	flex-flow: row wrap;
 	align-items: center;
 }
 #foundationToolbar #toolbarInfo {
 	align-self: flex-start;
-	justify-content: flex-start;
+	justify-content: center;
 }
 #foundationToolbar #toolbarOptions {
 	align-self: flex-end;
-	justify-content: flex-end;
-}
-
-#foundationToolbar #toolbarInfo > *,
-#foundationToolbar #toolbarOptions > * {
-	min-height: 100%;
+	justify-content: center;
 }
 
 #infoCompanyLogo {
-	background: url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857274/DAM/BI%20Reporting/Foundation%20Framework/lmn_logo_toolbar.png') no-repeat 0 50%;
+	background: url("https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857274/DAM/BI%20Reporting/Foundation%20Framework/lmn_logo_toolbar.png") 0px 50% / auto 40px no-repeat;
+	width: 185px;
+	height: 40px;
 	/*-moz-filter: none;
 	-o-filter: none;
 	-webkit-filter: none;
