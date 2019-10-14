@@ -93,14 +93,16 @@ function constructFoundation() {
 |	Toolbar\n\
 ---------------------------------------------------------------- -->\n\
 <!--<div id="menuOpenFixed" class="infoLabel"><i class="material-icons">menu</i></div>-->\n\
-<div id="commandPanel">\n\
-	<div id="menuOpen" class="infoLabel animated-icon menu-arrow-l"><div class="ani"></div></div>\n\
-	<div id="infoCompanyLogo"></div>\n\
-	<div id="infoReportType"></div>\n\
-	<div id="infoReportTitle" class="infoLabel">Foundation</div>\n\
-	<div id="infoReportSectionPage" class="infoLabel">Cover</div>\n\
+<div id="foundationToolbar">\n\
+	<div id="toolbarInfo">\n\
+		<div id="menuOpen" class="infoLabel animated-icon menu-arrow-l"><div class="ani"></div></div>\n\
+		<div id="infoCompanyLogo"></div>\n\
+		<div id="infoReportType"></div>\n\
+		<div id="infoReportTitle" class="infoLabel">Foundation</div>\n\
+		<div id="infoReportSectionPage" class="infoLabel">Cover</div>\n\
+	</div>\n\
 	\n\
-	<div id="commandPanelContainer">\n\
+	<div id="toolbarOptions">\n\
 		<!-- Toggle Filter Panel: -->\n\
 		<div id="actnCtrl_filterShowHide" class="optional button medium"><span>Filters</span></div>\n\
 		\n\
