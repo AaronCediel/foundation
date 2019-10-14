@@ -63,31 +63,6 @@ function appendStylesToHead(id, styles) {
 function constructFoundation() {
 	var foundation = '';
 	
-	var navigation = '\
-<!-- --------------------------------------------------------------\n\
-|	Navigation\n\
----------------------------------------------------------------- -->\n\
-<div id="left" class="side-menu">\n\
-	<div id="menuClose" class="menuLink"><i class="material-icons">close</i><span>Navigation</span></div>\n\
-	<div id="pages_list_menu">\n\
-		<div class="menuLink pageslist"><span class="hidden">/Cover/</span><i class="material-icons">home</i><a>Cover</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">/[star] Featured Page/</span><i class="material-icons">star</i><a>Featured Page</a></div>\n\
-		\n\
-		<h3 class="filterTab"><i class="material-icons">folder</i><span class="title">Foundation</span></h3><div class="tab-content page-tab">\n\
-		<div class="menuLink pageslist"><span class="hidden">Ungrouped Page</span><i class="material-icons">arrow_right</i><a>Ungrouped Page</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">[vertical_align_bottom] Scrollable Page</span><i class="material-icons">vertical_align_bottom</i><a>Scrollable Page</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">Flight Page</span><i class="material-icons">flight</i><a>Flight Page</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">Hotel Page</span><i class="material-icons">hotel</i><a>Hotel Page</a></div>\n\
-		</div>\n\
-		\n\
-		<h3 class="filterTab"><i class="material-icons">grade</i><span class="title">Page Group #1</span></h3><div class="tab-content page-tab">\n\
-		<div class="menuLink pageslist"><span class="hidden">[grade] Page Group #1 > [looks_one] Grouped Page #1</span><i class="material-icons">looks_one</i><a>Grouped Page #1</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">Page Group #1 > [looks_two] Page #2</span><i class="material-icons">looks_two</i><a>Page #2</a></div>\n\
-		</div>\n\
-	</div>\n\
-</div>\
-';
-	
 	var toolbar = '\
 <!-- --------------------------------------------------------------\n\
 |	Toolbar\n\
@@ -129,6 +104,31 @@ function constructFoundation() {
 		\n\
 		<!-- Confluence Documentation -->\n\
 		<div id="actnCtrl_confluenceDocumentation" class="optional button small"><a id="confluenceLink" href="#" target="_blank"><i class="material-icons faa-pulse animated-hover">info</i></a></div>\n\
+	</div>\n\
+</div>\
+';
+	
+	var navigation = '\
+<!-- --------------------------------------------------------------\n\
+|	Navigation\n\
+---------------------------------------------------------------- -->\n\
+<div id="left" class="side-menu">\n\
+	<div id="menuClose" class="menuLink"><i class="material-icons">close</i><span>Navigation</span></div>\n\
+	<div id="pages_list_menu">\n\
+		<div class="menuLink pageslist"><span class="hidden">/Cover/</span><i class="material-icons">home</i><a>Cover</a></div>\n\
+		<div class="menuLink pageslist"><span class="hidden">/[star] Featured Page/</span><i class="material-icons">star</i><a>Featured Page</a></div>\n\
+		\n\
+		<h3 class="filterTab"><i class="material-icons">folder</i><span class="title">Foundation</span></h3><div class="tab-content page-tab">\n\
+		<div class="menuLink pageslist"><span class="hidden">Ungrouped Page</span><i class="material-icons">arrow_right</i><a>Ungrouped Page</a></div>\n\
+		<div class="menuLink pageslist"><span class="hidden">[vertical_align_bottom] Scrollable Page</span><i class="material-icons">vertical_align_bottom</i><a>Scrollable Page</a></div>\n\
+		<div class="menuLink pageslist"><span class="hidden">Flight Page</span><i class="material-icons">flight</i><a>Flight Page</a></div>\n\
+		<div class="menuLink pageslist"><span class="hidden">Hotel Page</span><i class="material-icons">hotel</i><a>Hotel Page</a></div>\n\
+		</div>\n\
+		\n\
+		<h3 class="filterTab"><i class="material-icons">grade</i><span class="title">Page Group #1</span></h3><div class="tab-content page-tab">\n\
+		<div class="menuLink pageslist"><span class="hidden">[grade] Page Group #1 > [looks_one] Grouped Page #1</span><i class="material-icons">looks_one</i><a>Grouped Page #1</a></div>\n\
+		<div class="menuLink pageslist"><span class="hidden">Page Group #1 > [looks_two] Page #2</span><i class="material-icons">looks_two</i><a>Page #2</a></div>\n\
+		</div>\n\
 	</div>\n\
 </div>\
 ';
