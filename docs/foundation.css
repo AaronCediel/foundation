@@ -6,8 +6,12 @@
 	display: none;
 }
 
-#commandPanel {/*
-	position: fixed;
+/****************************************************************
+*	Toolbar
+****************************************************************/
+
+#commandPanel {
+	/*position: fixed;
 	left: 0;
 	top: 40px;
 	z-index: 10;*/
@@ -15,4 +19,122 @@
 	width: 100%;
 	height: 40px;
 	overflow: hidden;
+	border-radius: 4px;
+}
+
+#infoCompanyLogo {
+	background: url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857274/DAM/BI%20Reporting/Foundation%20Framework/lmn_logo_toolbar.png') no-repeat 0 50%;
+	/*-moz-filter: none;
+	-o-filter: none;
+	-webkit-filter: none;
+	filter: none;*/
+}
+
+#infoReportType {
+	display: inline-block;
+	float: left;
+	position: relative;
+	width: 75px;
+	height: 40px;
+	line-height: 40px;
+	background: #FFFFFF url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857155/DAM/BI%20Reporting/Report%20Type/draft.png') no-repeat 50% 50%;
+	background-size: auto 32px;
+	-webkit-clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
+	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
+}
+
+#actnCtrl_dataIntegrity {
+	position: relative;
+	width: 75px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #FFFFFF;
+	-webkit-clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
+	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
+}
+
+
+/****************************************************************
+*	Navigation
+****************************************************************/
+
+.ui-icon {
+	position: absolute;
+	top: 11px;
+	right: 4px;
+	display: inline-block;
+	vertical-align: inherit;
+	margin: 0;
+	padding: 0;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	/* Source: http://stackoverflow.com/questions/1821568/how-to-specify-override-jquery-icon-color
+	background-image: url(http://download.jqueryui.com/themeroller/images/ui-icons_"+colorPrimary.substr(1)+"_256x240.png); */
+	background-image: url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559856894/DAM/BI%20Reporting/Foundation%20Framework/ui-icons_E81193.png');
+}
+
+
+/****************************************************************
+*	Cover
+****************************************************************/
+
+#coverContainer {
+	background: #FAFAFA;
+	height: calc(100% - 10px);
+	width: calc(100% - 30px);
+	text-align: center;
+	display: flex;
+	margin: 0 15px;
+	overflow: hidden;
+	border: 5px solid #F0F0F0;
+}
+
+#coverContainer #cover {
+	margin: auto;
+}
+
+#coverContainer .regularWidth {
+	flex: 1;
+	margin: 5px;
+	z-index: 1;
+}
+
+#coverContainer .fullWidth {
+	flex: 0 1 100vw;
+	margin: 25px;
+	z-index: 1;
+}
+
+#coverContainer #title h1 {
+	"font-size": "42px"
+	,"font-family": "Ubuntu, Roboto"
+	,"color": "#E81193" /* #FF008F */
+	,"line-height": "42px"
+	,"margin": "0"
+	,"font-weight": "normal"
+}
+
+#coverContainer #logoType {
+	"text-align": "right"
+}
+
+'coverContainer .version {
+	"background-color": "#FAFAFA"
+	,"font-size": "14px"
+	,"font-weight": "bold"
+	,"border": "solid 1px #D9D9D9"
+	,"border-radius": "4px"
+	,"padding": "1.5px 4px"
+	,"line-height": "24px"
+}
+
+#coverContainer #confDoc {
+	"font-size": "14px"
+	,"line-height": "22px"
+}
+
+#coverContainer #confDoc a {
+	"color": "#E81193" /* #FF008F */
+	,"text-decoration": "underline"
 }
