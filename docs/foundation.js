@@ -145,7 +145,7 @@ function constructFoundation() {
 </div>\
 ';
 	// Compile foundation
-	foundation += navigation + toolbar + currentFilters;
+	foundation += toolbar + navigation + currentFilters;
 	
 	//document.getElementById("foundation").innerHTML = foundation;
 	document.querySelector("#foundation").innerHTML = foundation;
