@@ -29,6 +29,11 @@
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
+	font-family: Ubuntu, Roboto, "Segoe UI", Calibri, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
 }
 #foundationToolbar #toolbarInfo {
 	align-self: flex-start;
