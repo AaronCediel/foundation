@@ -17,14 +17,20 @@
 }
 
 /****************************************************************
+*	Interactivity
+****************************************************************/
+
+#fdnFunction,
+#fdnCurrentPage {
+	display: inline-block;
+	margin: 12px;
+}
+
+/****************************************************************
 *	Toolbar
 ****************************************************************/
 
 #foundationToolbar {
-	/*position: fixed;
-	left: 0;
-	top: 40px;
-	z-index: 10;*/
 	display: flex;
 	flex-flow: column wrap;
 	background: #E81193;
@@ -32,6 +38,10 @@
 	height: 40px;
 	overflow: hidden;
 	border-radius: 3px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*z-index: 10;*/
 }
 
 #foundationToolbar #toolbarOptions, 
@@ -111,7 +121,7 @@
 	background-image: url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559856894/DAM/BI%20Reporting/Foundation%20Framework/ui-icons_E81193.png');
 }
 
-#sidebarMenu {
+#navigationMenu {
 	height: 100%;
 	position: fixed;
 	left: 0;
@@ -121,12 +131,12 @@
 	transition: transform 250ms ease-in-out;
 	background: linear-gradient(180deg, #fc466b 0%, #3f5efb 100%);
 }
-.sidebarMenuInner {
+.navigationMenuInner {
 	margin: 0;
 	padding: 0;
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.sidebarMenuInner li {
+.navigationMenuInner li {
 	list-style: none;
 	color: #fff;
 	text-transform: uppercase;
@@ -135,19 +145,19 @@
 	cursor: pointer;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.sidebarMenuInner li span {
+.navigationMenuInner li span {
 	display: block;
 	font-size: 14px;
 	color: rgba(255, 255, 255, 0.5);
 }
-.sidebarMenuInner li a {
+.navigationMenuInner li a {
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: bold;
 	cursor: pointer;
 	text-decoration: none;
 }
-input[type="checkbox"]:checked ~ #sidebarMenu {
+input[type="checkbox"]:checked ~ #navigationMenu {
 	transform: translateX(0);
 }
 
