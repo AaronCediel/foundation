@@ -113,7 +113,7 @@ function constructFoundation() {
 |	Navigation\n\
 ---------------------------------------------------------------- -->\n\
 <input type="checkbox" class="openNavigationMenu" id="openNavigationMenu">\n\
-<label for="openNavigationMenu" class="sidebarIconToggle">\n\
+<label for="openNavigationMenu" class="navigationIconToggle">\n\
 	<div class="spinner diagonal part-1"></div>\n\
 	<div class="spinner horizontal"></div>\n\
 	<div class="spinner diagonal part-2"></div>\n\
