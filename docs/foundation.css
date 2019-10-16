@@ -74,14 +74,17 @@
 	align-self: flex-end;
 	justify-content: center;
 }
+
+#foundationToolbar #toolbarOptions .button {
+	display: flex;
+	height: 40px;
+	align-items: center;
+	justify-content: center;
+}
 #foundationToolbar #toolbarOptions .button,
 #foundationToolbar #toolbarOptions .button a {
 	color: #FFFFFF;
 	padding: 0 7px;
-}
-#foundationToolbar #toolbarOptions .button {
-	display: inline-block;
-	line-height: 40px;
 }
 
 #infoCompanyLogo {
@@ -115,10 +118,11 @@
 	position: relative;
 	width: 75px;
 	height: 40px;
-	line-height: 40px;
 	background-color: #FFFFFF;
 	-webkit-clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
+	
+	color: #999999;
 }
 
 /****************************************************************
