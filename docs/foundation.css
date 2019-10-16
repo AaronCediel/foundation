@@ -61,18 +61,20 @@
 	font-size: 14px;
 	font-weight: bold;
 	text-decoration: none;
+	position: relative;
 }
 #foundationToolbar #toolbarInfo {
 	align-self: flex-start;
 	justify-content: center;
 	color: #FFFFFF;
 	/* move left to provide space for Navigation Menu button */
-	position: relative;
 	left: 40px;
 }
 #foundationToolbar #toolbarOptions {
 	align-self: flex-end;
 	justify-content: center;
+	/* move left to provide space for Navigation Menu button */
+	right: 8px;
 }
 
 #foundationToolbar #toolbarOptions .button {
@@ -80,6 +82,11 @@
 	height: 40px;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
+}
+#foundationToolbar #toolbarOptions .button:hover {
+	color: #E81193;
+	background-color: #F5F5F5;
 }
 #foundationToolbar #toolbarOptions .button,
 #foundationToolbar #toolbarOptions .button a {
@@ -111,7 +118,7 @@
 }
 
 .infoLabel {
-	padding: 0 7px;
+	padding: 0 8px;
 }
 
 #actnCtrl_dataIntegrity {
