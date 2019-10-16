@@ -60,12 +60,12 @@
 	font-family: Ubuntu, Roboto, "Segoe UI", Calibri, Arial, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
-	color: #FFFFFF;
 	text-decoration: none;
 }
 #foundationToolbar #toolbarInfo {
 	align-self: flex-start;
 	justify-content: center;
+	color: #FFFFFF;
 	/* move left to provide space for Navigation Menu button */
 	position: relative;
 	left: 40px;
@@ -73,6 +73,15 @@
 #foundationToolbar #toolbarOptions {
 	align-self: flex-end;
 	justify-content: center;
+}
+#foundationToolbar #toolbarOptions .button,
+#foundationToolbar #toolbarOptions .button a {
+	color: #FFFFFF;
+	padding: 0 7px;
+}
+#foundationToolbar #toolbarOptions .button {
+	display: inline-block;
+	line-height: 40px;
 }
 
 #infoCompanyLogo {
@@ -96,6 +105,10 @@
 	background-size: auto 32px;
 	-webkit-clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
+}
+
+.infoLabel {
+	padding: 0 7px;
 }
 
 #actnCtrl_dataIntegrity {
