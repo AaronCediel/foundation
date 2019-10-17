@@ -128,6 +128,7 @@
 	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 }
 
+/* Data Integrity */
 #toolbarItemDataIntegrity {
 	display: flex;
 	align-items: center;
@@ -143,6 +144,26 @@
 	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 	
 	color: #999999;
+}
+
+/* Current Filters */
+.modalContainer {
+	position: fixed;
+	resize: both; /* https://www.w3schools.com/cssref/css3_pr_resize.asp */
+	overflow: hidden;
+	background: #FDFDFD;
+	border: solid 1px #EEEEEE;
+	border-left: solid 3px ;+colorPrimary
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	z-index: zIndex-1;
+}
+
+#currentFilters {
+	width: 370px;
+	height: 400px;
+	top: 80px;
+	right: 40px;
 }
 
 /****************************************************************
@@ -251,6 +272,7 @@ input#openNavigationMenu[type="checkbox"]:checked ~ .navigationIconToggle > .dia
 *	Navigation Menu - Pages
 ****************************************************************/
 
+/* https://codepen.io/AaronCediel/pen/qBBaEjL?editors=1100 */
 .navigationMenuItem input {
 	position: absolute;
 	opacity: 0;
