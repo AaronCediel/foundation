@@ -166,16 +166,8 @@
 	right: 40px;
 	display: none;
 }
-input#openCurrentFilters[type="checkbox"] {
-	box-sizing: border-box;
-	display: none;
-}
-input#openCurrentFilters[type="checkbox"]:checked ~ #currentFilters {
+input#openCurrentFilters:checked + #currentFilters {
 	display: block;
-}
-input#openCurrentFilters[type="checkbox"]:checked ~ #toolbarItemCustomCommands {
-	color: #E81193;
-	background-color: #F5F5F5;
 }
 
 /****************************************************************
