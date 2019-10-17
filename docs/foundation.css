@@ -9,7 +9,7 @@
 @import url('https://l-lin.github.io/font-awesome-animation/dist/font-awesome-animation.min.css');
 
 /****************************************************************
-*	Spotfire Compatibility
+*	Spotfire Compatibility Adjustments
 ****************************************************************/
 
 .sfx_left-bar_183.sfx_left-bar-visible_182 {
@@ -20,7 +20,7 @@
 *	Common
 ****************************************************************/
 
-.hidden {
+.fdnHidden {
 	display: none;
 }
 
@@ -77,21 +77,30 @@
 	right: 8px;
 }
 
-#foundationToolbar #toolbarOptions .button {
+#foundationToolbar #toolbarOptions .toolbarButtonText,
+#foundationToolbar #toolbarOptions .toolbarButtonIcon {
 	display: flex;
 	height: 40px;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
 }
-#foundationToolbar #toolbarOptions .button:hover {
+#foundationToolbar #toolbarOptions .toolbarButtonText:hover,
+#foundationToolbar #toolbarOptions .toolbarButtonIcon:hover a {
 	color: #E81193;
 	background-color: #F5F5F5;
 }
-#foundationToolbar #toolbarOptions .button,
-#foundationToolbar #toolbarOptions .button a {
+#foundationToolbar #toolbarOptions .toolbarButtonText,
+#foundationToolbar #toolbarOptions .toolbarButtonText a,
+#foundationToolbar #toolbarOptions .toolbarButtonIcon a {
 	color: #FFFFFF;
-	padding: 0 7px;
+}
+
+.toolbarInfoLabel,
+#foundationToolbar #toolbarOptions .toolbarButtonText,
+#foundationToolbar #toolbarOptions .toolbarButtonText a,
+#foundationToolbar #toolbarOptions .toolbarButtonIcon a {
+	padding: 0 8px;
 }
 
 #infoCompanyLogo {
@@ -117,15 +126,12 @@
 	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 }
 
-.infoLabel {
-	padding: 0 8px;
-}
-
-#actnCtrl_dataIntegrity {
+#toolbarItemDataIntegrity {
 	position: relative;
 	width: 75px;
 	height: 40px;
 	background-color: #FFFFFF;
+	padding: 0 7px;
 	-webkit-clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 	
@@ -136,7 +142,7 @@
 *	Navigation
 ****************************************************************/
 
-.ui-icon {
+/*.ui-icon {
 	position: absolute;
 	top: 11px;
 	right: 4px;
@@ -147,10 +153,10 @@
 	text-indent: -99999px;
 	overflow: hidden;
 	background-repeat: no-repeat;
-	/* Source: http://stackoverflow.com/questions/1821568/how-to-specify-override-jquery-icon-color
-	background-image: url(http://download.jqueryui.com/themeroller/images/ui-icons_"+colorPrimary.substr(1)+"_256x240.png); */
+	/ * Source: http://stackoverflow.com/questions/1821568/how-to-specify-override-jquery-icon-color
+	background-image: url(http://download.jqueryui.com/themeroller/images/ui-icons_"+colorPrimary.substr(1)+"_256x240.png); * /
 	background-image: url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559856894/DAM/BI%20Reporting/Foundation%20Framework/ui-icons_E81193.png');
-}
+}*/
 
 #navigationMenu {
 	/*height: 100%;
