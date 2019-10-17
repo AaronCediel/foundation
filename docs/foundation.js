@@ -78,51 +78,51 @@ function constructFoundation() {
 	\n\
 	<div id="toolbarOptions">\n\
 		<!-- Confluence Documentation Link -->\n\
-		<div id="actnCtrl_confluenceDocumentation" class="toolbarButtonIcon">\n\
+		<div id="toolbarItemConfluenceDocumentation" class="toolbarButtonIcon">\n\
 			<a id="confluenceLink" href="#" target="_blank">\n\
 				<i class="material-icons faa-pulse animated-hover">info</i>\n\
 			</a>\n\
 		</div>\n\
 		\n\
 		<!-- Data Integrity Info -->\n\
-		<div id="actnCtrl_dataIntegrity">\n\
+		<div id="toolbarItemDataIntegrity">\n\
 			<i class="material-icons">help_outline</i>\n\
 		</div>\n\
 		\n\
 		<!-- JIRA Ticket Template Link -->\n\
-		<div id="actnCtrl_jiraTicket" class="toolbarButtonIcon">\n\
+		<div id="toolbarItemJiraTicket" class="toolbarButtonIcon">\n\
 			<a id="jiraLink" href="#" target="_blank">\n\
 				<i class="material-icons faa-tada animated-hover">bug_report</i>\n\
 			</a>\n\
 		</div>\n\
 		\n\
 		<!-- Current Filters: -->\n\
-		<div id="actnCtrl_currentFilters" class="toolbarButtonText">\n\
+		<div id="toolbarItemCurrentFilters" class="toolbarButtonText">\n\
 			<span>Current Filters</span>\n\
 		</div>\n\
 		\n\
 		<!-- Options: -->\n\
-		<div id="actnCtrl_customOptions" class="toolbarButtonText btnToggle">\n\
+		<div id="toolbarItemCustomCommands" class="toolbarButtonText btnToggle">\n\
 			<span>Commands</span>\n\
 		</div>\n\
 		\n\
-		<!-- Reset Filters: -->\n\
-		<div id="actnCtrl_resetFiltersMarkings" class="toolbarButtonText">\n\
+		<!-- Reset Default: -->\n\
+		<div id="toolbarItemResetDefault" class="toolbarButtonText">\n\
 			<span>Reset</span>\n\
 		</div>\n\
 		\n\
 		<!-- Reload Data: -->\n\
-		<div id="actnCtrl_reloadData" class="toolbarButtonText">\n\
+		<div id="toolbarItemReloadData" class="toolbarButtonText">\n\
 			<span>Reload</span>\n\
 		</div>\n\
 		\n\
 		<!-- Toggle Bookmark Panel: -->\n\
-		<div id="actnCtrl_bookmarkShowHide" class="toolbarButtonText">\n\
+		<div id="toolbarItemBookmarkPanel" class="toolbarButtonText">\n\
 			<span>Bookmarks</span>\n\
 		</div>\n\
 		\n\
 		<!-- Toggle Filter Panel: -->\n\
-		<div id="actnCtrl_filterShowHide" class="toolbarButtonText">\n\
+		<div id="toolbarItemFilterPanel" class="toolbarButtonText">\n\
 			<span>Filters</span>\n\
 		</div>\n\
 	</div>\n\
