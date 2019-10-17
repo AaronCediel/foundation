@@ -164,9 +164,9 @@ function constructFoundation() {
 			</div>\n\
 		</div>\n\
 	</div>\n\
-\n\
-	<br><br>\n\
-\n\
+</div>\n\
+';
+	/*
 	<div class="navigationMenuInner">\n\
 		<div class="navigationMenuItem">\n\
 			<input type="radio" id="radio1" name="radio">\n\
@@ -195,8 +195,7 @@ function constructFoundation() {
 			<label for="radio3" class="navigationMenuItem-close">Close others &times;</label>\n\
 		</div>\n\
 	</div>\n\
-</div>\n\
-';
+	
 	var navigationOld = '\
 <!-- --------------------------------------------------------------\n\
 |	Navigation\n\
@@ -220,13 +219,13 @@ function constructFoundation() {
 		</div>\n\
 	</div>\n\
 </div>\
-';
+';*/
 	
 	var currentFilters = '\
 <!-- --------------------------------------------------------------\n\
 |	Current Filters\n\
 ---------------------------------------------------------------- -->\n\
-<div class="modalContainer" id="currentFilters">\n\
+<div id="currentFilters" class="modalContainer">\n\
 	<h4 class="modalDragHandle"><i id="modalDragIcon" class="material-icons faa-burst animated-hover">open_with</i>Current Filters<i id="modalRefreshButton" class="material-icons faa-spin animated-hover">refresh</i><i id="modalCloseButton" class="material-icons faa-burst animated-hover">close</i></h4>\n\
 	<div class="scrollArea">\n\
 		<div id="currentFiltersHTML"></div>\n\
