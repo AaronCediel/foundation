@@ -50,7 +50,8 @@
 	top: 0;
 	left: 0;
 	cursor: default;
-	/*z-index: 10;*/
+	font-family: Ubuntu, Roboto, "Segoe UI", Calibri, Arial, sans-serif;
+	/*z-index: 0;*/
 }
 
 #foundationToolbar #toolbarOptions, 
@@ -58,7 +59,6 @@
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	font-family: Ubuntu, Roboto, "Segoe UI", Calibri, Arial, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
 	text-decoration: none;
@@ -149,46 +149,34 @@
 *	Navigation
 ****************************************************************/
 
-/*.ui-icon {
-	position: absolute;
-	top: 11px;
-	right: 4px;
-	display: inline-block;
-	vertical-align: inherit;
-	margin: 0;
-	padding: 0;
-	text-indent: -99999px;
-	overflow: hidden;
-	background-repeat: no-repeat;
-	/ * Source: http://stackoverflow.com/questions/1821568/how-to-specify-override-jquery-icon-color
-	background-image: url(http://download.jqueryui.com/themeroller/images/ui-icons_"+colorPrimary.substr(1)+"_256x240.png); * /
-	background-image: url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559856894/DAM/BI%20Reporting/Foundation%20Framework/ui-icons_E81193.png');
-}*/
-
 #navigationMenu {
-	/*height: 100%;
-	left: 0;
-	margin-top: 60px;
-	transform: translateX(-250px);*/
 	position: fixed;
 	width: 250px;
-	transform: translateX(-322px);
-	transition: transform 250ms ease-in-out;
-	
-	height: calc(100% - 158px);
+	/* calculate height based on full window height - spacing from top and bottom - 2x border width */
+	height: calc(100% - 158px - 4px);
 	position: fixed;
 	top: 108px;
 	left: 71px;
+	background: #EEEEEE;
 	border-radius: 3px;
+	border: 2px solid #E81193;
+	transform: translateX(-322px);
+	transition: transform 250ms ease-in-out;
 	z-index: 1;
 	
-	background: linear-gradient(180deg, #fc466b 0%, #3f5efb 100%);
+	white-space: nowrap;
+	
+	/* Make the Navigation Menu vertically scrollable, while hiding the scrollbar */
+	padding: 0 17px 0 0;
+	margin: 0 -17px 0 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 .navigationMenuInner {
 	margin: 0;
 	padding: 0;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .navigationMenuInner li {
 	list-style: none;
 	color: #fff;
@@ -210,10 +198,10 @@
 	cursor: pointer;
 	text-decoration: none;
 }
+
 input[type="checkbox"]:checked ~ #navigationMenu {
 	transform: translateX(0);
 }
-
 input[type="checkbox"] {
 	transition: all 0.3s;
 	box-sizing: border-box;
@@ -311,7 +299,7 @@ input[type="checkbox"]:checked ~ .navigationIconToggle > .diagonal.part-2 {
 
 #coverContainer #title h1 {
 	font-size: 42px;
-	font-family: Ubuntu, Roboto;
+	font-family: Ubuntu, Roboto, "Segoe UI", Calibri, Arial, sans-serif;
 	color: #E81193; /* #FF008F */
 	line-height: 42px;
 	margin: 0;
