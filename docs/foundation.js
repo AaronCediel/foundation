@@ -70,7 +70,6 @@ function constructFoundation() {
 <!--<div id="menuOpenFixed" class="infoLabel"><i class="material-icons">menu</i></div>-->\n\
 <div id="foundationToolbar">\n\
 	<div id="toolbarInfo">\n\
-		<div id="menuOpen" class="infoLabel animated-icon menu-arrow-l"><div class="ani"></div></div>\n\
 		<div id="infoCompanyLogo"></div>\n\
 		<div id="infoReportType"></div>\n\
 		<div id="infoReportTitle" class="infoLabel">Foundation</div>\n\
@@ -78,32 +77,54 @@ function constructFoundation() {
 	</div>\n\
 	\n\
 	<div id="toolbarOptions">\n\
-		<!-- Confluence Documentation -->\n\
-		<div id="actnCtrl_confluenceDocumentation" class="optional button small"><a id="confluenceLink" href="#" target="_blank"><i class="material-icons faa-pulse animated-hover">info</i></a></div>\n\
+		<!-- Confluence Documentation Link -->\n\
+		<div id="actnCtrl_confluenceDocumentation" class="toolbarButtonIcon">\n\
+			<a id="confluenceLink" href="#" target="_blank">\n\
+				<i class="material-icons faa-pulse animated-hover">info</i>\n\
+			</a>\n\
+		</div>\n\
 		\n\
 		<!-- Data Integrity Info -->\n\
-		<div id="actnCtrl_dataIntegrity" class="optional button medium"><i class="material-icons">help_outline</i></div>\n\
+		<div id="actnCtrl_dataIntegrity">\n\
+			<i class="material-icons">help_outline</i>\n\
+		</div>\n\
 		\n\
-		<!-- JIRA Ticket Template -->\n\
-		<div id="actnCtrl_jiraTicket" class="optional button small"><a id="jiraLink" href="#" target="_blank"><i class="material-icons faa-tada animated-hover">bug_report</i></a></div>\n\
+		<!-- JIRA Ticket Template Link -->\n\
+		<div id="actnCtrl_jiraTicket" class="toolbarButtonIcon">\n\
+			<a id="jiraLink" href="#" target="_blank">\n\
+				<i class="material-icons faa-tada animated-hover">bug_report</i>\n\
+			</a>\n\
+		</div>\n\
 		\n\
 		<!-- Current Filters: -->\n\
-		<div id="actnCtrl_currentFilters" class="optional button large"><span>Current Filters</span></div>\n\
+		<div id="actnCtrl_currentFilters" class="toolbarButtonText">\n\
+			<span>Current Filters</span>\n\
+		</div>\n\
 		\n\
 		<!-- Options: -->\n\
-		<div id="actnCtrl_customOptions" class="optional button btnToggle medium"><span>Commands</span></div>\n\
+		<div id="actnCtrl_customOptions" class="toolbarButtonText btnToggle">\n\
+			<span>Commands</span>\n\
+		</div>\n\
 		\n\
 		<!-- Reset Filters: -->\n\
-		<div id="actnCtrl_resetFiltersMarkings" class="button medium"><span>Reset</span></div>\n\
+		<div id="actnCtrl_resetFiltersMarkings" class="toolbarButtonText">\n\
+			<span>Reset</span>\n\
+		</div>\n\
 		\n\
 		<!-- Reload Data: -->\n\
-		<div id="actnCtrl_reloadData" class="optional button medium"><span>Reload</span></div>\n\
+		<div id="actnCtrl_reloadData" class="toolbarButtonText">\n\
+			<span>Reload</span>\n\
+		</div>\n\
 		\n\
 		<!-- Toggle Bookmark Panel: -->\n\
-		<div id="actnCtrl_bookmarkShowHide" class="optional button medium"><span>Bookmarks</span></div>\n\
+		<div id="actnCtrl_bookmarkShowHide" class="toolbarButtonText">\n\
+			<span>Bookmarks</span>\n\
+		</div>\n\
 		\n\
 		<!-- Toggle Filter Panel: -->\n\
-		<div id="actnCtrl_filterShowHide" class="optional button medium"><span>Filters</span></div>\n\
+		<div id="actnCtrl_filterShowHide" class="toolbarButtonText">\n\
+			<span>Filters</span>\n\
+		</div>\n\
 	</div>\n\
 </div>\
 ';
