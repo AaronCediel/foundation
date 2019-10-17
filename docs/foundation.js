@@ -288,7 +288,7 @@ function convertToDraggable(elmnt) {
 // Run Foundation
 docReady(function() {
 	constructFoundation();
-	convertToDraggable(document.querySelector("#currentFilters"));
+	convertToDraggable(document.getElementById("currentFilters")); //document.querySelector("#currentFilters")
 });
 
 
