@@ -49,6 +49,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	cursor: default;
 	/*z-index: 10;*/
 }
 
@@ -86,7 +87,8 @@
 	cursor: pointer;
 }
 #foundationToolbar #toolbarOptions .toolbarButtonText:hover,
-#foundationToolbar #toolbarOptions .toolbarButtonIcon:hover {
+#foundationToolbar #toolbarOptions .toolbarButtonIcon:hover,
+#foundationToolbar #toolbarOptions .toolbarButtonIcon:hover a {
 	color: #E81193;
 	background-color: #F5F5F5;
 }
@@ -127,6 +129,11 @@
 }
 
 #toolbarItemDataIntegrity {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	
 	position: relative;
 	width: 75px;
 	height: 40px;
