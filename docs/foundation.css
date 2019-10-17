@@ -152,7 +152,7 @@
 	resize: both; /* https://www.w3schools.com/cssref/css3_pr_resize.asp */
 	overflow: hidden;
 	background: #FDFDFD;
-	border: solid 1px #E81193;
+	border: solid 1px #EEEEEE;
 	border-left: solid 3px #E81193;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
@@ -168,7 +168,11 @@
 }
 input#openCurrentFilters[type="checkbox"]:checked ~ #currentFilters {
 	display: block;
-}
+}/*
+input#openCurrentFilters[type="checkbox"] {
+	box-sizing: border-box;
+	display: none;
+}*/
 
 /****************************************************************
 *	Navigation Menu - Toggle & Container
