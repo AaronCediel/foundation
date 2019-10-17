@@ -140,14 +140,62 @@ function constructFoundation() {
 	<div class="spinner diagonal part-2"></div>\n\
 </label>\n\
 <div id="navigationMenu">\n\
-	<ul class="navigationMenuInner">\n\
-		<li>abc <span>test 123</span></li>\n\
-		<li>abc</li>\n\
-		<li>abc</li>\n\
-		<li>abc <span>test 123</span></li>\n\
-		<li>abc</li>\n\
-	</ul>\n\
-</div>\
+	<div class="navigationMenuInner">\n\
+		<div class="navigationMenuItem">\n\
+			<input type="checkbox" id="check1">\n\
+			<label class="navigationMenuItem-folder" for="check1">Folder 1</label>\n\
+			<div class="navigationMenuItem-nested">\n\
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
+			</div>\n\
+			<div class="navigationMenuItem-details">\n\
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
+			</div>\n\
+		</div>\n\
+		<div class="navigationMenuItem">\n\
+			<div class="navigationMenuItem-featured">\n\
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
+			</div>\n\
+		</div>\n\
+		<div class="navigationMenuItem">\n\
+			<input type="checkbox" id="check2">\n\
+			<label class="navigationMenuItem-folder" for="check2">Folder 2</label>\n\
+			<div class="navigationMenuItem-nested">\n\
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. A, in!\n\
+			</div>\n\
+		</div>\n\
+	</div>\n\
+\n\
+	<br><br>\n\
+\n\
+	<div class="navigationMenuInner">\n\
+		<div class="navigationMenuItem">\n\
+			<input type="radio" id="radio1" name="radio">\n\
+			<label class="navigationMenuItem-folder" for="radio1">Folder 1</label>\n\
+			<div class="navigationMenuItem-nested">\n\
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, facilis.\n\
+			</div>\n\
+		</div>\n\
+		<div class="navigationMenuItem">\n\
+			<div class="navigationMenuItem-featured">\n\
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
+			</div>\n\
+		</div>\n\
+		<div class="navigationMenuItem">\n\
+			<input type="radio" id="radio2" name="radio">\n\
+			<label class="navigationMenuItem-folder" for="radio2">Folder 2</label>\n\
+			<div class="navigationMenuItem-nested">\n\
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, aut.\n\
+			</div>\n\
+			<div class="navigationMenuItem-details">\n\
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
+			</div>\n\
+		</div>\n\
+		<div class="navigationMenuItem">\n\
+			<input type="radio" id="radio3" name="radio">\n\
+			<label for="radio3" class="navigationMenuItem-close">Close others &times;</label>\n\
+		</div>\n\
+	</div>\n\
+</div>\n\
 ';
 	var navigationOld = '\
 <!-- --------------------------------------------------------------\n\
