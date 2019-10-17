@@ -86,7 +86,7 @@
 	cursor: pointer;
 }
 #foundationToolbar #toolbarOptions .toolbarButtonText:hover,
-#foundationToolbar #toolbarOptions .toolbarButtonIcon:hover a {
+#foundationToolbar #toolbarOptions .toolbarButtonIcon:hover {
 	color: #E81193;
 	background-color: #F5F5F5;
 }
