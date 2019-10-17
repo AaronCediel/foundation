@@ -50,7 +50,7 @@
 	top: 0;
 	left: 0;
 	cursor: default;
-	font-family: Ubuntu, Roboto, "Segoe UI", Calibri, Arial, sans-serif;
+	font-family: 'Ubuntu', 'Roboto', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
 	/*z-index: 0;*/
 }
 
@@ -149,6 +149,7 @@
 *	Navigation Menu - Toggle & Container
 ****************************************************************/
 
+/* Navigation Menu Container  */
 #navigationMenu {
 	position: fixed;
 	width: 250px;
@@ -157,7 +158,9 @@
 	position: fixed;
 	top: 108px;
 	left: 71px;
-	background: #EEEEEE;
+	background: #F5F5F5;
+	font-size: 14px;
+	font-family: 'Ubuntu', 'Roboto', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
 	border-radius: 5px;
 	border: 2px solid #E81193;
 	transform: translateX(-322px);
@@ -169,34 +172,14 @@
 }
 .navigationMenuInner {
 	/* Make the Navigation Menu vertically scrollable, while hiding the scrollbar */
-	padding: 0 17px 0 0;
+	/*padding: 0 17px 0 0;*/
+	padding: 0;
 	margin: 0 -17px 0 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
-}/*
-
-.navigationMenuInner li {
-	list-style: none;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: bold;
-	padding: 20px;
-	cursor: pointer;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.navigationMenuInner li span {
-	display: block;
-	font-size: 14px;
-	color: rgba(255, 255, 255, 0.5);
-}
-.navigationMenuInner li a {
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: bold;
-	cursor: pointer;
-	text-decoration: none;
-}*/
 
+/* Toggle function to open/close Navigation Menu, located on Toolbar */
 input#openNavigationMenu[type="checkbox"]:checked ~ #navigationMenu {
 	transform: translateX(0);
 }
@@ -396,7 +379,7 @@ input#openNavigationMenu[type="checkbox"]:checked ~ .navigationIconToggle > .dia
 
 #coverContainer #title h1 {
 	font-size: 42px;
-	font-family: Ubuntu, Roboto, "Segoe UI", Calibri, Arial, sans-serif;
+	font-family: 'Ubuntu', 'Roboto', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
 	color: #E81193; /* #FF008F */
 	line-height: 42px;
 	margin: 0;
