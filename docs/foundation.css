@@ -152,11 +152,11 @@
 	resize: both; /* https://www.w3schools.com/cssref/css3_pr_resize.asp */
 	overflow: hidden;
 	background: #FDFDFD;
-	border: solid 1px #EEEEEE;
-	border-left: solid 3px ;+colorPrimary
+	border: solid 1px #E81193;
+	border-left: solid 3px #E81193;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
-	z-index: zIndex-1;
+	z-index: 1;
 }
 
 #currentFilters {
@@ -164,6 +164,10 @@
 	height: 400px;
 	top: 80px;
 	right: 40px;
+	display: none;
+}
+input#openCurrentFilters[type="checkbox"]:checked ~ #currentFilters {
+	display: block;
 }
 
 /****************************************************************
