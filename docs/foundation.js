@@ -102,9 +102,10 @@ function constructFoundation() {
 		</div>\n\
 		\n\
 		<!-- Options: -->\n\
-		<div id="toolbarItemCustomCommands" class="toolbarButtonText btnToggle">\n\
+		<input type="checkbox" class="openCurrentFilters" id="openCurrentFilters">\n\
+		<label for="openCurrentFilters" id="toolbarItemCustomCommands" class="toolbarButtonText btnToggle">\n\
 			<span>Commands</span>\n\
-		</div>\n\
+		</label>\n\
 		\n\
 		<!-- Reset Default: -->\n\
 		<div id="toolbarItemResetDefault" class="toolbarButtonText">\n\
@@ -225,7 +226,6 @@ function constructFoundation() {
 <!-- --------------------------------------------------------------\n\
 |	Current Filters\n\
 ---------------------------------------------------------------- -->\n\
-<input type="checkbox" class="openCurrentFilters" id="openCurrentFilters">\n\
 <div id="currentFilters" class="modalContainer">\n\
 	<h4 id="currentFiltersHandle" class="modalDragHandle"><i id="modalDragIcon" class="material-icons faa-burst animated-hover">open_with</i>Current Filters<i id="modalRefreshButton" class="material-icons faa-spin animated-hover">refresh</i><i id="modalCloseButton" class="material-icons faa-burst animated-hover">close</i></h4>\n\
 	<div class="scrollArea">\n\
