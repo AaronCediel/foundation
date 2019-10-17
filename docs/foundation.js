@@ -226,7 +226,7 @@ function constructFoundation() {
 |	Current Filters\n\
 ---------------------------------------------------------------- -->\n\
 <div id="currentFilters" class="modalContainer">\n\
-	<h4 if="currentFiltersHandle" class="modalDragHandle"><i id="modalDragIcon" class="material-icons faa-burst animated-hover">open_with</i>Current Filters<i id="modalRefreshButton" class="material-icons faa-spin animated-hover">refresh</i><i id="modalCloseButton" class="material-icons faa-burst animated-hover">close</i></h4>\n\
+	<h4 id="currentFiltersHandle" class="modalDragHandle"><i id="modalDragIcon" class="material-icons faa-burst animated-hover">open_with</i>Current Filters<i id="modalRefreshButton" class="material-icons faa-spin animated-hover">refresh</i><i id="modalCloseButton" class="material-icons faa-burst animated-hover">close</i></h4>\n\
 	<div class="scrollArea">\n\
 		<div id="currentFiltersHTML"></div>\n\
 	</div>\n\
@@ -246,7 +246,7 @@ function constructFoundation() {
 function convertToDraggable(elmnt) {
 	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 	if (document.getElementById(elmnt.id + "Handle")) {
-		// if present, the header is where you move the DIV from:
+		// if present, the Handle is where you move the DIV from:
 		document.getElementById(elmnt.id + "Handle").onmousedown = dragMouseDown;
 	} else {
 		// otherwise, move the DIV from anywhere inside the DIV:
@@ -288,7 +288,7 @@ function convertToDraggable(elmnt) {
 // Run Foundation
 docReady(function() {
 	constructFoundation();
-	convertToDraggable(document.getElementById("currentFilters")); //document.querySelector("#currentFilters")
+	convertToDraggable(document.querySelector("#currentFilters")); //document.getElementById("currentFilters")
 });
 
 
