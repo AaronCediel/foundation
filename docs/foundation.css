@@ -153,28 +153,26 @@
 	position: fixed;
 	width: 250px;
 	/* calculate height based on full window height - spacing from top and bottom - 2x border width */
-	height: calc(100% - 158px - 4px);
+	height: calc(100% - 108px - 50px - (2 * 2px));
 	position: fixed;
 	top: 108px;
 	left: 71px;
 	background: #EEEEEE;
-	border-radius: 3px;
+	border-radius: 5px;
 	border: 2px solid #E81193;
 	transform: translateX(-322px);
 	transition: transform 250ms ease-in-out;
+	overflow: hidden;
 	z-index: 1;
 	
 	white-space: nowrap;
-	
+}
+.navigationMenuInner {
 	/* Make the Navigation Menu vertically scrollable, while hiding the scrollbar */
 	padding: 0 17px 0 0;
 	margin: 0 -17px 0 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
-}
-.navigationMenuInner {
-	margin: 0;
-	padding: 0;
 }
 
 .navigationMenuInner li {
