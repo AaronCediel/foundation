@@ -72,8 +72,8 @@ function constructFoundation() {
 	<div id="toolbarInfo">\n\
 		<div id="infoCompanyLogo"></div>\n\
 		<div id="infoReportType"></div>\n\
-		<div id="infoReportTitle" class="infoLabel">Foundation</div>\n\
-		<div id="infoReportSectionPage" class="infoLabel">Cover</div>\n\
+		<div id="infoReportTitle" class="toolbarInfoLabel">Foundation</div>\n\
+		<div id="infoReportPage" class="toolbarInfoLabel">Cover</div>\n\
 	</div>\n\
 	\n\
 	<div id="toolbarOptions">\n\
