@@ -166,6 +166,9 @@
 	right: 40px;
 	display: none;
 }
+/* Checkbox Hack:
+Source: https://css-tricks.com/the-checkbox-hack/
+Info: https://stackoverflow.com/questions/29950272/how-does-css-checkbox-hack-work */
 input#openCurrentFilters[type=checkbox]:checked ~ #currentFilters {
 	display: block;
 }
