@@ -85,9 +85,12 @@ function constructFoundation() {
 		</div>\n\
 		\n\
 		<!-- Data Integrity Info -->\n\
-		<div id="toolbarItemDataIntegrity">\n\
+		<label id="toolbarItemDataIntegrity" for="openDataIntegrity">\n\
 			<i class="material-icons">help_outline</i>\n\
-		</div>\n\
+		</label>\n\
+		<!--<div id="toolbarItemDataIntegrity">\n\
+			<i class="material-icons">help_outline</i>\n\
+		</div>-->\n\
 		\n\
 		<!-- JIRA Ticket Template Link -->\n\
 		<div id="toolbarItemJiraTicket" class="toolbarButtonIcon">\n\
@@ -232,6 +235,8 @@ function constructFoundation() {
 |	Current Filters\n\
 ---------------------------------------------------------------- -->\n\
 <input type="checkbox" id="openCurrentFilters">\n\
+<input type="checkbox" id="openCommands">\n\
+<input type="checkbox" id="openDataIntegrity">\n\
 <!--<label id="buttonOpenCurrentFilters" for="openCurrentFilters">Open Current Filters</label>-->\n\
 <div id="currentFilters" class="modalContainer">\n\
 	<h4 id="currentFiltersHandle" class="modalDragHandle"><i id="modalDragIcon" class="material-icons faa-burst animated-hover">open_with</i>Current Filters<i id="modalRefreshButton" class="material-icons faa-spin animated-hover">refresh</i><i id="modalCloseButton" class="material-icons faa-burst animated-hover">close</i></h4>\n\
