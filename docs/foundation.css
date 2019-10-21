@@ -169,6 +169,10 @@
 input#openCurrentFilters[type=checkbox]:checked ~ #currentFilters {
 	display: block;
 }
+input#openCurrentFilters[type=checkbox]:checked ~ #toolbarItemCurrentFilters {
+	color: #E81193;
+	background-color: #F5F5F5;
+}
 
 /****************************************************************
 *	Navigation Menu - Toggle & Container
