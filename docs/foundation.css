@@ -167,7 +167,7 @@
 	display: none;
 }
 input#openCurrentFilters[type=checkbox]:checked ~ #currentFilters {
-   display: block;
+	display: block;
 }
 
 /****************************************************************
