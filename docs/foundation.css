@@ -166,8 +166,8 @@
 	right: 40px;
 	display: none;
 }
-input#openCurrentFilters:checked + #currentFilters {
-	display: block;
+input#openCurrentFilters[type=checkbox]:checked ~ #currentFilters {
+   display: block;
 }
 
 /****************************************************************
