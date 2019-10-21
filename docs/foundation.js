@@ -102,9 +102,13 @@ function constructFoundation() {
 		</div>\n\
 		\n\
 		<!-- Commands: -->\n\
-		<div id="toolbarItemCustomCommands" class="toolbarButtonText">\n\
+		<label id="toolbarItemCustomCommands" for="openCurrentFilters">\n\
 			<span>Commands</span>\n\
-		</div>\n\
+		</label>\n\
+		<input type="checkbox" id="openCurrentFilters">\n\
+		<!--<div id="toolbarItemCustomCommands" class="toolbarButtonText">\n\
+			<span>Commands</span>\n\
+		</div>-->\n\
 		\n\
 		<!-- Reset Default: -->\n\
 		<div id="toolbarItemResetDefault" class="toolbarButtonText">\n\
