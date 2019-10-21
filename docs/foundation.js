@@ -60,6 +60,19 @@ function appendStylesToHead(id, styles) {
 }
 
 
+function prepareConfiguration() {
+	var foundationConfigRAW = document.querySelector("#foundationConfig").textContent;
+	var foundationConfig = JSON.parse(foundationConfigRAW)[0].fdnConfig;
+	console.log(foundationConfig);
+	// foundationConfig.REPORT_NAME
+}
+function prepareNavigation() {
+	var foundationNavigationRAW = document.querySelector("#foundationNavigation").textContent;
+	var foundationNavigation = JSON.parse(foundationNavigationRAW)[0].fdnNavigation;
+	console.log(foundationNavigation);
+	// foundationConfig.REPORT_NAME
+}
+
 function constructFoundation() {
 	var foundation = '';
 	
@@ -300,6 +313,8 @@ function convertToDraggable(elmnt) {
 
 // Run Foundation
 docReady(function() {
+	prepareConfiguration();
+	prepareNavigation();
 	constructFoundation();
 	convertToDraggable(document.querySelector("#currentFilters")); //document.getElementById("currentFilters")
 });
