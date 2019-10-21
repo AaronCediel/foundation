@@ -226,7 +226,7 @@ function constructFoundation() {
 |	Current Filters\n\
 ---------------------------------------------------------------- -->\n\
 <input type="checkbox" id="openCurrentFilters">\n\
-<label class="abc123" for="openCurrentFilters">Open Current Filters</label>\n\
+<label id="buttonOpenCurrentFilters" for="openCurrentFilters">Open Current Filters</label>\n\
 <div id="currentFilters" class="modalContainer">\n\
 	<h4 id="currentFiltersHandle" class="modalDragHandle"><i id="modalDragIcon" class="material-icons faa-burst animated-hover">open_with</i>Current Filters<i id="modalRefreshButton" class="material-icons faa-spin animated-hover">refresh</i><i id="modalCloseButton" class="material-icons faa-burst animated-hover">close</i></h4>\n\
 	<div class="scrollArea">\n\
