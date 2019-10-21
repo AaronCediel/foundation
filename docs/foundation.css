@@ -159,11 +159,12 @@
 	z-index: 1;
 }
 
-#currentFilters {
+#currentFilters,
+#customOptions,
+#dataIntegrity {
 	width: 370px;
 	height: 400px;
 	top: 120px;
-	right: 40px;
 	display: none;
 }
 /* Checkbox Hack:
@@ -173,6 +174,24 @@ input#openCurrentFilters[type=checkbox]:checked ~ #currentFilters {
 	display: block;
 }
 input#openCurrentFilters[type=checkbox] {
+   position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
+
+input#openCommands[type=checkbox]:checked ~ #customOptions {
+	display: block;
+}
+input#openCommands[type=checkbox] {
+   position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
+
+input#openDataIntegrity[type=checkbox]:checked ~ #dataIntegrity {
+	display: block;
+}
+input#openDataIntegrity[type=checkbox] {
    position: absolute;
    top: -9999px;
    left: -9999px;
