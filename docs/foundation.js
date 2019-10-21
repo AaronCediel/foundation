@@ -97,17 +97,18 @@ function constructFoundation() {
 		</div>\n\
 		\n\
 		<!-- Current Filters: -->\n\
-		<div id="toolbarItemCurrentFilters" class="toolbarButtonText">\n\
+		<label id="toolbarItemCurrentFilters" class="toolbarButtonText" for="openCurrentFilters">\n\
 			<span>Current Filters</span>\n\
-		</div>\n\
+		</label>\n\
+		<!--<div id="toolbarItemCurrentFilters" class="toolbarButtonText">\n\
+			<span>Current Filters</span>\n\
+		</div>-->\n\
 		\n\
 		<!-- Commands: -->\n\
-		<label id="buttonOpenCurrentFilters" for="openCurrentFilters">Open Current Filters</label>\n\
-		<!--<label id="toolbarItemCustomCommands" for="openCurrentFilters">\n\
+		<label id="toolbarItemCustomCommands" class="toolbarButtonText" for="openCommands">\n\
 			<span>Commands</span>\n\
 		</label>\n\
-		<input type="checkbox" id="openCurrentFilters">\n\
-		<div id="toolbarItemCustomCommands" class="toolbarButtonText">\n\
+		<!--<div id="toolbarItemCustomCommands" class="toolbarButtonText">\n\
 			<span>Commands</span>\n\
 		</div>-->\n\
 		\n\
