@@ -63,17 +63,23 @@ function appendStylesToHead(id, styles) {
 function prepareConfiguration() {
 	var foundationConfigRAW = document.querySelector("#foundationConfig").textContent;
 	var foundationConfig = JSON.parse(foundationConfigRAW)[0].fdnConfig;
-	console.log(foundationConfig);
-	// foundationConfig.REPORT_NAME
+	return foundationConfig;
 }
 function prepareNavigation() {
 	var foundationNavigationRAW = document.querySelector("#foundationNavigation").textContent;
 	var foundationNavigation = JSON.parse(foundationNavigationRAW)[0].fdnNavigation;
-	console.log(foundationNavigation);
-	// foundationConfig.REPORT_NAME
+	return foundationNavigation;
 }
 
 function constructFoundation() {
+	
+	var foundationConfig = prepareConfiguration();
+	var foundationNavigation = prepareNavigation();
+	console.log(foundationConfig);
+	// foundationConfig.REPORT_NAME
+	console.log(foundationNavigation);
+	// foundationNavigation.NAVIGATION_PAGE_NAME
+	
 	var foundation = '';
 	
 	var toolbar = '\
@@ -313,10 +319,10 @@ function convertToDraggable(elmnt) {
 
 // Run Foundation
 docReady(function() {
-	prepareConfiguration();
-	prepareNavigation();
 	constructFoundation();
 	convertToDraggable(document.querySelector("#currentFilters")); //document.getElementById("currentFilters")
+	convertToDraggable(document.querySelector("#customOptions"));
+	convertToDraggable(document.querySelector("#dataIntegrity"));
 });
 
 
