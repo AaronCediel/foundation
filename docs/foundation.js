@@ -60,6 +60,61 @@ function appendStylesToHead(id, styles) {
 }
 
 
+function activePage() {
+	var activePage = document.querySelector(".sfpc-active").getAttribute("title");
+	console.log("Current Active Page Name: '"+activePage+"'");
+	return activePage;
+}
+
+
+function setPage(clickedPage) {
+	// Spotfire X update Doc. Prop. through JS input focus blur method not working:
+	// Issue: https://community.tibco.com/questions/assigning-values-document-properties-javascript-not-working-spotfire-10
+	// The solution to the problem is to simulate a Enter keystroke to confirm entering the value into the input box
+	// Solution: https://stackoverflow.com/questions/29268613/simulate-enter-keypress-in-javascript-to-trigger-a-form-submit?rq=1
+	
+	const inputConfirmationEvent = new KeyboardEvent("keypress", {
+		keyCode: 13,
+		bubbles: true,
+		cancelable: false
+	});
+	
+	var fdnCurrentPageDocProp = document.querySelector("#fdnCurrentPage input");
+	fdnCurrentPageDocProp.value = clickedPage;
+	fdnCurrentPageDocProp.blur();
+	fdnCurrentPageDocProp.focus();
+	
+	document.querySelector("#fdnCurrentPage input").dispatchEvent(inputConfirmationEvent);
+}
+
+
+function validatePage() {
+	const inputConfirmationEvent = new KeyboardEvent("keypress", {
+		keyCode: 13,
+		bubbles: true,
+		cancelable: false
+	});
+	
+	var activePage = document.querySelector(".sfpc-active").getAttribute("title");
+	var selectedPage = document.querySelector("#fdnCurrentPage input").value;
+	
+	if (activePage === selectedPage) {
+		console.log("SUCCESS: 'selectedPage' and 'activePage' match: '"+activePage+"'");
+	} else {
+		console.log("ERROR: 'selectedPage' ('"+selectedPage+"') and 'activePage' ('"+activePage+"') mismatch!");
+		
+		var fdnCurrentPageDocProp = document.querySelector("#fdnCurrentPage input");
+		fdnCurrentPageDocProp.value = activePage;
+		fdnCurrentPageDocProp.blur();
+		fdnCurrentPageDocProp.focus();
+
+		document.querySelector("#fdnCurrentPage input").dispatchEvent(inputConfirmationEvent);
+		
+		console.log("CORRECTION: 'activePage' now set to '"+document.querySelector("#fdnCurrentPage input").value+"'");
+	}
+}
+
+
 function prepareConfiguration() {
 	var foundationConfigRAW = document.querySelector("#foundationConfig").textContent;
 	var foundationConfig = JSON.parse(foundationConfigRAW)[0].fdnConfig;
@@ -74,9 +129,28 @@ function prepareNavigation() {
 function constructFoundation() {
 	
 	var foundationConfig = prepareConfiguration();
-	var foundationNavigation = prepareNavigation();
 	console.log(foundationConfig);
-	// foundationConfig.REPORT_NAME
+	
+	var reportType = foundationConfig.REPORT_TYPE
+		, navigationHideIcons = foundationConfig.NAVIGATION_HIDE_ICONS
+		, businessRefernceEmail = foundationConfig.BUSINESS_REFERNCE_EMAIL
+		, reportReferenceEmail = foundationConfig.REPORT_REFERENCE_EMAIL
+		, navigationMainPage = foundationConfig.NAVIGATION_MAIN_PAGE
+		, reportDescription = foundationConfig.REPORT_DESCRIPTION
+		, reportDefaultResetDescription = foundationConfig.REPORT_DEFAULT_RESET_DESCRIPTION
+		, reportColor = foundationConfig.REPORT_COLOR
+		, businessOwnerEmail = foundationConfig.BUSINESS_OWNER_EMAIL
+		, reportPerimeter = foundationConfig.REPORT_PERIMETER
+		, linkConfluenceDocumentation = foundationConfig.LINK_CONFLUENCE_DOCUMENTATION
+		, reportName = foundationConfig.REPORT_NAME
+		, navigationDefaultFolderIcon = foundationConfig.NAVIGATION_DEFAULT_FOLDER_ICON
+		, navigationDefaultPageIcon = foundationConfig.NAVIGATION_DEFAULT_PAGE_ICON
+		, reportRefreshTime = foundationConfig.REPORT_REFRESH_TIME
+		, reportVersion = foundationConfig.REPORT_VERSION
+		, departmentName = foundationConfig.DEPARTMENT_NAME
+		, linkOpenJiraTicket = foundationConfig.LINK_OPEN_JIRA_TICKET;
+	
+	var foundationNavigation = prepareNavigation();
 	console.log(foundationNavigation);
 	// foundationNavigation.NAVIGATION_PAGE_NAME
 	
