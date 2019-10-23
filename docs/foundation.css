@@ -8,6 +8,11 @@
 @import url('https://use.fontawesome.com/releases/v5.0.10/css/all.css');
 @import url('https://l-lin.github.io/font-awesome-animation/dist/font-awesome-animation.min.css');
 
+#foundationConfig,
+#foundationNavigation {
+	display: none;
+}
+
 /****************************************************************
 *	Spotfire Compatibility Adjustments
 ****************************************************************/
