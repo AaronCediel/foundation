@@ -122,7 +122,7 @@
 	width: 75px;
 	height: 40px;
 	line-height: 40px;
-	background: #FFFFFF url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857155/DAM/BI%20Reporting/Report%20Type/draft.png') no-repeat 50% 50%;
+	/*background: #FFFFFF url('https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857155/DAM/BI%20Reporting/Report%20Type/draft.png') no-repeat 50% 50%;*/
 	background-size: auto 32px;
 	-webkit-clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
