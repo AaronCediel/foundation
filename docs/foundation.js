@@ -150,6 +150,7 @@ function constructFoundation() {
 		, departmentName = foundationConfig.DEPARTMENT_NAME
 		, linkOpenJiraTicket = foundationConfig.LINK_OPEN_JIRA_TICKET;
 	
+	// Report Type:
 	var urlReportTypeDraft = "https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857155/DAM/BI%20Reporting/Report%20Type/draft.png";
 	var urlReportTypeUnofficial = "https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857153/DAM/BI%20Reporting/Report%20Type/unofficial.png";
 	var urlReportTypeOfficial = "https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857155/DAM/BI%20Reporting/Report%20Type/official.png";
@@ -180,14 +181,14 @@ function constructFoundation() {
 	<div id="toolbarInfo">\n\
 		<div id="infoCompanyLogo"></div>\n\
 		<div id="infoReportType" style="background-image: url(\''+reportTypeImageURL+'\');"></div>\n\
-		<div id="infoReportTitle" class="toolbarInfoLabel">Foundation</div>\n\
-		<div id="infoReportPage" class="toolbarInfoLabel">Cover</div>\n\
+		<div id="infoReportTitle" class="toolbarInfoLabel">'+reportName+'</div>\n\
+		<div id="infoReportPage" class="toolbarInfoLabel">'+activePage()+'</div>\n\
 	</div>\n\
 	\n\
 	<div id="toolbarOptions">\n\
 		<!-- Confluence Documentation Link -->\n\
 		<div id="toolbarItemConfluenceDocumentation" class="toolbarButtonIcon">\n\
-			<a id="confluenceLink" href="#" target="_blank">\n\
+			<a id="confluenceLink" href="'+linkConfluenceDocumentation+'" target="_blank">\n\
 				<i class="material-icons faa-pulse animated-hover">info</i>\n\
 			</a>\n\
 		</div>\n\
@@ -202,7 +203,7 @@ function constructFoundation() {
 		\n\
 		<!-- JIRA Ticket Template Link -->\n\
 		<div id="toolbarItemJiraTicket" class="toolbarButtonIcon">\n\
-			<a id="jiraLink" href="#" target="_blank">\n\
+			<a id="jiraLink" href="'+linkOpenJiraTicket+'" target="_blank">\n\
 				<i class="material-icons faa-tada animated-hover">bug_report</i>\n\
 			</a>\n\
 		</div>\n\
