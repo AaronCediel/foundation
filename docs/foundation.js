@@ -355,10 +355,10 @@ function constructFoundation() {
 	// Compile foundation
 	foundation += toolbar + navigation + currentFilters;
 	
+	document.querySelector("#dataIntegrityAreaBG").innerHTML = '<input type="checkbox" id="openDataIntegrity">';
+	document.querySelector("#customOptionsAreaBG").innerHTML = '<input type="checkbox" id="openCommands">';
 	//document.getElementById("foundation").innerHTML = foundation;
 	document.querySelector("#foundation").innerHTML = foundation;
-	document.querySelector("#customOptionsAreaBG").innerHTML = '<input type="checkbox" id="openCommands">\n\';
-	document.querySelector("#dataIntegrityAreaBG").innerHTML = '<input type="checkbox" id="openDataIntegrity">\n\';
 }
 
 
