@@ -150,6 +150,21 @@ function constructFoundation() {
 		, departmentName = foundationConfig.DEPARTMENT_NAME
 		, linkOpenJiraTicket = foundationConfig.LINK_OPEN_JIRA_TICKET;
 	
+	var urlReportTypeDraft = "https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857155/DAM/BI%20Reporting/Report%20Type/draft.png";
+	var urlReportTypeUnofficial = "https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857153/DAM/BI%20Reporting/Report%20Type/unofficial.png";
+	var urlReportTypeOfficial = "https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857155/DAM/BI%20Reporting/Report%20Type/official.png";
+	var urlReportTypeGolden = "https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857154/DAM/BI%20Reporting/Report%20Type/golden.png";
+
+	if (reportType.match(/unofficial/i)) {
+		var reportTypeImageURL = urlReportTypeUnofficial;
+	} else if (reportType.match(/official/i)) {
+		var reportTypeImageURL = urlReportTypeOfficial;
+	} else if (reportType.match(/golden/i)) {
+		var reportTypeImageURL = urlReportTypeGolden;
+	} else {
+		var reportTypeImageURL = urlReportTypeDraft;
+	}
+	
 	var foundationNavigation = prepareNavigation();
 	console.log(foundationNavigation);
 	// foundationNavigation.NAVIGATION_PAGE_NAME
@@ -164,7 +179,7 @@ function constructFoundation() {
 <div id="foundationToolbar">\n\
 	<div id="toolbarInfo">\n\
 		<div id="infoCompanyLogo"></div>\n\
-		<div id="infoReportType"></div>\n\
+		<div id="infoReportType" style="background: #FFFFFF url(\''+reportTypeImageURL+'\') no-repeat 50% 50%;"></div>\n\
 		<div id="infoReportTitle" class="toolbarInfoLabel">Foundation</div>\n\
 		<div id="infoReportPage" class="toolbarInfoLabel">Cover</div>\n\
 	</div>\n\
