@@ -344,8 +344,6 @@ function constructFoundation() {
 |	Current Filters\n\
 ---------------------------------------------------------------- -->\n\
 <input type="checkbox" id="openCurrentFilters">\n\
-<input type="checkbox" id="openCommands">\n\
-<input type="checkbox" id="openDataIntegrity">\n\
 <!--<label id="buttonOpenCurrentFilters" for="openCurrentFilters">Open Current Filters</label>-->\n\
 <div id="currentFilters" class="modalContainer">\n\
 	<h4 id="currentFiltersHandle" class="modalDragHandle"><i id="modalDragIcon" class="material-icons faa-burst animated-hover">open_with</i>Current Filters<i id="modalRefreshButton" class="material-icons faa-spin animated-hover">refresh</i><i id="modalCloseButton" class="material-icons faa-burst animated-hover">close</i></h4>\n\
@@ -359,6 +357,8 @@ function constructFoundation() {
 	
 	//document.getElementById("foundation").innerHTML = foundation;
 	document.querySelector("#foundation").innerHTML = foundation;
+	document.querySelector("#customOptionsAreaBG").innerHTML = '<input type="checkbox" id="openCommands">\n\';
+	document.querySelector("#dataIntegrityAreaBG").innerHTML = '<input type="checkbox" id="openDataIntegrity">\n\';
 }
 
 
