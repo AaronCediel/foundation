@@ -60,14 +60,7 @@ function appendStylesToHead(id, styles) {
 }
 
 
-function activePage() {
-	var activePage = document.querySelector(".sfpc-active").getAttribute("title");
-	console.log("Current Active Page Name: '"+activePage+"'");
-	return activePage;
-}
-
-
-function setPage(clickedPage) {
+function setDocPropViaInput(querySelector, value) {
 	// Spotfire X update Doc. Prop. through JS input focus blur method not working:
 	// Issue: https://community.tibco.com/questions/assigning-values-document-properties-javascript-not-working-spotfire-10
 	// The solution to the problem is to simulate a Enter keystroke to confirm entering the value into the input box
@@ -79,12 +72,19 @@ function setPage(clickedPage) {
 		cancelable: false
 	});
 	
-	var fdnCurrentPageDocProp = document.querySelector("#fdnCurrentPage input");
-	fdnCurrentPageDocProp.value = clickedPage;
-	fdnCurrentPageDocProp.blur();
-	fdnCurrentPageDocProp.focus();
+	var fdnDocPropInput = document.querySelector(querySelector);
+	fdnDocPropInput.value = value;
+	fdnDocPropInput.blur();
+	fdnDocPropInput.focus();
 	
-	document.querySelector("#fdnCurrentPage input").dispatchEvent(inputConfirmationEvent);
+	document.querySelector(querySelector).dispatchEvent(inputConfirmationEvent);
+}
+
+
+function activePage() {
+	var activePage = document.querySelector(".sfpc-active").getAttribute("title");
+	console.log("Current Active Page Name: '"+activePage+"'");
+	return activePage;
 }
 
 
@@ -102,14 +102,7 @@ function validatePage() {
 		console.log("SUCCESS: 'selectedPage' and 'activePage' match: '"+activePage+"'");
 	} else {
 		console.log("ERROR: 'selectedPage' ('"+selectedPage+"') and 'activePage' ('"+activePage+"') mismatch!");
-		
-		var fdnCurrentPageDocProp = document.querySelector("#fdnCurrentPage input");
-		fdnCurrentPageDocProp.value = activePage;
-		fdnCurrentPageDocProp.blur();
-		fdnCurrentPageDocProp.focus();
-
-		document.querySelector("#fdnCurrentPage input").dispatchEvent(inputConfirmationEvent);
-		
+		setDocPropViaInput("#fdnCurrentPage input", activePage);
 		console.log("CORRECTION: 'activePage' now set to '"+document.querySelector("#fdnCurrentPage input").value+"'");
 	}
 }
