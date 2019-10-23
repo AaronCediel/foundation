@@ -179,7 +179,7 @@ function constructFoundation() {
 <div id="foundationToolbar">\n\
 	<div id="toolbarInfo">\n\
 		<div id="infoCompanyLogo"></div>\n\
-		<div id="infoReportType" style="background: #FFFFFF url(\''+reportTypeImageURL+'\') no-repeat 50% 50%;"></div>\n\
+		<div id="infoReportType" style="background-image: url(\''+reportTypeImageURL+'\');"></div>\n\
 		<div id="infoReportTitle" class="toolbarInfoLabel">Foundation</div>\n\
 		<div id="infoReportPage" class="toolbarInfoLabel">Cover</div>\n\
 	</div>\n\
