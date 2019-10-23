@@ -126,7 +126,13 @@
 	background-size: auto 32px;
 	-webkit-clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
 	clip-path: polygon(0 0, 87.5% 0, 100% 100%, 12.5% 100%);
-}
+	
+	background-position-x: 50%;
+	background-position-y: 50%;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-color: rgb(255, 255, 255);
+	}
 
 /* Data Integrity */
 #toolbarItemDataIntegrity {
