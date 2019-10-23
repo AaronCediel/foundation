@@ -355,8 +355,22 @@ function constructFoundation() {
 	// Compile foundation
 	foundation += toolbar + navigation + currentFilters;
 	
-	document.querySelector("#dataIntegrityAreaBG").innerHTML = '<input type="checkbox" id="openDataIntegrity">';
-	document.querySelector("#customOptionsAreaBG").innerHTML = '<input type="checkbox" id="openCommands">';
+	var dataIntegrityToggle = document.createElement('input');
+	dataIntegrityToggle.setAttribute("type", "checkbox");
+	dataIntegrityToggle.setAttribute("id", "openDataIntegrity");
+	var dataIntegrityParent = document.querySelector("#dataIntegrity").parentNode;
+	var dataIntegritySibling = document.querySelector("#dataIntegrity");
+	dataIntegrityParent.insertBefore(dataIntegrityToggle, dataIntegritySibling);
+	//document.querySelector("#dataIntegrityAreaBG").innerHTML = '<input type="checkbox" id="openDataIntegrity">';
+	
+	var commandsToggle = document.createElement('input');
+	commandsToggle.setAttribute("type", "checkbox");
+	commandsToggle.setAttribute("id", "openCommands");
+	var commandsParent = document.querySelector("#customOptions").parentNode;
+	var commandsSibling = document.querySelector("#customOptions");
+	commandsParent.insertBefore(commandsToggle, commandsSibling);
+	//document.querySelector("#customOptionsAreaBG").innerHTML = '<input type="checkbox" id="openCommands">';
+	
 	//document.getElementById("foundation").innerHTML = foundation;
 	document.querySelector("#foundation").innerHTML = foundation;
 }
