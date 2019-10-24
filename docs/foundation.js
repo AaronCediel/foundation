@@ -21,7 +21,14 @@ function docReady(fn) {
 	} else {
 		document.addEventListener("DOMContentLoaded", fn);
 	}
-}    
+}
+
+
+// Generate a UNIX timestamp of "now"
+// Source: https://flaviocopes.com/how-to-get-timestamp-javascript/
+function getTimestamp() {
+	return new Date().getTime();
+}
 
 
 // Detect Operating System
@@ -345,6 +352,11 @@ function constructFoundation() {
 	</div>\n\
 </div>\
 ';
+	
+	// Insert Placeholder for Functional Input Boxes
+	document.querySelector("#fdnFunction input").setAttribute("placeholder", "fdnFunction");
+	document.querySelector("#fdnCurrentPage input").setAttribute("placeholder", "fdnCurrentPage");
+	
 	// Compile foundation
 	foundation += toolbar + navigation + currentFilters;
 	
@@ -366,6 +378,24 @@ function constructFoundation() {
 	
 	//document.getElementById("foundation").innerHTML = foundation;
 	document.querySelector("#foundation").innerHTML = foundation;
+	
+	// Foundation Toolbar Functionality
+	// Default Reset:
+	document.querySelector("#toolbarItemResetDefault").onclick = function() {
+		setDocPropViaInput("#fdnFunction input", "fdnDefaultReset|"+getTimestamp());
+	}
+	// Reload:
+	document.querySelector("#toolbarItemReloadData").onclick = function() {
+		setDocPropViaInput("#fdnFunction input", "fdnReloadDataConnections|"+getTimestamp());
+	}
+	// Open Bookmark Panel:
+	document.querySelector("#toolbarItemBookmarkPanel").onclick = function() {
+		setDocPropViaInput("#fdnFunction input", "fdnToggleBookmarkPane|"+getTimestamp());
+	}
+	// Open Filters Panel:
+	document.querySelector("#toolbarItemFilterPanel").onclick = function() {
+		setDocPropViaInput("#fdnFunction input", "fdnToggleFilterPane|"+getTimestamp());
+	}
 }
 
 
