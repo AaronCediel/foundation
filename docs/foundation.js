@@ -67,6 +67,13 @@ function appendStylesToHead(id, styles) {
 }
 
 
+// Toggle DOM Class
+function toggleElementClass(querySelector, className) {
+	var element = document.querySelector(querySelector);
+	element.classList.toggle(className);
+}
+
+
 function setDocPropViaInput(querySelector, value) {
 	// Spotfire X update Doc. Prop. through JS input focus blur method not working:
 	// Issue: https://community.tibco.com/questions/assigning-values-document-properties-javascript-not-working-spotfire-10
@@ -113,6 +120,22 @@ function validatePage() {
 		setDocPropViaInput("#fdnCurrentPage input", activePage);
 		console.log("CORRECTION: 'activePage' now set to '"+document.querySelector("#fdnCurrentPage input").value+"'");
 	}
+}
+
+
+// Foundation Toolbar Item State Detection
+function detectToolbarItemStates() {
+	setTimeout(function(){
+		// Current Filters:
+		// Open Bookmark Panel:
+		if (document.querySelector(".sf-element-bookmark-list")) {
+			toggleElementClass("#toolbarItemBookmarkPanel", "toolbarItemActive");
+		}
+		// Open Filters Panel:
+		if (document.querySelector(".sfc-filter-panel")) {
+			toggleElementClass("#toolbarItemFilterPanel", "toolbarItemActive");
+		}
+	}, 333);
 }
 
 
@@ -384,18 +407,22 @@ function constructFoundation() {
 	// Default Reset:
 	document.querySelector("#toolbarItemResetDefault").onclick = function() {
 		setDocPropViaInput("#fdnFunction input", "fdnDefaultReset|"+getTimestamp());
+		detectToolbarItemStates();
 	}
 	// Reload:
 	document.querySelector("#toolbarItemReloadData").onclick = function() {
 		setDocPropViaInput("#fdnFunction input", "fdnReloadDataConnections|"+getTimestamp());
+		detectToolbarItemStates();
 	}
 	// Open Bookmark Panel:
 	document.querySelector("#toolbarItemBookmarkPanel").onclick = function() {
 		setDocPropViaInput("#fdnFunction input", "fdnToggleBookmarkPane|"+getTimestamp());
+		detectToolbarItemStates();
 	}
 	// Open Filters Panel:
 	document.querySelector("#toolbarItemFilterPanel").onclick = function() {
 		setDocPropViaInput("#fdnFunction input", "fdnToggleFilterPane|"+getTimestamp());
+		detectToolbarItemStates();
 	}
 }
 
@@ -451,6 +478,7 @@ docReady(function() {
 	convertToDraggable(document.querySelector("#currentFilters")); //document.getElementById("currentFilters")
 	convertToDraggable(document.querySelector("#customOptions"));
 	convertToDraggable(document.querySelector("#dataIntegrity"));
+	detectToolbarItemStates();
 });
 
 
