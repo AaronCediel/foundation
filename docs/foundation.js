@@ -125,17 +125,17 @@ function validatePage() {
 
 // Foundation Toolbar Item State Detection
 function detectToolbarItemStates() {
-	setTimeout(function(){
-		// Current Filters:
-		// Open Bookmark Panel:
-		if (document.querySelector(".sf-element-bookmark-list")) {
-			toggleElementClass("#toolbarItemBookmarkPanel", "toolbarItemActive");
-		}
-		// Open Filters Panel:
-		if (document.querySelector(".sfc-filter-panel")) {
-			toggleElementClass("#toolbarItemFilterPanel", "toolbarItemActive");
-		}
-	}, 333);
+	//setTimeout(function(){
+	// Current Filters:
+	// Open Bookmark Panel:
+	if (document.querySelector(".sf-element-bookmark-list")) {
+		toggleElementClass("#toolbarItemBookmarkPanel", "toolbarItemActive");
+	}
+	// Open Filters Panel:
+	if (document.querySelector(".sfc-filter-panel")) {
+		toggleElementClass("#toolbarItemFilterPanel", "toolbarItemActive");
+	}
+	//}, 333);
 }
 
 
