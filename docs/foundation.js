@@ -85,6 +85,7 @@ function setDocPropViaInput(querySelector, value) {
 	fdnDocPropInput.focus();
 	
 	document.querySelector(querySelector).dispatchEvent(inputConfirmationEvent);
+	fdnDocPropInput.blur();
 }
 
 
