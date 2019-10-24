@@ -213,6 +213,11 @@ input#openDataIntegrity[type=checkbox] {
 	background-color: #F5F5F5;
 }*/
 
+#foundationToolbar #toolbarOptions .toolbarItemActive {
+	color: #E81193;
+	background-color: #F5F5F5;
+}
+
 /****************************************************************
 *	Navigation Menu - Toggle & Container
 ****************************************************************/
