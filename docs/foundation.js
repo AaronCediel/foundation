@@ -205,7 +205,7 @@ function constructFoundation() {
 		//console.log(foundationNavigation[fdnNavPage]);
 		console.log(foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME+" -VS- "+activePage);
 		if (foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME === activePage) {
-			foundationActivePageToolbarConfig.push([
+			foundationActivePageToolbarConfig = [
 				{"TOOLBAR_FILTERS": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_FILTERS}
 				, {"TOOLBAR_BOOKMARKS": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_BOOKMARKS}
 				, {"TOOLBAR_RELOAD": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RELOAD}
@@ -216,7 +216,7 @@ function constructFoundation() {
 				, {"TOOLBAR_OPEN_TICKET": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_OPEN_TICKET}
 				, {"TOOLBAR_DATA_INTEGRITY": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_DATA_INTEGRITY}
 				, {"TOOLBAR_INFO": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_INFO}
-			]);
+			];
 		}
 		
 		foundationNavigationMenuPageList.push([
@@ -233,8 +233,11 @@ function constructFoundation() {
 	console.log("foundationNavigationMenuPageList:");
 	console.log(foundationNavigationMenuPageList);
 	
+	
+	// Initialize main foundation HTML string-container:
 	var foundation = '';
 	
+	// Initialize Foundatiuon toolbar HTML string-container:
 	var toolbar = '\
 <!-- --------------------------------------------------------------\n\
 |	Toolbar\n\
@@ -310,6 +313,7 @@ function constructFoundation() {
 </div>\
 ';
 	
+	// Initialize Foundation navigation HTML string-container:
 	var navigation = '\
 <!-- --------------------------------------------------------------\n\
 |	Navigation\n\
@@ -402,6 +406,7 @@ function constructFoundation() {
 </div>\
 ';*/
 	
+	// Initialize Foundation currentFilters HTML string-container:
 	var currentFilters = '\
 <!-- --------------------------------------------------------------\n\
 |	Current Filters\n\
