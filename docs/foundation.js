@@ -209,7 +209,7 @@ function constructFoundation() {
 		}
 		
 		foundationNavigationMenuPageList.push([{
-			foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_NAME: [
+			(foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_NAME).toString(): [
 				{"NAVIGATION_PAGE_ORDER": foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ORDER}
 				, {"NAVIGATION_FOLDER_NAME": foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_NAME}
 				, {"NAVIGATION_FOLDER_ICON": foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_ICON}
