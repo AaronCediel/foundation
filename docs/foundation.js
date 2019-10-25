@@ -204,7 +204,7 @@ function constructFoundation() {
 	Object.keys(foundationNavigation).forEach(fdnNavPage => {
 		//console.log(foundationNavigation[fdnNavPage]);
 		console.log(foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME+" -VS- "+activePage);
-		if ([foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME] === activePage) {
+		if (foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME === activePage) {
 			foundationActivePageToolbarConfig.push([foundationNavigation[fdnNavPage].fdnNavigation]);
 		}
 		
