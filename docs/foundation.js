@@ -205,7 +205,18 @@ function constructFoundation() {
 		//console.log(foundationNavigation[fdnNavPage]);
 		console.log(foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME+" -VS- "+activePage);
 		if (foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME === activePage) {
-			foundationActivePageToolbarConfig.push([foundationNavigation[fdnNavPage].fdnNavigation]);
+			foundationActivePageToolbarConfig.push([
+				{"TOOLBAR_FILTERS": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_FILTERS}
+				, {"TOOLBAR_BOOKMARKS": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_BOOKMARKS}
+				, {"TOOLBAR_RELOAD": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RELOAD}
+				, {"TOOLBAR_RESET": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RESET}
+				, {"TOOLBAR_COMMANDS": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_COMMANDS}
+				, {"TOOLBAR_CURRENT_FILTERS": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS}
+				, {"TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING}
+				, {"TOOLBAR_OPEN_TICKET": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_OPEN_TICKET}
+				, {"TOOLBAR_DATA_INTEGRITY": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_DATA_INTEGRITY}
+				, {"TOOLBAR_INFO": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_INFO}
+			]);
 		}
 		
 		foundationNavigationMenuPageList.push([
