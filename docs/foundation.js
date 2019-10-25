@@ -291,7 +291,7 @@ function constructFoundation() {
 		<div id="infoReportPage" class="toolbarInfoLabel">'+activePage+'</div>\n\
 	</div>\n\
 	\n\
-	<div id="toolbarOptions">\n\
+	<div id="toolbarOptions">'+toolbarOptionsItemConfluenceDocumentation+'\n\
 		<!-- Data Integrity Info -->\n\
 		<label id="toolbarItemDataIntegrity" for="openDataIntegrity">\n\
 			<i class="material-icons">help_outline</i>\n\
