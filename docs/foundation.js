@@ -230,6 +230,25 @@ function constructFoundation() {
 	console.log("foundationActivePageToolbarConfig:");
 	console.log(foundationActivePageToolbarConfig);
 	
+	
+	
+	// First create the array of keys/net_total so that we can sort it:
+	var sort_array = [];
+	for (var key in foundationNavigationMenuPageList) {
+	    sort_array.push({key:key,NAVIGATION_PAGE_ORDER:foundationNavigationMenuPageList[key].NAVIGATION_PAGE_ORDER});
+	}
+
+	// Now sort it:
+	sort_array.sort(function(x,y){return x.NAVIGATION_PAGE_ORDER - y.NAVIGATION_PAGE_ORDER});
+
+	// Now process that object with it:
+	/*for (var i=0;i<sort_array.length;i++) {
+	    var item = Response[sort_array[i].key];
+
+	    // now do stuff with each item
+	}*/
+	
+	
 	console.log("foundationNavigationMenuPageList:");
 	console.log(foundationNavigationMenuPageList);
 	
