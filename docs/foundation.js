@@ -227,7 +227,7 @@ function constructFoundation() {
 	// foundationNavigation.NAVIGATION_PAGE_NAME
 	
 	var foundationActivePageToolbarConfig = [];
-	var foundationNavigationMenuPageList = [];
+	var foundationNavigationMenuPageListUnsorted = [];
 	Object.keys(foundationNavigation).forEach(fdnNavPage => {
 		//console.log(foundationNavigation[fdnNavPage]);
 		console.log(foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME+" -VS- "+activePage);
@@ -246,7 +246,7 @@ function constructFoundation() {
 			}];
 		}
 		
-		foundationNavigationMenuPageList.push({
+		foundationNavigationMenuPageListUnsorted.push({
 			"NAVIGATION_PAGE_ORDER": foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ORDER
 			, "NAVIGATION_FOLDER_NAME": foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_NAME
 			, "NAVIGATION_FOLDER_ICON": foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_ICON
@@ -255,16 +255,11 @@ function constructFoundation() {
 		});
 	});
 	console.log("foundationActivePageToolbarConfig:");
-	console.log(foundationActivePageToolbarConfig);
+	console.log(JSON.stringify(foundationActivePageToolbarConfig));
 	
+	var foundationNavigationMenuPageList = foundationNavigationMenuPageListUnsorted.sort(compareValues('NAVIGATION_PAGE_ORDER', 'asc'));
 	console.log("foundationNavigationMenuPageList:");
-	console.log(foundationNavigationMenuPageList);
 	console.log(JSON.stringify(foundationNavigationMenuPageList));
-	
-	var foundationNavigationMenuPageListSorted = foundationNavigationMenuPageList.sort(compareValues('NAVIGATION_PAGE_ORDER', 'asc'));
-	console.log("foundationNavigationMenuPageListSorted:");
-	console.log(foundationNavigationMenuPageListSorted);
-	console.log(JSON.stringify(foundationNavigationMenuPageListSorted));
 	
 	
 	
