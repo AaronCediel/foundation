@@ -82,9 +82,9 @@ function compareValues(key, order='asc') {
 			b[key].toUpperCase() : b[key];
 
 		let comparison = 0;
-		if (varA &gt; varB) {
+		if (varA > varB) {
 			comparison = 1;
-		} else if (varA &lt; varB) {
+		} else if (varA < varB) {
 			comparison = -1;
 		}
 		return (
