@@ -268,7 +268,7 @@ function constructFoundation() {
 	
 	// Initialize Foundatiuon toolbar HTML string-container:
 	var toolbarOptionsItemConfluenceDocumentation = '';
-	if (foundationActivePageToolbarConfig.TOOLBAR_INFO) {
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_INFO) {
 		toolbarOptionsItemConfluenceDocumentation = '\n\
 		<!-- Confluence Documentation Link -->\n\
 		<div id="toolbarItemConfluenceDocumentation" class="toolbarButtonIcon">\n\
