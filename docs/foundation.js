@@ -152,6 +152,7 @@ function prepareNavigation() {
 
 function constructFoundation() {
 	
+	// Foundation Configuration:
 	var foundationConfig = prepareConfiguration();
 	console.log(foundationConfig);
 	
@@ -190,9 +191,30 @@ function constructFoundation() {
 		var reportTypeImageURL = urlReportTypeDraft;
 	}
 	
+	
+	// Foundation Navigation
 	var foundationNavigation = prepareNavigation();
 	console.log(foundationNavigation);
 	// foundationNavigation.NAVIGATION_PAGE_NAME
+	
+	var foundationActivePageToolbarConfig = [];
+	var foundationNavigationMenuPageList = [];
+	Object.keys(foundationNavigation).forEach(fdnNavPage => {
+		//console.log(foundationNavigation[fdnNavPage]);
+		if ([foundationNavigation[fdnNavPage].NAVIGATION_PAGE_NAME] === activePage()) {
+			foundationActivePageToolbarConfig.push(foundationNavigation[fdnNavPage]);
+		}
+		console.log(foundationActivePageToolbarConfig);
+		
+		foundationNavigationMenuPageList.push(
+			[foundationNavigation[fdnNavPage].NAVIGATION_PAGE_ORDER]
+			, [foundationNavigation[fdnNavPage].NAVIGATION_FOLDER_NAME]
+			, [foundationNavigation[fdnNavPage].NAVIGATION_FOLDER_ICON]
+			, [foundationNavigation[fdnNavPage].NAVIGATION_PAGE_NAME]
+			, [foundationNavigation[fdnNavPage].NAVIGATION_PAGE_ICON]
+		);
+		console.log(foundationNavigationMenuPageList);
+	});
 	
 	var foundation = '';
 	
