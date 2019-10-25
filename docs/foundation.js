@@ -204,17 +204,19 @@ function constructFoundation() {
 	Object.keys(foundationNavigation).forEach(fdnNavPage => {
 		//console.log(foundationNavigation[fdnNavPage]);
 		if ([foundationNavigation[fdnNavPage].NAVIGATION_PAGE_NAME] === activePage) {
-			foundationActivePageToolbarConfig.push(foundationNavigation[fdnNavPage].fdnNavigation);
+			foundationActivePageToolbarConfig.push([foundationNavigation[fdnNavPage].fdnNavigation]);
 		}
+		console.log("foundationActivePageToolbarConfig:");
 		console.log(foundationActivePageToolbarConfig);
 		
-		foundationNavigationMenuPageList.push(
+		foundationNavigationMenuPageList.push([
 			[foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ORDER]
 			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_NAME]
 			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_ICON]
 			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME]
 			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ICON]
-		);
+		]);
+		console.log("foundationNavigationMenuPageList:");
 		console.log(foundationNavigationMenuPageList);
 	});
 	
