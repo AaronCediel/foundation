@@ -206,8 +206,6 @@ function constructFoundation() {
 		if ([foundationNavigation[fdnNavPage].NAVIGATION_PAGE_NAME] === activePage) {
 			foundationActivePageToolbarConfig.push([foundationNavigation[fdnNavPage].fdnNavigation]);
 		}
-		console.log("foundationActivePageToolbarConfig:");
-		console.log(foundationActivePageToolbarConfig);
 		
 		foundationNavigationMenuPageList.push([
 			[foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ORDER]
@@ -216,9 +214,12 @@ function constructFoundation() {
 			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME]
 			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ICON]
 		]);
-		console.log("foundationNavigationMenuPageList:");
-		console.log(foundationNavigationMenuPageList);
 	});
+	console.log("foundationActivePageToolbarConfig:");
+	console.log(foundationActivePageToolbarConfig);
+	
+	console.log("foundationNavigationMenuPageList:");
+	console.log(foundationNavigationMenuPageList);
 	
 	var foundation = '';
 	
