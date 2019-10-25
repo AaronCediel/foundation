@@ -96,7 +96,7 @@ function setDocPropViaInput(querySelector, value) {
 }
 
 
-function activePage() {
+function determineActivePage() {
 	var activePage = document.querySelector(".sfpc-active").getAttribute("title");
 	return activePage;
 }
@@ -151,7 +151,7 @@ function prepareNavigation() {
 
 function constructFoundation() {
 	
-	var activePage = activePage();
+	var activePage = determineActivePage();
 	console.log("Current Active Page Name: '"+activePage+"'");
 	
 	// Foundation Configuration:
