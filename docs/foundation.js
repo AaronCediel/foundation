@@ -267,6 +267,17 @@ function constructFoundation() {
 	var foundation = '';
 	
 	// Initialize Foundatiuon toolbar HTML string-container:
+	var toolbarOptionsItemConfluenceDocumentation = '';
+	if (foundationActivePageToolbarConfig.TOOLBAR_INFO) {
+		toolbarOptionsItemConfluenceDocumentation = '\n\
+		<!-- Confluence Documentation Link -->\n\
+		<div id="toolbarItemConfluenceDocumentation" class="toolbarButtonIcon">\n\
+			<a id="confluenceLink" href="'+linkConfluenceDocumentation+'" target="_blank">\n\
+				<i class="material-icons faa-pulse animated-hover">info</i>\n\
+			</a>\n\
+		</div>\n';
+	}
+	
 	var toolbar = '\
 <!-- --------------------------------------------------------------\n\
 |	Toolbar\n\
@@ -281,13 +292,6 @@ function constructFoundation() {
 	</div>\n\
 	\n\
 	<div id="toolbarOptions">\n\
-		<!-- Confluence Documentation Link -->\n\
-		<div id="toolbarItemConfluenceDocumentation" class="toolbarButtonIcon">\n\
-			<a id="confluenceLink" href="'+linkConfluenceDocumentation+'" target="_blank">\n\
-				<i class="material-icons faa-pulse animated-hover">info</i>\n\
-			</a>\n\
-		</div>\n\
-		\n\
 		<!-- Data Integrity Info -->\n\
 		<label id="toolbarItemDataIntegrity" for="openDataIntegrity">\n\
 			<i class="material-icons">help_outline</i>\n\
