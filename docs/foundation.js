@@ -203,7 +203,7 @@ function constructFoundation() {
 	var foundationNavigationMenuPageList = [];
 	Object.keys(foundationNavigation).forEach(fdnNavPage => {
 		//console.log(foundationNavigation[fdnNavPage]);
-		if ([foundationNavigation[fdnNavPage].NAVIGATION_PAGE_NAME] === activePage) {
+		if ([foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME] === activePage) {
 			foundationActivePageToolbarConfig.push([foundationNavigation[fdnNavPage].fdnNavigation]);
 		}
 		
