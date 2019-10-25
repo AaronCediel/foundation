@@ -266,18 +266,94 @@ function constructFoundation() {
 	// Initialize main foundation HTML string-container:
 	var foundation = '';
 	
-	// Initialize Foundatiuon toolbar HTML string-container:
+	// Prepare Toolbar Option Items according to Page Toolbar configuration
+	// Confluence Documentation Info Link:
 	var toolbarOptionsItemConfluenceDocumentation = '';
 	if (foundationActivePageToolbarConfig[0].TOOLBAR_INFO) {
 		toolbarOptionsItemConfluenceDocumentation = '\n\
-		<!-- Confluence Documentation Link -->\n\
+		<!-- Confluence Documentation Info Link -->\n\
 		<div id="toolbarItemConfluenceDocumentation" class="toolbarButtonIcon">\n\
 			<a id="confluenceLink" href="'+linkConfluenceDocumentation+'" target="_blank">\n\
 				<i class="material-icons faa-pulse animated-hover">info</i>\n\
 			</a>\n\
 		</div>\n';
 	}
+	// Data Integrity Info:
+	var toolbarOptionsItemDataIntegrity = '';
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_DATA_INTEGRITY) {
+		toolbarOptionsItemDataIntegrity = '\n\
+		<!-- Data Integrity Info -->\n\
+		<label id="toolbarItemDataIntegrity" for="openDataIntegrity">\n\
+			<i class="material-icons">help_outline</i>\n\
+		</label>\n';
+	}
+	// JIRA Ticket Template Link:
+	var toolbarOptionsItemJiraTicket = '';
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_OPEN_TICKET) {
+		toolbarOptionsItemJiraTicket = '\n\
+		<!-- JIRA Ticket Template Link -->\n\
+		<div id="toolbarItemJiraTicket" class="toolbarButtonIcon">\n\
+			<a id="jiraLink" href="'+linkOpenJiraTicket+'" target="_blank">\n\
+				<i class="material-icons faa-tada animated-hover">bug_report</i>\n\
+			</a>\n\
+		</div>\n';
+	}
+	// Current Filters:
+	var toolbarOptionsItemCurrentFilters = '';
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_CURRENT_FILTERS) {
+		toolbarOptionsItemCurrentFilters = '\n\
+		<!-- Current Filters: -->\n\
+		<label id="toolbarItemCurrentFilters" class="toolbarButtonText" for="openCurrentFilters">\n\
+			<span>Current Filters</span>\n\
+		</label>\n';
+	}
+	// Commands:
+	var toolbarOptionsItemCustomCommands = '';
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_COMMANDS) {
+		toolbarOptionsItemCustomCommands = '\n\
+		<!-- Commands: -->\n\
+		<label id="toolbarItemCustomCommands" class="toolbarButtonText" for="openCommands">\n\
+			<span>Commands</span>\n\
+		</label>\n';
+	}
+	// Reset Default:
+	var toolbarOptionsItemResetDefault = '';
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_RESET) {
+		toolbarOptionsItemResetDefault = '\n\
+		<!-- Reset Default: -->\n\
+		<div id="toolbarItemResetDefault" class="toolbarButtonText">\n\
+			<span>Reset</span>\n\
+		</div>\n';
+	}
+	// Reload Data:
+	var toolbarOptionsItemReloadData = '';
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_RELOAD) {
+		toolbarOptionsItemReloadData = '\n\
+		<!-- Reload Data: -->\n\
+		<div id="toolbarItemReloadData" class="toolbarButtonText">\n\
+			<span>Reload</span>\n\
+		</div>\n';
+	}
+	// Toggle Bookmark Panel:
+	var toolbarOptionsItemBookmarkPanel = '';
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_BOOKMARKS) {
+		toolbarOptionsItemBookmarkPanel = '\n\
+		<!-- Toggle Bookmark Panel: -->\n\
+		<div id="toolbarItemBookmarkPanel" class="toolbarButtonText">\n\
+			<span>Bookmarks</span>\n\
+		</div>\n';
+	}
+	// Toggle Filter Panel:
+	var toolbarOptionsItemFilterPanel = '';
+	if (foundationActivePageToolbarConfig[0].TOOLBAR_FILTERS) {
+		toolbarOptionsItemFilterPanel = '\n\
+		<!-- Toggle Filter Panel: -->\n\
+		<div id="toolbarItemFilterPanel" class="toolbarButtonText">\n\
+			<span>Filters</span>\n\
+		</div>\n';
+	}
 	
+	// Initialize Foundatiuon toolbar HTML string-container:
 	var toolbar = '\
 <!-- --------------------------------------------------------------\n\
 |	Toolbar\n\
@@ -291,57 +367,16 @@ function constructFoundation() {
 		<div id="infoReportPage" class="toolbarInfoLabel">'+activePage+'</div>\n\
 	</div>\n\
 	\n\
-	<div id="toolbarOptions">'+toolbarOptionsItemConfluenceDocumentation+'\n\
-		<!-- Data Integrity Info -->\n\
-		<label id="toolbarItemDataIntegrity" for="openDataIntegrity">\n\
-			<i class="material-icons">help_outline</i>\n\
-		</label>\n\
-		<!--<div id="toolbarItemDataIntegrity">\n\
-			<i class="material-icons">help_outline</i>\n\
-		</div>-->\n\
-		\n\
-		<!-- JIRA Ticket Template Link -->\n\
-		<div id="toolbarItemJiraTicket" class="toolbarButtonIcon">\n\
-			<a id="jiraLink" href="'+linkOpenJiraTicket+'" target="_blank">\n\
-				<i class="material-icons faa-tada animated-hover">bug_report</i>\n\
-			</a>\n\
-		</div>\n\
-		\n\
-		<!-- Current Filters: -->\n\
-		<label id="toolbarItemCurrentFilters" class="toolbarButtonText" for="openCurrentFilters">\n\
-			<span>Current Filters</span>\n\
-		</label>\n\
-		<!--<div id="toolbarItemCurrentFilters" class="toolbarButtonText">\n\
-			<span>Current Filters</span>\n\
-		</div>-->\n\
-		\n\
-		<!-- Commands: -->\n\
-		<label id="toolbarItemCustomCommands" class="toolbarButtonText" for="openCommands">\n\
-			<span>Commands</span>\n\
-		</label>\n\
-		<!--<div id="toolbarItemCustomCommands" class="toolbarButtonText">\n\
-			<span>Commands</span>\n\
-		</div>-->\n\
-		\n\
-		<!-- Reset Default: -->\n\
-		<div id="toolbarItemResetDefault" class="toolbarButtonText">\n\
-			<span>Reset</span>\n\
-		</div>\n\
-		\n\
-		<!-- Reload Data: -->\n\
-		<div id="toolbarItemReloadData" class="toolbarButtonText">\n\
-			<span>Reload</span>\n\
-		</div>\n\
-		\n\
-		<!-- Toggle Bookmark Panel: -->\n\
-		<div id="toolbarItemBookmarkPanel" class="toolbarButtonText">\n\
-			<span>Bookmarks</span>\n\
-		</div>\n\
-		\n\
-		<!-- Toggle Filter Panel: -->\n\
-		<div id="toolbarItemFilterPanel" class="toolbarButtonText">\n\
-			<span>Filters</span>\n\
-		</div>\n\
+	<div id="toolbarOptions">'
+		+toolbarOptionsItemConfluenceDocumentation
+		+toolbarOptionsItemDataIntegrity
+		+toolbarOptionsItemJiraTicket
+		+toolbarOptionsItemCurrentFilters
+		+toolbarOptionsItemCustomCommands
+		+toolbarOptionsItemResetDefault
+		+toolbarOptionsItemReloadData
+		+toolbarOptionsItemBookmarkPanel
+		+toolbarOptionsItemFilterPanel+'\
 	</div>\n\
 </div>\
 ';
