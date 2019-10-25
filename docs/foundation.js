@@ -98,7 +98,6 @@ function setDocPropViaInput(querySelector, value) {
 
 function activePage() {
 	var activePage = document.querySelector(".sfpc-active").getAttribute("title");
-	console.log("Current Active Page Name: '"+activePage+"'");
 	return activePage;
 }
 
@@ -152,6 +151,9 @@ function prepareNavigation() {
 
 function constructFoundation() {
 	
+	var activePage = activePage();
+	console.log("Current Active Page Name: '"+activePage+"'");
+	
 	// Foundation Configuration:
 	var foundationConfig = prepareConfiguration();
 	console.log(foundationConfig);
@@ -201,17 +203,17 @@ function constructFoundation() {
 	var foundationNavigationMenuPageList = [];
 	Object.keys(foundationNavigation).forEach(fdnNavPage => {
 		//console.log(foundationNavigation[fdnNavPage]);
-		if ([foundationNavigation[fdnNavPage].NAVIGATION_PAGE_NAME] === activePage()) {
-			foundationActivePageToolbarConfig.push(foundationNavigation[fdnNavPage]);
+		if ([foundationNavigation[fdnNavPage].NAVIGATION_PAGE_NAME] === activePage) {
+			foundationActivePageToolbarConfig.push(foundationNavigation[fdnNavPage].fdnNavigation);
 		}
 		console.log(foundationActivePageToolbarConfig);
 		
 		foundationNavigationMenuPageList.push(
-			[foundationNavigation[fdnNavPage].NAVIGATION_PAGE_ORDER]
-			, [foundationNavigation[fdnNavPage].NAVIGATION_FOLDER_NAME]
-			, [foundationNavigation[fdnNavPage].NAVIGATION_FOLDER_ICON]
-			, [foundationNavigation[fdnNavPage].NAVIGATION_PAGE_NAME]
-			, [foundationNavigation[fdnNavPage].NAVIGATION_PAGE_ICON]
+			[foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ORDER]
+			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_NAME]
+			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_FOLDER_ICON]
+			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME]
+			, [foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ICON]
 		);
 		console.log(foundationNavigationMenuPageList);
 	});
@@ -228,7 +230,7 @@ function constructFoundation() {
 		<div id="infoCompanyLogo"></div>\n\
 		<div id="infoReportType" style="background-image: url(\''+reportTypeImageURL+'\');"></div>\n\
 		<div id="infoReportTitle" class="toolbarInfoLabel">'+reportName+'</div>\n\
-		<div id="infoReportPage" class="toolbarInfoLabel">'+activePage()+'</div>\n\
+		<div id="infoReportPage" class="toolbarInfoLabel">'+activePage+'</div>\n\
 	</div>\n\
 	\n\
 	<div id="toolbarOptions">\n\
