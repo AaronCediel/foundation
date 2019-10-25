@@ -259,12 +259,12 @@ function constructFoundation() {
 	
 	console.log("foundationNavigationMenuPageList:");
 	console.log(foundationNavigationMenuPageList);
-	console.log(foundationNavigationMenuPageList.toString());
+	console.log(JSON.stringify(foundationNavigationMenuPageList));
 	
-	var foundationNavigationMenuPageListSorted = foundationNavigationMenuPageList.sort(compareValues('NAVIGATION_PAGE_ORDER', 'desc'));
+	var foundationNavigationMenuPageListSorted = foundationNavigationMenuPageList.sort(compareValues('NAVIGATION_PAGE_ORDER', 'asc'));
 	console.log("foundationNavigationMenuPageListSorted:");
 	console.log(foundationNavigationMenuPageListSorted);
-	console.log(foundationNavigationMenuPageListSorted.toString());
+	console.log(JSON.stringify(foundationNavigationMenuPageListSorted));
 	
 	
 	
