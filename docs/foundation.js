@@ -146,7 +146,7 @@ function prepareConfiguration() {
 }
 function prepareNavigation() {
 	var foundationNavigationRAW = document.querySelector("#foundationNavigation").textContent;
-	var foundationNavigation = JSON.parse(foundationNavigationRAW)[0].fdnNavigation;
+	var foundationNavigation = JSON.parse(foundationNavigationRAW).fdnNavigation;
 	return foundationNavigation;
 }
 
