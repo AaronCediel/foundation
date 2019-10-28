@@ -457,10 +457,20 @@ function constructFoundation() {
 			
 			if (folderName === '') {
 				navigationMenuHtml += navigationMenuFeaturedPageHtml;
-			} else if ((folderName !== '') && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
-				navigationMenuHtml += navigationMenuFolderLastHtml;
-			} else if ((folderName !== '') && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
-				navigationMenuHtml += navigationMenuFolderMiddleHtml;
+			} else if ((navigationMenuItemCounter > 0) && (folderName !== '')) {
+				if ((folderName === foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+					navigationMenuHtml += navigationMenuFolderMiddleHtml;
+				} else if ((folderName === foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+					navigationMenuHtml += navigationMenuFolderMiddleHtml;
+					navigationMenuHtml += navigationMenuFolderLastHtml;
+				} else if ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+					navigationMenuHtml += navigationMenuFolderFirstHtml;
+					navigationMenuHtml += navigationMenuFolderMiddleHtml;
+				} else ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+					navigationMenuHtml += navigationMenuFolderFirstHtml;
+					navigationMenuHtml += navigationMenuFolderMiddleHtml;
+					navigationMenuHtml += navigationMenuFolderLastHtml;
+				}
 			} else {
 				navigationMenuHtml += navigationMenuFolderFirstHtml;
 				navigationMenuHtml += navigationMenuFolderMiddleHtml;
