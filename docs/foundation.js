@@ -104,6 +104,27 @@ array.reduce((objectsByKeyValue, obj) => {
 }, {});
 
 
+// Push to array if Element does not exist:
+// Source 1: https://code-examples.net/en/q/1e56fd
+// Source 2: https://stackoverflow.com/a/1988361
+
+// check if an element exists in array using a comparer function
+// comparer : function(currentElement)
+Array.prototype.inArray = function(comparer) {
+	for(var i=0; i < this.length; i++) {
+		if(comparer(this[i])) return true;
+	}
+	return false;
+};
+// adds an element to the array if it does not already exist using a comparer
+// function
+Array.prototype.pushIfNotExist = function(element, comparer) {
+	if (!this.inArray(comparer)) {
+		this.push(element);
+	}
+};
+
+
 // Toggle DOM Class
 function toggleElementClass(querySelector, className) {
 	var element = document.querySelector(querySelector);
@@ -391,17 +412,22 @@ function constructFoundation() {
 ';
 	
 	
-	var navigationPageListByFolder = groupBy('NAVIGATION_FOLDER_NAME');
-	console.log(navigationPageListByFolder(foundationNavigationMenuPageList));
+	//var navigationPageListByFolder = groupBy('NAVIGATION_FOLDER_NAME');
+	//console.log(navigationPageListByFolder(foundationNavigationMenuPageList));
 	
-	
-	/*
-	var navigationFolderList = [];
+	var navigationMenuFolderOpened = [];
+	var navigationMenuDistinctFolders = foundationNavigationMenuPageList.map(item => item.NAVIGATION_FOLDER_NAME).filter((value, index, self) => self.indexOf(value) === index);
+	console.log("navigationMenuDistinctFolders: "+navigationMenuDistinctFolders)
+	var navigationMenuItemsProcessed = [];
+	var navigationMenuItems = [];
 	Object.keys(foundationNavigationMenuPageList).forEach(fdnNavPage => {
+		var pageOrder = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_ORDER;
 		var folderName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_FOLDER_NAME;
+		var folderIcon = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_FOLDER_ICON;
 		var pageName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_NAME;
+		var pageIcon = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_ICON;
 		
-		navigationFolderList += '\
+		var navigationMenuFolderTemplate += '\
 		<div class="navigationMenuItem">\n\
 			<input type="checkbox" id="check1">\n\
 			<label class="navigationMenuItem-folder" for="check1">Folder 1</label>\n\
@@ -412,7 +438,24 @@ function constructFoundation() {
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
 			</div>-->\n\
 		</div>\n';
+		
+		var navigationMenuPageTemplate += '\
+		<div class="navigationMenuItem">\n\
+			<div class="navigationMenuItem-featured">\n\
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
+			</div>\n\
+		</div>\n';
+		
+		if ((navigationMenuFolderOpened.indexOf(folderName) === -1) && (folderName !== "")) {
+			if (folderName === "") {
+				console.log("Featured Page: '"+pageName+"'");
+			}
+			navigationMenuFolderOpened.push(folderName);
+		} else {
+			console.log("Folder name '"+folderName+"' already opened");
+		}
 	});*/
+	
 	
 	// Initialize Foundation navigation HTML string-container:
 	var navigation = '\
