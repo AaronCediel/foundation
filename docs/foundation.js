@@ -422,12 +422,15 @@ function constructFoundation() {
 	console.log(navigationMenuDistinctFolders);
 	var navigationMenuItemsProcessed = [];
 	var navigationMenuItems = [];
+	var navigationMenuItemCounter = 0;
 	Object.keys(foundationNavigationMenuPageList).forEach(fdnNavPage => {
 		var pageOrder = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_ORDER;
 		var folderName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_FOLDER_NAME;
 		var folderIcon = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_FOLDER_ICON;
 		var pageName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_NAME;
 		var pageIcon = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_ICON;
+		
+		console.log("Navigation Menu Item [ "+navigationMenuItemCounter+" ] - Page Order: '"+pageOrder+"' - Folder Name: '"+folderName+"' - Page Name'"+pageName+"'");
 		
 		var navigationMenuFolderTemplate = '\
 		<div class="navigationMenuItem">\n\
@@ -456,6 +459,8 @@ function constructFoundation() {
 		} else {
 			console.log("Folder name '"+folderName+"' already opened");
 		}
+		
+		navigationMenuItemCounter += 1;
 	});
 	
 	
