@@ -391,8 +391,8 @@ function constructFoundation() {
 ';
 	
 	
-	var navigationFolderList = groupBy('NAVIGATION_FOLDER_NAME');
-	console.log(grouped(foundationNavigationMenuPageList));
+	var navigationPageListByFolder = groupBy('NAVIGATION_FOLDER_NAME');
+	console.log(navigationPageListByFolder(foundationNavigationMenuPageList));
 	
 	
 	/*
