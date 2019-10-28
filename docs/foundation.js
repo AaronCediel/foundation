@@ -417,7 +417,7 @@ function constructFoundation() {
 	
 	var navigationMenuFolderOpened = [];
 	var navigationMenuDistinctFolderList = foundationNavigationMenuPageList.map(item => item.NAVIGATION_FOLDER_NAME).filter((value, index, self) => self.indexOf(value) === index);
-	var navigationMenuDistinctFolders = navigationMenuDistinctFolderList.filter(function (element) { return element != null; });
+	var navigationMenuDistinctFolders = navigationMenuDistinctFolderList.filter(function (element) { return element != ""; });
 	console.log("navigationMenuDistinctFolders:");
 	console.log(navigationMenuDistinctFolders);
 	var navigationMenuItemsProcessed = [];
