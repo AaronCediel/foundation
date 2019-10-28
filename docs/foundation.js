@@ -438,8 +438,8 @@ function constructFoundation() {
 		
 		var navigationMenuFolderFirstHtml = '\
 		<div class="navigationMenuItem">\n\
-			<input type="checkbox" id="check'+navigationMenuItemCounter+1+'">\n\
-			<label class="navigationMenuItem-folder" for="check'+navigationMenuItemCounter+1+'">'+folderName+'</label>\n';
+			<input type="checkbox" id="check'+eval(navigationMenuItemCounter + 1)+'">\n\
+			<label class="navigationMenuItem-folder" for="check'+eval(navigationMenuItemCounter + 1)+'">'+folderName+'</label>\n';
 		
 		var navigationMenuFolderMiddleHtml = '\
 			<div class="navigationMenuItem-nested">'+pageName+'</div>\n\
@@ -449,24 +449,33 @@ function constructFoundation() {
 		</div>\n';
 		
 		console.log("Current Navigation Menu Item [ "+navigationMenuItemCounter+" ] - Page Order: '"+pageOrder+"' - Folder Name: '"+folderName+"' - Page Name: '"+pageName+"'");
-		if (navigationMenuItemCounter+1 < foundationNavigationMenuPageList.length) {
-			console.log("Next Navigation Menu Item - Page Order: '"
+		if (navigationMenuItemCounter + 1 < foundationNavigationMenuPageList.length) {
+			/*console.log("Next Navigation Menu Item - Page Order: '"
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_ORDER+"' - Folder Name: '"
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME+"' - Page Name': "
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_NAME+"'");
-			
+			*/
 			if (folderName === '') {
 				navigationMenuHtml += navigationMenuFeaturedPageHtml;
 			} else if ((navigationMenuItemCounter > 0) && (folderName !== '')) {
-				if ((folderName === foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+				if ((folderName === foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter + 1].NAVIGATION_FOLDER_NAME)) {
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
-				} else if ((folderName === foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+				} else if ((folderName === foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter + 1].NAVIGATION_FOLDER_NAME)) {
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
 					navigationMenuHtml += navigationMenuFolderLastHtml;
-				} else if ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+				} else if ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter + 1].NAVIGATION_FOLDER_NAME)) {
 					navigationMenuHtml += navigationMenuFolderFirstHtml;
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
-				} else if ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+				} else if ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter + 1].NAVIGATION_FOLDER_NAME)) {
+					navigationMenuHtml += navigationMenuFolderFirstHtml;
+					navigationMenuHtml += navigationMenuFolderMiddleHtml;
+					navigationMenuHtml += navigationMenuFolderLastHtml;
+				}
+			} else if ((navigationMenuItemCounter + 1 === foundationNavigationMenuPageList.length) && (folderName !== '')) {
+				if (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) {
+					navigationMenuHtml += navigationMenuFolderMiddleHtml;
+					navigationMenuHtml += navigationMenuFolderLastHtml;
+				} else if (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) {
 					navigationMenuHtml += navigationMenuFolderFirstHtml;
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
 					navigationMenuHtml += navigationMenuFolderLastHtml;
@@ -489,11 +498,26 @@ function constructFoundation() {
 		navigationMenuItemCounter += 1;
 	});
 	
-	console.log(navigationMenuHtml);
-	
 	
 	// Initialize Foundation navigation HTML string-container:
 	var navigation = '\
+<!-- --------------------------------------------------------------\n\
+|	Navigation\n\
+---------------------------------------------------------------- -->\n\
+<input type="checkbox" class="openNavigationMenu" id="openNavigationMenu">\n\
+<label for="openNavigationMenu" class="navigationIconToggle">\n\
+	<div class="spinner diagonal part-1"></div>\n\
+	<div class="spinner horizontal"></div>\n\
+	<div class="spinner diagonal part-2"></div>\n\
+</label>\n\
+<div id="navigationMenu">\n\
+	<div class="navigationMenuInner">\n\
+		'+navigationMenuHtml+'\
+	</div>\n\
+</div>\n\
+';
+	/*
+	var navigation_2019-10-28 = '\
 <!-- --------------------------------------------------------------\n\
 |	Navigation\n\
 ---------------------------------------------------------------- -->\n\
@@ -530,7 +554,6 @@ function constructFoundation() {
 	</div>\n\
 </div>\n\
 ';
-	/*
 	<div class="navigationMenuInner">\n\
 		<div class="navigationMenuItem">\n\
 			<input type="radio" id="radio1" name="radio">\n\
