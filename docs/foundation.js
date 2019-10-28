@@ -430,7 +430,11 @@ function constructFoundation() {
 		var pageName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_NAME;
 		var pageIcon = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_ICON;
 		
-		console.log("Navigation Menu Item [ "+navigationMenuItemCounter+" ] - Page Order: '"+pageOrder+"' - Folder Name: '"+folderName+"' - Page Name'"+pageName+"'");
+		console.log("Current Navigation Menu Item [ "+navigationMenuItemCounter+" ] - Page Order: '"+pageOrder+"' - Folder Name: '"+folderName+"' - Page Name'"+pageName+"'");
+		console.log("Next Navigation Menu Item - Page Order: '"
+			    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_ORDER+"' - Folder Name: '"
+			    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME+"' - Page Name'"
+			    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_NAME+"'");
 		
 		var navigationMenuFolderTemplate = '\
 		<div class="navigationMenuItem">\n\
