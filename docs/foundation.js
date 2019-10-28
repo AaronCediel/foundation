@@ -94,6 +94,16 @@ function compareValues(key, order='asc') {
 }
 
 
+// Group By logic for JavaScript/JSON Objects
+// Source: https://gist.github.com/JamieMason/0566f8412af9fe6a1d470aa1e089a752
+const groupBy = key => array =>
+array.reduce((objectsByKeyValue, obj) => {
+	const value = obj[key];
+	objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+	return objectsByKeyValue;
+}, {});
+
+
 // Toggle DOM Class
 function toggleElementClass(querySelector, className) {
 	var element = document.querySelector(querySelector);
@@ -380,9 +390,13 @@ function constructFoundation() {
 </div>\
 ';
 	
-	var grouped = _.mapValues(_.groupBy(foundationNavigationMenuPageList, 'NAVIGATION_FOLDER_NAME')
-					, clist => clist.map(foundationNavigationMenuPageList => _.omit(foundationNavigationMenuPageList, 'NAVIGATION_FOLDER_NAME')));
-	console.log(grouped);
+	
+	const grouped = groupBy('foundationNavigationMenuPageList');
+
+	console.log(
+		JSON.stringify({carsByBrand: grouped(NAVIGATION_FOLDER_NAME)})
+	);
+	
 	
 	/*
 	var navigationFolderList = [];
