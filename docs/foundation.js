@@ -667,7 +667,7 @@ function constructFoundation() {
 
 
 function foundationNavigationInteractivity() {
-	function clickonselectedPage(element,tabsArray) {
+	/*function clickonselectedPage(element,tabsArray) {
 		var pageSelected = element.innerText;
 		// create array of titled tabs
 		var titleTabs = tabsArray;
@@ -698,6 +698,33 @@ function foundationNavigationInteractivity() {
 		pageList.onclick = function () {
 			(clickonselectedPage(pageList,tabsArray));
 		}
+	}*/
+	var clickOnSelectedPage = function() {
+		var pageSelected = this.innerText;
+		console.log("Clicked Page Name: " + pageSelected);
+		// create array of titled tabs
+		var titleTabs = document.getElementsByClassName("sf-element-page-tab");
+		// loop through all titled tabs searching for the title attribute within
+		// and looking for the clciked element's name
+		for (var i = 0, len = titleTabs.length; i < len; i++) {
+			console.log("Tab Name: " + titleTab);
+			var titleTab = titleTabs[i];
+			var titleTab = titleTab.getAttribute("title");
+			if (titleTab == pageSelected) {
+				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)")
+				// Update fdnCurrentPage Document Property with selected Page Name
+				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
+				// Simulate click on the tab to trigger opening the selected Page
+				titleTabs[i].click();
+			}
+		}
+	}
+
+	// fetch list of spotfire native tab pages
+	var htmlPageList = document.getElementsByClassName("fdnNavPageLink");
+	// loop through html dom elements of each page
+	for(var i = 0; i < htmlPageList.length; i++) {
+		htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
 	}
 }
 
