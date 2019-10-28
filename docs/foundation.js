@@ -427,7 +427,7 @@ function constructFoundation() {
 		var pageName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_NAME;
 		var pageIcon = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_ICON;
 		
-		var navigationMenuFolderTemplate += '\
+		var navigationMenuFolderTemplate = '\
 		<div class="navigationMenuItem">\n\
 			<input type="checkbox" id="check1">\n\
 			<label class="navigationMenuItem-folder" for="check1">Folder 1</label>\n\
@@ -439,7 +439,7 @@ function constructFoundation() {
 			</div>-->\n\
 		</div>\n';
 		
-		var navigationMenuPageTemplate += '\
+		var navigationMenuPageTemplate = '\
 		<div class="navigationMenuItem">\n\
 			<div class="navigationMenuItem-featured">\n\
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
