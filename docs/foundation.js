@@ -416,8 +416,10 @@ function constructFoundation() {
 	//console.log(navigationPageListByFolder(foundationNavigationMenuPageList));
 	
 	var navigationMenuFolderOpened = [];
-	var navigationMenuDistinctFolders = foundationNavigationMenuPageList.map(item => item.NAVIGATION_FOLDER_NAME).filter((value, index, self) => self.indexOf(value) === index);
-	console.log("navigationMenuDistinctFolders: "+navigationMenuDistinctFolders)
+	var navigationMenuDistinctFolderList = foundationNavigationMenuPageList.map(item => item.NAVIGATION_FOLDER_NAME).filter((value, index, self) => self.indexOf(value) === index);
+	var navigationMenuDistinctFolders = navigationMenuDistinctFolderList.filter(function (element) { element el != null; });
+	console.log("navigationMenuDistinctFolders:");
+	console.log(navigationMenuDistinctFolders);
 	var navigationMenuItemsProcessed = [];
 	var navigationMenuItems = [];
 	Object.keys(foundationNavigationMenuPageList).forEach(fdnNavPage => {
