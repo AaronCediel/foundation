@@ -509,97 +509,7 @@ function constructFoundation() {
 	</div>\n\
 </div>\n\
 ';
-	/*
-	var navigation_2019-10-28 = '\
-<!-- --------------------------------------------------------------\n\
-|	Navigation\n\
----------------------------------------------------------------- -->\n\
-<input type="checkbox" class="openNavigationMenu" id="openNavigationMenu">\n\
-<label for="openNavigationMenu" class="navigationIconToggle">\n\
-	<div class="spinner diagonal part-1"></div>\n\
-	<div class="spinner horizontal"></div>\n\
-	<div class="spinner diagonal part-2"></div>\n\
-</label>\n\
-<div id="navigationMenu">\n\
-	<div class="navigationMenuInner">\n\
-		<div class="navigationMenuItem">\n\
-			<input type="checkbox" id="check1">\n\
-			<label class="navigationMenuItem-folder" for="check1">Folder 1</label>\n\
-			<div class="navigationMenuItem-nested">\n\
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
-			</div>\n\
-			<div class="navigationMenuItem-details">\n\
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
-			</div>\n\
-		</div>\n\
-		<div class="navigationMenuItem">\n\
-			<div class="navigationMenuItem-featured">\n\
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
-			</div>\n\
-		</div>\n\
-		<div class="navigationMenuItem">\n\
-			<input type="checkbox" id="check2">\n\
-			<label class="navigationMenuItem-folder" for="check2">Folder 2</label>\n\
-			<div class="navigationMenuItem-nested">\n\
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. A, in!\n\
-			</div>\n\
-		</div>\n\
-	</div>\n\
-</div>\n\
-';
-	<div class="navigationMenuInner">\n\
-		<div class="navigationMenuItem">\n\
-			<input type="radio" id="radio1" name="radio">\n\
-			<label class="navigationMenuItem-folder" for="radio1">Folder 1</label>\n\
-			<div class="navigationMenuItem-nested">\n\
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, facilis.\n\
-			</div>\n\
-		</div>\n\
-		<div class="navigationMenuItem">\n\
-			<div class="navigationMenuItem-featured">\n\
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
-			</div>\n\
-		</div>\n\
-		<div class="navigationMenuItem">\n\
-			<input type="radio" id="radio2" name="radio">\n\
-			<label class="navigationMenuItem-folder" for="radio2">Folder 2</label>\n\
-			<div class="navigationMenuItem-nested">\n\
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, aut.\n\
-			</div>\n\
-			<div class="navigationMenuItem-details">\n\
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
-			</div>\n\
-		</div>\n\
-		<div class="navigationMenuItem">\n\
-			<input type="radio" id="radio3" name="radio">\n\
-			<label for="radio3" class="navigationMenuItem-close">Close others &times;</label>\n\
-		</div>\n\
-	</div>\n\
 	
-	var navigationOld = '\
-<!-- --------------------------------------------------------------\n\
-|	Navigation\n\
----------------------------------------------------------------- -->\n\
-<div id="left" class="side-menu">\n\
-	<div id="menuClose" class="menuLink"><i class="material-icons">close</i><span>Navigation</span></div>\n\
-	<div id="pages_list_menu">\n\
-		<div class="menuLink pageslist"><span class="hidden">/Cover/</span><i class="material-icons">home</i><a>Cover</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">/[star] Featured Page/</span><i class="material-icons">star</i><a>Featured Page</a></div>\n\
-		\n\
-		<h3 class="filterTab"><i class="material-icons">folder</i><span class="title">Foundation</span></h3><div class="tab-content page-tab">\n\
-		<div class="menuLink pageslist"><span class="hidden">Ungrouped Page</span><i class="material-icons">arrow_right</i><a>Ungrouped Page</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">[vertical_align_bottom] Scrollable Page</span><i class="material-icons">vertical_align_bottom</i><a>Scrollable Page</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">Flight Page</span><i class="material-icons">flight</i><a>Flight Page</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">Hotel Page</span><i class="material-icons">hotel</i><a>Hotel Page</a></div>\n\
-		</div>\n\
-		\n\
-		<h3 class="filterTab"><i class="material-icons">grade</i><span class="title">Page Group #1</span></h3><div class="tab-content page-tab">\n\
-		<div class="menuLink pageslist"><span class="hidden">[grade] Page Group #1 > [looks_one] Grouped Page #1</span><i class="material-icons">looks_one</i><a>Grouped Page #1</a></div>\n\
-		<div class="menuLink pageslist"><span class="hidden">Page Group #1 > [looks_two] Page #2</span><i class="material-icons">looks_two</i><a>Page #2</a></div>\n\
-		</div>\n\
-	</div>\n\
-</div>\
-';*/
 	
 	// Initialize Foundation currentFilters HTML string-container:
 	var currentFilters = '\
@@ -667,38 +577,6 @@ function constructFoundation() {
 
 
 function foundationNavigationInteractivity() {
-	/*function clickonselectedPage(element,tabsArray) {
-		var pageSelected = element.innerText;
-		// create array of titled tabs
-		var titleTabs = tabsArray;
-		// loop through all titled tabs searching for the title attribute within
-		// and looking for the clciked element's name
-		for (var i = 0, len = titleTabs.length; i < len; i++) {
-			var titleTab = titleTabs[i];
-			var titleTab = titleTab.getAttribute("title");
-			console.log("Clicked Page Name: " + pageSelected);
-			console.log("Tab Name: " + titleTab);
-			if (titleTab == pageSelected) {
-				// Update fdnCurrentPage Document Property with selected Page Name
-				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
-				// Simulate click on the tab to trigger opening the selected Page
-				titleTabs[i].click();
-			}
-		}
-	}
-
-	// fetch list of spotfire native tab pages
-	var htmlPageList = document.querySelectorAll(".fdnNavPageLink");
-	var tabsArray = document.querySelectorAll(".sf-element-page-tab");
-	// loop through html dom elements of each page
-	for (i = 0; i < htmlPageList.length; i++) {
-		// event triggered when clicked on the custom menu item
-		//console.log("I'm entering the loop");
-		var pageList = htmlPageList[i];
-		pageList.onclick = function () {
-			(clickonselectedPage(pageList,tabsArray));
-		}
-	}*/
 	var clickOnSelectedPage = function() {
 		var pageSelected = this.innerText;
 		console.log("Clicked Page Name: " + pageSelected);
@@ -719,7 +597,8 @@ function foundationNavigationInteractivity() {
 			}
 		}
 	}
-
+	
+	// Click Listener Logic Source: https://stackoverflow.com/a/19655662
 	// fetch list of spotfire native tab pages
 	var htmlPageList = document.getElementsByClassName("fdnNavPageLink");
 	// loop through html dom elements of each page
