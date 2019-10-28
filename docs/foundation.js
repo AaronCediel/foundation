@@ -391,9 +391,8 @@ function constructFoundation() {
 ';
 	
 	
-	const grouped = groupBy('NAVIGATION_FOLDER_NAME');
-
-	console.log(JSON.stringify({carsByBrand: grouped(foundationNavigationMenuPageList)}));
+	var navigationFolderList = groupBy('NAVIGATION_FOLDER_NAME');
+	console.log(grouped(foundationNavigationMenuPageList));
 	
 	
 	/*
