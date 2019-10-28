@@ -457,6 +457,15 @@ function constructFoundation() {
 			*/
 			if (folderName === '') {
 				navigationMenuHtml += navigationMenuFeaturedPageHtml;
+			} else if ((navigationMenuItemCounter + 1 === foundationNavigationMenuPageList.length) && (folderName !== '')) {
+				if (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) {
+					navigationMenuHtml += navigationMenuFolderMiddleHtml;
+					navigationMenuHtml += navigationMenuFolderLastHtml;
+				} else if (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) {
+					navigationMenuHtml += navigationMenuFolderFirstHtml;
+					navigationMenuHtml += navigationMenuFolderMiddleHtml;
+					navigationMenuHtml += navigationMenuFolderLastHtml;
+				}
 			} else if ((navigationMenuItemCounter > 0) && (folderName !== '')) {
 				if ((folderName === foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter + 1].NAVIGATION_FOLDER_NAME)) {
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
@@ -467,15 +476,6 @@ function constructFoundation() {
 					navigationMenuHtml += navigationMenuFolderFirstHtml;
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
 				} else if ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter + 1].NAVIGATION_FOLDER_NAME)) {
-					navigationMenuHtml += navigationMenuFolderFirstHtml;
-					navigationMenuHtml += navigationMenuFolderMiddleHtml;
-					navigationMenuHtml += navigationMenuFolderLastHtml;
-				}
-			} else if ((navigationMenuItemCounter + 1 === foundationNavigationMenuPageList.length) && (folderName !== '')) {
-				if (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) {
-					navigationMenuHtml += navigationMenuFolderMiddleHtml;
-					navigationMenuHtml += navigationMenuFolderLastHtml;
-				} else if (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) {
 					navigationMenuHtml += navigationMenuFolderFirstHtml;
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
 					navigationMenuHtml += navigationMenuFolderLastHtml;
