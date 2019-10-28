@@ -479,6 +479,8 @@ function constructFoundation() {
 		navigationMenuItemCounter += 1;
 	});
 	
+	console.log(navigationMenuHtml);
+	
 	
 	// Initialize Foundation navigation HTML string-container:
 	var navigation = '\
