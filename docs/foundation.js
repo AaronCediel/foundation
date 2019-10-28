@@ -466,7 +466,7 @@ function constructFoundation() {
 				} else if ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
 					navigationMenuHtml += navigationMenuFolderFirstHtml;
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
-				} else ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+				} else if ((folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter-1].NAVIGATION_FOLDER_NAME) && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
 					navigationMenuHtml += navigationMenuFolderFirstHtml;
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
 					navigationMenuHtml += navigationMenuFolderLastHtml;
