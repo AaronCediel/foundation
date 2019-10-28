@@ -4,8 +4,17 @@
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+/* Google Material.io Icons
+	Tutorial:	https://www.w3schools.com/icons/google_icons_intro.asp
+	Source:		https://material.io/icons/ */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/* Font Awesome
+	Tutorial:	https://www.w3schools.com/icons/fontawesome_icons_intro.asp
+	Source:		https://fontawesome.com/icons?d=gallery&m=free */
 @import url('https://use.fontawesome.com/releases/v5.0.10/css/all.css');
+/* Font Awesome Animated
+	Tutorial:	http://l-lin.github.io/font-awesome-animation/
+	Git-Project:	https://github.com/l-lin/font-awesome-animation */
 @import url('https://l-lin.github.io/font-awesome-animation/dist/font-awesome-animation.min.css');
 
 #foundationConfig,
