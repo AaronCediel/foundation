@@ -449,7 +449,7 @@ function constructFoundation() {
 		</div>\n';
 		
 		console.log("Current Navigation Menu Item [ "+navigationMenuItemCounter+" ] - Page Order: '"+pageOrder+"' - Folder Name: '"+folderName+"' - Page Name: '"+pageName+"'");
-		if (navigationMenuItemCounter + 1 <= foundationNavigationMenuPageList.length) {
+		if (navigationMenuItemCounter < foundationNavigationMenuPageList.length) {
 			/*console.log("Next Navigation Menu Item - Page Order: '"
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_ORDER+"' - Folder Name: '"
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME+"' - Page Name': "
