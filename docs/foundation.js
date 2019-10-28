@@ -454,7 +454,7 @@ function constructFoundation() {
 		} else {
 			console.log("Folder name '"+folderName+"' already opened");
 		}
-	});*/
+	});
 	
 	
 	// Initialize Foundation navigation HTML string-container:
