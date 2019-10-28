@@ -183,7 +183,7 @@ function constructFoundation() {
 	
 	// Foundation Configuration:
 	var foundationConfig = prepareConfiguration();
-	console.log(foundationConfig);
+	//console.log(foundationConfig);
 	
 	var reportType = foundationConfig.REPORT_TYPE
 		, navigationHideIcons = foundationConfig.NAVIGATION_HIDE_ICONS
@@ -223,14 +223,13 @@ function constructFoundation() {
 	
 	// Foundation Navigation
 	var foundationNavigation = prepareNavigation();
-	console.log(foundationNavigation);
+	//console.log(foundationNavigation);
 	// foundationNavigation.NAVIGATION_PAGE_NAME
 	
 	var foundationActivePageToolbarConfig = [];
 	var foundationNavigationMenuPageListUnsorted = [];
 	Object.keys(foundationNavigation).forEach(fdnNavPage => {
 		//console.log(foundationNavigation[fdnNavPage]);
-		console.log(foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME+" -VS- "+activePage);
 		if (foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME === activePage) {
 			foundationActivePageToolbarConfig = [{
 				"TOOLBAR_FILTERS": foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_FILTERS
@@ -254,11 +253,11 @@ function constructFoundation() {
 			, "NAVIGATION_PAGE_ICON": foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_ICON
 		});
 	});
-	console.log("foundationActivePageToolbarConfig:");
+	console.log("> foundationActivePageToolbarConfig:");
 	console.log(JSON.stringify(foundationActivePageToolbarConfig));
 	
 	var foundationNavigationMenuPageList = foundationNavigationMenuPageListUnsorted.sort(compareValues('NAVIGATION_PAGE_ORDER', 'asc'));
-	console.log("foundationNavigationMenuPageList:");
+	console.log("> foundationNavigationMenuPageList:");
 	console.log(JSON.stringify(foundationNavigationMenuPageList));
 	
 	
@@ -380,6 +379,29 @@ function constructFoundation() {
 	</div>\n\
 </div>\
 ';
+	
+	var grouped = _.mapValues(_.groupBy(foundationNavigationMenuPageList, 'NAVIGATION_FOLDER_NAME')
+					, clist => clist.map(foundationNavigationMenuPageList => _.omit(foundationNavigationMenuPageList, 'NAVIGATION_FOLDER_NAME')));
+	console.log(grouped);
+	
+	/*
+	var navigationFolderList = [];
+	Object.keys(foundationNavigationMenuPageList).forEach(fdnNavPage => {
+		var folderName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_FOLDER_NAME;
+		var pageName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_NAME;
+		
+		navigationFolderList += '\
+		<div class="navigationMenuItem">\n\
+			<input type="checkbox" id="check1">\n\
+			<label class="navigationMenuItem-folder" for="check1">Folder 1</label>\n\
+			<div class="navigationMenuItem-nested">\n\
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
+			</div>\n\
+			<!--<div class="navigationMenuItem-details">\n\
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
+			</div>-->\n\
+		</div>\n';
+	});*/
 	
 	// Initialize Foundation navigation HTML string-container:
 	var navigation = '\
