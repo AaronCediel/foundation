@@ -433,7 +433,7 @@ function constructFoundation() {
 		
 		var navigationMenuFeaturedPageHtml = '\
 		<div class="navigationMenuItem">\n\
-			<div class="navigationMenuItem-featured">'+pageName+'</div>\n\
+			<div class="fdnNavPageLink navigationMenuItem-featured">'+pageName+'</div>\n\
 		</div>\n';
 		
 		var navigationMenuFolderFirstHtml = '\
@@ -442,19 +442,21 @@ function constructFoundation() {
 			<label class="navigationMenuItem-folder" for="check'+eval(navigationMenuItemCounter + 1)+'">'+folderName+'</label>\n';
 		
 		var navigationMenuFolderMiddleHtml = '\
-			<div class="navigationMenuItem-nested">'+pageName+'</div>\n\
+			<div class="fdnNavPageLink navigationMenuItem-nested">'+pageName+'</div>\n\
 			<!--<div class="navigationMenuItem-details"></div>-->\n';
 		
 		var navigationMenuFolderLastHtml = '\
 		</div>\n';
 		
-		console.log("Current Navigation Menu Item [ "+navigationMenuItemCounter+" ] - Page Order: '"+pageOrder+"' - Folder Name: '"+folderName+"' - Page Name: '"+pageName+"'");
 		if (navigationMenuItemCounter < foundationNavigationMenuPageList.length) {
-			/*console.log("Next Navigation Menu Item - Page Order: '"
+			/*
+			console.log("Current Navigation Menu Item [ "+navigationMenuItemCounter+" ] - Page Order: '"+pageOrder+"' - Folder Name: '"+folderName+"' - Page Name: '"+pageName+"'");
+			console.log("Next Navigation Menu Item - Page Order: '"
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_ORDER+"' - Folder Name: '"
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME+"' - Page Name': "
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_NAME+"'");
 			*/
+			
 			if ((folderName !== '') && (navigationMenuItemCounter + 1 === foundationNavigationMenuPageList.length)) {
 				if (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter - 1].NAVIGATION_FOLDER_NAME) {
 					navigationMenuHtml += navigationMenuFolderMiddleHtml;
@@ -485,15 +487,6 @@ function constructFoundation() {
 				navigationMenuHtml += navigationMenuFolderMiddleHtml;
 			}
 		}
-		
-		/*if ((navigationMenuFolderOpened.indexOf(folderName) === -1) && (folderName !== "")) {
-			if (folderName === "") {
-				console.log("Featured Page: '"+pageName+"'");
-			}
-			navigationMenuFolderOpened.push(folderName);
-		} else {
-			console.log("Folder name '"+folderName+"' already opened");
-		}*/
 		
 		navigationMenuItemCounter += 1;
 	});
@@ -673,6 +666,42 @@ function constructFoundation() {
 }
 
 
+function foundationNavigationInteractivity() {
+	function clickonselectedPage(element,tabsArray) {
+		var pageSelected = element.innerText;
+		// create array of titled tabs
+		var titleTabs = tabsArray;
+		// loop through all titled tabs searching for the title attribute within
+		// and looking for the clciked element's name
+		for (var i = 0, len = titleTabs.length; i < len; i++) {
+			var titleTab = titleTabs[i];
+			var titleTab = titleTab.getAttribute("title");
+			console.log("Clicked Page Name: " + pageSelected);
+			console.log("Tab Name: " + titleTab);
+			if (titleTab == pageSelected) {
+				// Update fdnCurrentPage Document Property with selected Page Name
+				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
+				// Simulate click on the tab to trigger opening the selected Page
+				titleTabs[i].click();
+			}
+		}
+	}
+
+	// fetch list of spotfire native tab pages
+	var htmlPageList = document.querySelectorAll(".fdnNavPageLink");
+	var tabsArray = document.querySelectorAll(".sf-element-page-tab");
+	// loop through html dom elements of each page
+	for (i = 0; i < htmlPageList.length; i++) {
+		// event triggered when clicked on the custom menu item
+		//console.log("I'm entering the loop");
+		var pageList = htmlPageList[i];
+		pageList.onclick = function () {
+			(clickonselectedPage(pageList,tabsArray));
+		}
+	}
+}
+
+
 // Make the DIV element draggable:
 // Source: https://www.w3schools.com/howto/howto_js_draggable.asp
 // The draggable div must feature an nested div with ID as element-name + "Handle"; e.g. "draggableDiv" with "draggableDivHandel"
@@ -725,6 +754,7 @@ docReady(function() {
 	convertToDraggable(document.querySelector("#customOptions"));
 	convertToDraggable(document.querySelector("#dataIntegrity"));
 	detectToolbarItemStates();
+	foundationNavigationInteractivity();
 });
 
 
