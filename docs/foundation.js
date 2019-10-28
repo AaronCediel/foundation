@@ -420,9 +420,10 @@ function constructFoundation() {
 	var navigationMenuDistinctFolders = navigationMenuDistinctFolderList.filter(function (element) { return element != ""; });
 	console.log("navigationMenuDistinctFolders:");
 	console.log(navigationMenuDistinctFolders);
-	var navigationMenuItemsProcessed = [];
-	var navigationMenuItems = [];
+	//var navigationMenuItemsProcessed = [];
+	//var navigationMenuItems = [];
 	var navigationMenuItemCounter = 0;
+	var navigationMenuHtml = '';
 	Object.keys(foundationNavigationMenuPageList).forEach(fdnNavPage => {
 		var pageOrder = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_ORDER;
 		var folderName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_FOLDER_NAME;
@@ -430,41 +431,50 @@ function constructFoundation() {
 		var pageName = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_NAME;
 		var pageIcon = foundationNavigationMenuPageList[fdnNavPage].NAVIGATION_PAGE_ICON;
 		
+		var navigationMenuFeaturedPageHtml = '\
+		<div class="navigationMenuItem">\n\
+			<div class="navigationMenuItem-featured">'+pageName+'</div>\n\
+		</div>\n';
+		
+		var navigationMenuFolderFirstHtml = '\
+		<div class="navigationMenuItem">\n\
+			<input type="checkbox" id="check'+navigationMenuItemCounter+1+'">\n\
+			<label class="navigationMenuItem-folder" for="check'+navigationMenuItemCounter+1+'">'+folderName+'</label>\n';
+		
+		var navigationMenuFolderMiddleHtml = '\
+			<div class="navigationMenuItem-nested">'+pageName+'</div>\n\
+			<!--<div class="navigationMenuItem-details"></div>-->\n';
+		
+		var navigationMenuFolderLastHtml = '\
+		</div>\n';
+		
 		console.log("Current Navigation Menu Item [ "+navigationMenuItemCounter+" ] - Page Order: '"+pageOrder+"' - Folder Name: '"+folderName+"' - Page Name: '"+pageName+"'");
 		if (navigationMenuItemCounter+1 < foundationNavigationMenuPageList.length) {
 			console.log("Next Navigation Menu Item - Page Order: '"
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_ORDER+"' - Folder Name: '"
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME+"' - Page Name': "
 				    +foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_PAGE_NAME+"'");
+			
+			if (folderName === '') {
+				navigationMenuHtml += navigationMenuFeaturedPageHtml;
+			} else if ((folderName !== '') && (folderName !== foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+				navigationMenuHtml += navigationMenuFolderLastHtml;
+			} else if ((folderName !== '') && (folderName === foundationNavigationMenuPageList[navigationMenuItemCounter+1].NAVIGATION_FOLDER_NAME)) {
+				navigationMenuHtml += navigationMenuFolderMiddleHtml;
+			} else {
+				navigationMenuHtml += navigationMenuFolderFirstHtml;
+				navigationMenuHtml += navigationMenuFolderMiddleHtml;
+			}
 		}
 		
-		var navigationMenuFolderTemplate = '\
-		<div class="navigationMenuItem">\n\
-			<input type="checkbox" id="check1">\n\
-			<label class="navigationMenuItem-folder" for="check1">Folder 1</label>\n\
-			<div class="navigationMenuItem-nested">\n\
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
-			</div>\n\
-			<!--<div class="navigationMenuItem-details">\n\
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
-			</div>-->\n\
-		</div>\n';
-		
-		var navigationMenuPageTemplate = '\
-		<div class="navigationMenuItem">\n\
-			<div class="navigationMenuItem-featured">\n\
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!\n\
-			</div>\n\
-		</div>\n';
-		
-		if ((navigationMenuFolderOpened.indexOf(folderName) === -1) && (folderName !== "")) {
+		/*if ((navigationMenuFolderOpened.indexOf(folderName) === -1) && (folderName !== "")) {
 			if (folderName === "") {
 				console.log("Featured Page: '"+pageName+"'");
 			}
 			navigationMenuFolderOpened.push(folderName);
 		} else {
 			console.log("Folder name '"+folderName+"' already opened");
-		}
+		}*/
 		
 		navigationMenuItemCounter += 1;
 	});
