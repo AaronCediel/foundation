@@ -58,6 +58,51 @@ if (opSys === 'MacOS') scrollbarWidth = 8;
 */
 
 
+// https://vnese.wordpress.com/2010/04/08/include-one-javascript-file-from-another-without-the-magic-of-jquery/
+// or: https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript/28002292#28002292
+function getScript(url, jsId, callback){
+	var script	= document.createElement('script');
+	script.id	= jsId;
+	script.type	= 'text/javascript';
+	script.src	= url;
+	// most browsers
+	script.onload = callback;
+	// IE 6 & 7
+	script.onreadystatechange = function() {
+		if (this.readyState == 'complete') {
+			callback();
+		}
+	}
+	var element = document.getElementById(jsId);
+	if (element === null) {
+		document.getElementsByTagName('head')[0].appendChild(script);
+	}
+}
+
+
+// https://stackoverflow.com/questions/574944/how-to-load-up-css-files-using-javascript
+function getCss(url, cssId, callback){
+	var link	= document.createElement('link');
+	link.id		= cssId;
+	link.rel	= 'stylesheet';
+	link.type	= 'text/css';
+	link.href	= url;
+	link.media	= 'all';
+	// most browsers
+	link.onload = callback;
+	// IE 6 & 7
+	link.onreadystatechange = function() {
+		if (this.readyState == 'complete') {
+			callback();
+		}
+	}
+	var element = document.getElementById(cssId);
+	if (element === null) {
+		document.getElementsByTagName('head')[0].appendChild(link);
+	}
+}
+
+
 // Append Pseudo class styles to <head> if they do not exist yet:
 function appendStylesToHead(id, styles) {
 	var elementExists = $("#"+id).length;
@@ -590,10 +635,26 @@ function foundationNavigationInteractivity() {
 			var titleTab = titleTab.getAttribute("title");
 			if (titleTab == pageSelected) {
 				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)")
+				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
+				
+				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
+				document.querySelector('#FoundationJS').remove();
+				document.querySelector('#FoundationCSS').remove();
+				
 				// Simulate click on the tab to trigger opening the selected Page
 				titleTabs[i].click();
+				
+				// Reload the JS & CSS Foundation Libraries after the page had changed
+				var pageChangeDate = new Date();
+				var pageChangeTimeStamp = pageChangeDate.valueOf();
+				getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+					console.log('Foundation Framework - JS initialized');
+				});
+				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+					console.log('Foundation Framework - CSS initialized');
+				});
 			}
 		}
 	}
