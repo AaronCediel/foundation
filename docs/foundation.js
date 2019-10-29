@@ -668,6 +668,42 @@ function foundationNavigationInteractivity() {
 }
 
 
+function foundationNavigationSpotfireNative() {
+	var clickAction = function() {
+		var titleTab = this.getAttribute("title");
+		console.log("Clicked Page Name (via Spotfire native tabbed navigation): " + titleTab);
+
+		// Update fdnCurrentPage Document Property with selected Page Name
+		setDocPropViaInput("#fdnCurrentPage input", titleTab);
+
+		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
+		document.querySelector('#FoundationJS').remove();
+		document.querySelector('#FoundationCSS').remove();
+
+		// Simulate click on the tab to trigger opening the selected Page
+		//this.click();
+
+		// Reload the JS & CSS Foundation Libraries after the page had changed
+		var pageChangeDate = new Date();
+		var pageChangeTimeStamp = pageChangeDate.valueOf();
+		getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+			console.log('Foundation Framework - JS initialized');
+		});
+		getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+			console.log('Foundation Framework - CSS initialized');
+		});
+	}
+	
+	// Click Listener Logic Source: https://stackoverflow.com/a/19655662
+	// fetch list of spotfire native tab pages
+	var titleTabs = document.getElementsByClassName("sf-element-page-tab");
+	// loop through html dom elements of each page
+	for(var i = 0; i < titleTabs.length; i++) {
+		titleTabs[i].addEventListener('click', clickAction, false);
+	}
+}
+
+
 // Make the DIV element draggable:
 // Source: https://www.w3schools.com/howto/howto_js_draggable.asp
 // The draggable div must feature an nested div with ID as element-name + "Handle"; e.g. "draggableDiv" with "draggableDivHandel"
@@ -721,6 +757,7 @@ docReady(function() {
 	convertToDraggable(document.querySelector("#dataIntegrity"));
 	detectToolbarItemStates();
 	foundationNavigationInteractivity();
+	foundationNavigationSpotfireNative();
 });
 
 
