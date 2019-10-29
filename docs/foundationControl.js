@@ -26,7 +26,7 @@ function docReady(fn) {
 
 
 
-functiuon appendFoundationToHead() {
+function appendFoundationToHead() {
 	
 }
 
