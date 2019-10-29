@@ -141,22 +141,27 @@ function compareValues(key, order='asc') {
 
 // Group By logic for JavaScript/JSON Objects
 // Source: https://gist.github.com/JamieMason/0566f8412af9fe6a1d470aa1e089a752
-const groupBy = key => array =>
+// [DEPRECATED] 2019-10-29: the const groupBy function caused a conflict when reloading the file upon page change.
+// A possible solution would be to convert the "const" into "var".
+/*const groupBy = key => array =>
 array.reduce((objectsByKeyValue, obj) => {
 	const value = obj[key];
 	objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
 	return objectsByKeyValue;
-}, {});
+}, {});*/
+// Use Example:
+// >	var navigationPageListByFolder = groupBy('NAVIGATION_FOLDER_NAME');
+// >	console.log(navigationPageListByFolder(foundationNavigationMenuPageList));
 
 
 // Push to array if Element does not exist:
 // Source 1: https://code-examples.net/en/q/1e56fd
 // Source 2: https://stackoverflow.com/a/1988361
-
+// --
 // check if an element exists in array using a comparer function
 // comparer : function(currentElement)
 Array.prototype.inArray = function(comparer) {
-	for(var i=0; i < this.length; i++) {
+	for(var i = 0; i < this.length; i++) {
 		if(comparer(this[i])) return true;
 	}
 	return false;
@@ -456,17 +461,11 @@ function constructFoundation() {
 </div>\
 ';
 	
-	
-	//var navigationPageListByFolder = groupBy('NAVIGATION_FOLDER_NAME');
-	//console.log(navigationPageListByFolder(foundationNavigationMenuPageList));
-	
-	var navigationMenuFolderOpened = [];
-	var navigationMenuDistinctFolderList = foundationNavigationMenuPageList.map(item => item.NAVIGATION_FOLDER_NAME).filter((value, index, self) => self.indexOf(value) === index);
+	/*var navigationMenuDistinctFolderList = foundationNavigationMenuPageList.map(item => item.NAVIGATION_FOLDER_NAME).filter((value, index, self) => self.indexOf(value) === index);
 	var navigationMenuDistinctFolders = navigationMenuDistinctFolderList.filter(function (element) { return element != ""; });
 	console.log("navigationMenuDistinctFolders:");
-	console.log(navigationMenuDistinctFolders);
-	//var navigationMenuItemsProcessed = [];
-	//var navigationMenuItems = [];
+	console.log(navigationMenuDistinctFolders);*/
+	
 	var navigationMenuItemCounter = 0;
 	var navigationMenuHtml = '';
 	Object.keys(foundationNavigationMenuPageList).forEach(fdnNavPage => {
