@@ -175,6 +175,26 @@ Array.prototype.pushIfNotExist = function(element, comparer) {
 };
 
 
+// detect boolean value from string (e.g. "true" or "false")
+// Source:
+function parseBoolean(string) {
+	var bool;
+	bool = (function() {
+		switch (false) {
+			case string.toLowerCase() !== 'true':
+				return true;
+			case string.toLowerCase() !== 'false':
+				return false;
+		}
+	})();
+	if (typeof bool === "boolean") {
+		return bool;
+	}
+	return void 0;
+};
+
+
+
 // Toggle DOM Class
 function toggleElementClass(querySelector, className) {
 	var element = document.querySelector(querySelector);
@@ -313,16 +333,16 @@ function constructFoundation() {
 		//console.log(foundationNavigation[fdnNavPage]);
 		if (foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME === activePage) {
 			foundationActivePageToolbarConfig = [{
-				"TOOLBAR_FILTERS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_FILTERS == 'true')
-				, "TOOLBAR_BOOKMARKS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_BOOKMARKS == 'true')
-				, "TOOLBAR_RELOAD": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RELOAD == 'true')
-				, "TOOLBAR_RESET": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RESET == 'true')
-				, "TOOLBAR_COMMANDS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_COMMANDS == 'true')
-				, "TOOLBAR_CURRENT_FILTERS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS == 'true')
-				, "TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING == 'true')
-				, "TOOLBAR_OPEN_TICKET": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_OPEN_TICKET == 'true')
-				, "TOOLBAR_DATA_INTEGRITY": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_DATA_INTEGRITY == 'true')
-				, "TOOLBAR_INFO": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_INFO == 'true')
+				"TOOLBAR_FILTERS": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_FILTERS)
+				, "TOOLBAR_BOOKMARKS": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_BOOKMARKS)
+				, "TOOLBAR_RELOAD": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RELOAD)
+				, "TOOLBAR_RESET": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RESET)
+				, "TOOLBAR_COMMANDS": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_COMMANDS)
+				, "TOOLBAR_CURRENT_FILTERS": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS)
+				, "TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING)
+				, "TOOLBAR_OPEN_TICKET": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_OPEN_TICKET)
+				, "TOOLBAR_DATA_INTEGRITY": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_DATA_INTEGRITY)
+				, "TOOLBAR_INFO": parseBoolean(foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_INFO)
 			}];
 		}
 		
