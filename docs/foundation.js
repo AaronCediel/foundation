@@ -313,16 +313,16 @@ function constructFoundation() {
 		//console.log(foundationNavigation[fdnNavPage]);
 		if (foundationNavigation[fdnNavPage].fdnNavigation.NAVIGATION_PAGE_NAME === activePage) {
 			foundationActivePageToolbarConfig = [{
-				"TOOLBAR_FILTERS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_FILTERS === 'TRUE')
-				, "TOOLBAR_BOOKMARKS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_BOOKMARKS === 'TRUE')
-				, "TOOLBAR_RELOAD": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RELOAD === 'TRUE')
-				, "TOOLBAR_RESET": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RESET === 'TRUE')
-				, "TOOLBAR_COMMANDS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_COMMANDS === 'TRUE')
-				, "TOOLBAR_CURRENT_FILTERS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS === 'TRUE')
-				, "TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING === 'TRUE')
-				, "TOOLBAR_OPEN_TICKET": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_OPEN_TICKET === 'TRUE')
-				, "TOOLBAR_DATA_INTEGRITY": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_DATA_INTEGRITY === 'TRUE')
-				, "TOOLBAR_INFO": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_INFO === 'TRUE')
+				"TOOLBAR_FILTERS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_FILTERS == 'true')
+				, "TOOLBAR_BOOKMARKS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_BOOKMARKS == 'true')
+				, "TOOLBAR_RELOAD": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RELOAD == 'true')
+				, "TOOLBAR_RESET": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_RESET == 'true')
+				, "TOOLBAR_COMMANDS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_COMMANDS == 'true')
+				, "TOOLBAR_CURRENT_FILTERS": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS == 'true')
+				, "TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_CURRENT_FILTERS_AUTO_PROCESSING == 'true')
+				, "TOOLBAR_OPEN_TICKET": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_OPEN_TICKET == 'true')
+				, "TOOLBAR_DATA_INTEGRITY": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_DATA_INTEGRITY == 'true')
+				, "TOOLBAR_INFO": (foundationNavigation[fdnNavPage].fdnNavigation.TOOLBAR_INFO == 'true')
 			}];
 		}
 		
