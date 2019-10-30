@@ -659,8 +659,17 @@ function foundationNavigationInteractivity() {
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
 				
 				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
-				document.querySelector('#FoundationJS').remove();
-				document.querySelector('#FoundationCSS').remove();
+				var fdnJS = document.querySelector("#FoundationJS");
+				if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
+					document.querySelector('#FoundationJS').remove();
+				}
+				var fdnCSS = document.querySelector("#FoundationCSS");
+				if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
+					document.querySelector('#FoundationCSS').remove();
+				}
+
+				// Remove Click Event Listeners before changing the page for reloading on next page
+				removeClickListenersUponPageChange();
 				
 				// Simulate click on the tab to trigger opening the selected Page
 				titleTabs[i].click();
@@ -685,6 +694,20 @@ function foundationNavigationInteractivity() {
 	for(var i = 0; i < htmlPageList.length; i++) {
 		htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
 	}
+	
+	function removeClickListenersUponPageChange() {
+		// Spotfire Native Tabbed Navigation
+		var sfTitleTabs = document.getElementsByClassName("sf-element-page-tab");
+		for(var i = 0; i < sfTitleTabs.length; i++) {
+			sfTitleTabs[i].removeEventListener('click', clickAction);
+		}
+		// Foundation Navigation
+		var fdnHtmlPageList = document.getElementsByClassName("fdnNavPageLink");
+		// loop through html dom elements of each page
+		for(var i = 0; i < fdnHtmlPageList.length; i++) {
+			fdnHtmlPageList[i].removeEventListener('click', clickOnSelectedPage);
+		}
+	}
 }
 
 
@@ -697,8 +720,17 @@ function foundationNavigationSpotfireNative() {
 		setDocPropViaInput("#fdnCurrentPage input", titleTab);
 
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
-		document.querySelector('#FoundationJS').remove();
-		document.querySelector('#FoundationCSS').remove();
+		var fdnJS = document.querySelector("#FoundationJS");
+		if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
+			document.querySelector('#FoundationJS').remove();
+		}
+		var fdnCSS = document.querySelector("#FoundationCSS");
+		if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
+			document.querySelector('#FoundationCSS').remove();
+		}
+		
+		// Remove Click Event Listeners before changing the page for reloading on next page
+		removeClickListenersUponPageChange();
 
 		// Simulate click on the tab to trigger opening the selected Page
 		//this.click();
@@ -720,6 +752,20 @@ function foundationNavigationSpotfireNative() {
 	// loop through html dom elements of each page
 	for(var i = 0; i < titleTabs.length; i++) {
 		titleTabs[i].addEventListener('click', clickAction, false);
+	}
+	
+	function removeClickListenersUponPageChange() {
+		// Spotfire Native Tabbed Navigation
+		var sfTitleTabs = document.getElementsByClassName("sf-element-page-tab");
+		for(var i = 0; i < sfTitleTabs.length; i++) {
+			sfTitleTabs[i].removeEventListener('click', clickAction);
+		}
+		// Foundation Navigation
+		var fdnHtmlPageList = document.getElementsByClassName("fdnNavPageLink");
+		// loop through html dom elements of each page
+		for(var i = 0; i < fdnHtmlPageList.length; i++) {
+			fdnHtmlPageList[i].removeEventListener('click', clickOnSelectedPage);
+		}
 	}
 }
 
