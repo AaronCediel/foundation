@@ -43,7 +43,9 @@
 ****************************************************************/
 
 #fdnFunction,
-#fdnCurrentPage {
+#fdnCurrentPage,
+#fdnSpotfireVersion,
+#fdnSpotfireEnvironment {
 	display: inline-block;
 	margin: 12px;
 }
