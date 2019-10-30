@@ -659,51 +659,42 @@ function foundationNavigationInteractivity() {
 				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)")
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
-				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
+				//setDocPropViaInput("#fdnCurrentPage input", pageSelected);
 
 				// Remove Click Event Listeners before changing the page for reloading on next page
 				//removeClickListenersUponPageChange();
 				
 				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
-				var fdnJS = document.querySelector("#FoundationJS");
+				/*var fdnJS = document.querySelector("#FoundationJS");
 				if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
 					document.querySelector('#FoundationJS').remove();
 				}
 				var fdnCSS = document.querySelector("#FoundationCSS");
 				if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
 					document.querySelector('#FoundationCSS').remove();
-				}
+				}*/
 				
 				// Simulate click on the tab to trigger opening the selected Page
 				titleTabs[i].click();
 				
+				console.log("Transfering Click to Spotfire Native Tabbed Navigation Page Name: " + titleTab);
+				
 				// Reload the JS & CSS Foundation Libraries after the page had changed
-				var pageChangeDate = new Date();
+				/*var pageChangeDate = new Date();
 				var pageChangeTimeStamp = pageChangeDate.valueOf();
 				getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
 					console.log('Foundation Framework - JS initialized');
 				});
 				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
 					console.log('Foundation Framework - CSS initialized');
-				});
+				});*/
 			}
 		}
 	}
 	
-	// Click Listener Logic Source: https://stackoverflow.com/a/19655662
-	// fetch list of spotfire native tab pages
-	var htmlPageList = document.getElementsByClassName("fdnNavPageLink");
-	// loop through html dom elements of each page
-	for(var i = 0; i < htmlPageList.length; i++) {
-		//htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
-		//htmlPageList[i].onclick = function() { clickOnSelectedPage(htmlPageList[i].innerText); }
-		htmlPageList[i].onclick = clickOnSelectedPage;
-	}
-	
-	
-	function clickAction(titleTab) {
-		//var titleTab = this.getAttribute("title");
-		console.log("Clicked Page Name (via Spotfire native tabbed navigation): " + titleTab);
+	function clickAction() {
+		var titleTab = this.getAttribute("title");
+		console.log("Clicked Spotfire Native Tabbed Navigation Page Name: " + titleTab);
 
 		// Update fdnCurrentPage Document Property with selected Page Name
 		setDocPropViaInput("#fdnCurrentPage input", titleTab);
@@ -737,11 +728,22 @@ function foundationNavigationInteractivity() {
 	
 	// Click Listener Logic Source: https://stackoverflow.com/a/19655662
 	// fetch list of spotfire native tab pages
+	var htmlPageList = document.getElementsByClassName("fdnNavPageLink");
+	// loop through html dom elements of each page
+	for(var i = 0; i < htmlPageList.length; i++) {
+		//htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
+		//htmlPageList[i].onclick = function() { clickOnSelectedPage(htmlPageList[i].innerText); }
+		htmlPageList[i].onclick = clickOnSelectedPage;
+	}
+	
+	// Click Listener Logic Source: https://stackoverflow.com/a/19655662
+	// fetch list of spotfire native tab pages
 	var titleTabs = document.getElementsByClassName("sf-element-page-tab");
 	// loop through html dom elements of each page
 	for(var i = 0; i < titleTabs.length; i++) {
 		//titleTabs[i].addEventListener('click', clickAction, false);
-		titleTabs[i].onclick = function() { clickAction(titleTabs[i].getAttribute("title")); }
+		//titleTabs[i].onclick = function() { clickAction(titleTabs[i].getAttribute("title")); }
+		titleTabs[i].onclick = clickAction;
 	}
 	
 	/*function removeClickListenersUponPageChange() {
