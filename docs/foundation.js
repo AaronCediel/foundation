@@ -739,16 +739,16 @@ function foundationNavigationInteractivity() {
 	}
 	
 	function removeClickListenersUponPageChange() {
-		// Spotfire Native Tabbed Navigation
-		var sfTitleTabs = document.getElementsByClassName("sf-element-page-tab");
-		for(var i = 0; i < sfTitleTabs.length; i++) {
-			sfTitleTabs[i].removeEventListener('click');
-		}
 		// Foundation Navigation
 		var fdnHtmlPageList = document.getElementsByClassName("fdnNavPageLink");
 		// loop through html dom elements of each page
 		for(var i = 0; i < fdnHtmlPageList.length; i++) {
-			fdnHtmlPageList[i].removeEventListener('click');
+			fdnHtmlPageList[i].removeEventListener('click', clickOnSelectedPage);
+		}
+		// Spotfire Native Tabbed Navigation
+		var sfTitleTabs = document.getElementsByClassName("sf-element-page-tab");
+		for(var i = 0; i < sfTitleTabs.length; i++) {
+			sfTitleTabs[i].removeEventListener('click', clickAction);
 		}
 	}
 }
