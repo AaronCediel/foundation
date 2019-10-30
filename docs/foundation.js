@@ -657,6 +657,9 @@ function foundationNavigationInteractivity() {
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
+
+				// Remove Click Event Listeners before changing the page for reloading on next page
+				removeClickListenersUponPageChange();
 				
 				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 				var fdnJS = document.querySelector("#FoundationJS");
@@ -667,9 +670,6 @@ function foundationNavigationInteractivity() {
 				if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
 					document.querySelector('#FoundationCSS').remove();
 				}
-
-				// Remove Click Event Listeners before changing the page for reloading on next page
-				removeClickListenersUponPageChange();
 				
 				// Simulate click on the tab to trigger opening the selected Page
 				titleTabs[i].click();
@@ -695,29 +695,16 @@ function foundationNavigationInteractivity() {
 		htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
 	}
 	
-	function removeClickListenersUponPageChange() {
-		// Spotfire Native Tabbed Navigation
-		var sfTitleTabs = document.getElementsByClassName("sf-element-page-tab");
-		for(var i = 0; i < sfTitleTabs.length; i++) {
-			sfTitleTabs[i].removeEventListener('click', clickAction);
-		}
-		// Foundation Navigation
-		var fdnHtmlPageList = document.getElementsByClassName("fdnNavPageLink");
-		// loop through html dom elements of each page
-		for(var i = 0; i < fdnHtmlPageList.length; i++) {
-			fdnHtmlPageList[i].removeEventListener('click', clickOnSelectedPage);
-		}
-	}
-}
-
-
-function foundationNavigationSpotfireNative() {
+	
 	var clickAction = function() {
 		var titleTab = this.getAttribute("title");
 		console.log("Clicked Page Name (via Spotfire native tabbed navigation): " + titleTab);
 
 		// Update fdnCurrentPage Document Property with selected Page Name
 		setDocPropViaInput("#fdnCurrentPage input", titleTab);
+		
+		// Remove Click Event Listeners before changing the page for reloading on next page
+		removeClickListenersUponPageChange();
 
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 		var fdnJS = document.querySelector("#FoundationJS");
@@ -728,9 +715,6 @@ function foundationNavigationSpotfireNative() {
 		if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
 			document.querySelector('#FoundationCSS').remove();
 		}
-		
-		// Remove Click Event Listeners before changing the page for reloading on next page
-		removeClickListenersUponPageChange();
 
 		// Simulate click on the tab to trigger opening the selected Page
 		//this.click();
@@ -758,13 +742,13 @@ function foundationNavigationSpotfireNative() {
 		// Spotfire Native Tabbed Navigation
 		var sfTitleTabs = document.getElementsByClassName("sf-element-page-tab");
 		for(var i = 0; i < sfTitleTabs.length; i++) {
-			sfTitleTabs[i].removeEventListener('click', clickAction);
+			sfTitleTabs[i].removeEventListener('click');
 		}
 		// Foundation Navigation
 		var fdnHtmlPageList = document.getElementsByClassName("fdnNavPageLink");
 		// loop through html dom elements of each page
 		for(var i = 0; i < fdnHtmlPageList.length; i++) {
-			fdnHtmlPageList[i].removeEventListener('click', clickOnSelectedPage);
+			fdnHtmlPageList[i].removeEventListener('click');
 		}
 	}
 }
@@ -823,7 +807,6 @@ docReady(function() {
 	convertToDraggable(document.querySelector("#dataIntegrity"));
 	detectToolbarItemStates();
 	foundationNavigationInteractivity();
-	foundationNavigationSpotfireNative();
 });
 
 
