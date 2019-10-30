@@ -245,7 +245,7 @@ input#openDataIntegrity[type=checkbox] {
 	font-family: 'Ubuntu', 'Roboto', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
 	border-radius: 5px;
 	border: 2px solid #E81193;
-	transform: translateX(-322px);
+	transform: translateX(-325px);
 	transition: transform 250ms ease-in-out;
 	overflow: hidden;
 	z-index: 1;
