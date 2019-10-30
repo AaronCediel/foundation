@@ -566,6 +566,44 @@ function constructFoundation() {
 ';
 	
 	
+	// Initialize Foundation navigation HTML string-container:
+	var cover = '\
+<!-- --------------------------------------------------------------\n\
+|	Cover\n\
+---------------------------------------------------------------- -->\n\
+<div id="coverContainer">\n\
+	<div id="cover">\n\
+		<!-- Title: -->\n\
+		<div id="title" class="content fullWidth">\n\
+			<h1><b>'+reportName+'</b></h1>\n\
+		</div>\n\
+		<!-- Version: -->\n\
+		<div id="version" class="content fullWidth"><span class="version">v.'+reportVersion+'</span></div>\n\
+		<!-- Commands: -->\n\
+		<div id="coverCommands" class="content fullWidth">\n\
+			<!-- Open Report: -->\n\
+			<div id="fdnCoverButtonOpenReport" class="button large" style="display: inline-block;">Open Report</div>\n\
+			<!-- Reset Default: -->\n\
+			<div id="fdnCoverButtonResetDefault" class="button large" style="display: inline-block;">Reset to Default</div>\n\
+		</div>\n\
+		<!-- Confluence Documentation: -->\n\
+		<div id="confDoc" class="content fullWidth">\n\
+			<p>Access to the report user guide on Confluence:\n\
+			<br><a id="confluenceDocumentationCoverLink" href="'+linkConfluenceDocumentation+'" target="_blank">'+reportName+'</a></p>\n\
+		</div>\n\
+	</div>\n\
+</div>\n\
+';
+	
+	
+	// Initialize Foundation navigation HTML string-container:
+	var settings = '\
+<!-- --------------------------------------------------------------\n\
+|	Settings\n\
+---------------------------------------------------------------- -->\n\
+';
+	
+	
 	// Initialize Foundation currentFilters HTML string-container:
 	var currentFilters = '\
 <!-- --------------------------------------------------------------\n\
@@ -606,6 +644,8 @@ function constructFoundation() {
 	
 	//document.getElementById("foundation").innerHTML = foundation;
 	document.querySelector("#foundation").innerHTML = foundation;
+	document.querySelector("#foundationCover").innerHTML = cover;
+	document.querySelector("#foundationSettings").innerHTML = settings;
 	
 	// Foundation Toolbar Functionality
 	// Default Reset:
