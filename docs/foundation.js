@@ -644,8 +644,8 @@ function constructFoundation() {
 
 
 function foundationNavigationInteractivity() {
-	function clickOnSelectedPage(pageSelected) {
-		//var pageSelected = this.innerText;
+	function clickOnSelectedPage() {
+		var pageSelected = this.innerText;
 		console.log("Clicked Page Name: " + pageSelected);
 		// create array of titled tabs
 		var titleTabs = document.getElementsByClassName("sf-element-page-tab");
@@ -696,7 +696,8 @@ function foundationNavigationInteractivity() {
 	// loop through html dom elements of each page
 	for(var i = 0; i < htmlPageList.length; i++) {
 		//htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
-		htmlPageList[i].onclick = function() { clickOnSelectedPage(htmlPageList[i].innerText); }
+		//htmlPageList[i].onclick = function() { clickOnSelectedPage(htmlPageList[i].innerText); }
+		htmlPageList[i].onclick = clickOnSelectedPage;
 	}
 	
 	
