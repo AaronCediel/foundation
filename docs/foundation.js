@@ -701,6 +701,7 @@ function foundationNavigationInteractivity() {
 	for(var i = 0; i < htmlPageList.length; i++) {
 		//htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
 		//htmlPageList[i].onclick = function() { clickOnSelectedPage(htmlPageList[i].innerText); }
+		// https://www.sitepoint.com/community/t/someelement-onclick-somefunction-how-to-pass-an-argument-to-function/13135/4
 		htmlPageList[i].onclick = clickOnSelectedPage;
 	}
 	
