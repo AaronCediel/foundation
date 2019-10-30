@@ -566,7 +566,7 @@ function constructFoundation() {
 ';
 	
 	
-	// Initialize Foundation navigation HTML string-container:
+	// Initialize Foundation cover HTML string-container:
 	var cover = '\
 <!-- --------------------------------------------------------------\n\
 |	Cover\n\
@@ -596,7 +596,7 @@ function constructFoundation() {
 ';
 	
 	
-	// Initialize Foundation navigation HTML string-container:
+	// Initialize Foundation settings HTML string-container:
 	var settings = '\
 <!-- --------------------------------------------------------------\n\
 |	Settings\n\
