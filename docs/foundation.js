@@ -176,7 +176,7 @@ Array.prototype.pushIfNotExist = function(element, comparer) {
 
 
 // detect boolean value from string (e.g. "true" or "false")
-// Source:
+// Source: https://coderwall.com/p/fpbkeg/parse-a-boolean-from-a-string-in-javascript
 function parseBoolean(string) {
 	var bool;
 	bool = (function() {
