@@ -644,8 +644,8 @@ function constructFoundation() {
 
 
 function foundationNavigationInteractivity() {
-	var clickOnSelectedPage = function() {
-		var pageSelected = this.innerText;
+	function clickOnSelectedPage(pageSelected) {
+		//var pageSelected = this.innerText;
 		console.log("Clicked Page Name: " + pageSelected);
 		// create array of titled tabs
 		var titleTabs = document.getElementsByClassName("sf-element-page-tab");
@@ -696,12 +696,12 @@ function foundationNavigationInteractivity() {
 	// loop through html dom elements of each page
 	for(var i = 0; i < htmlPageList.length; i++) {
 		//htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
-		htmlPageList[i].onclick = function() { clickOnSelectedPage(); }
+		htmlPageList[i].onclick = function() { clickOnSelectedPage(htmlPageList[i].innerText); }
 	}
 	
 	
-	var clickAction = function() {
-		var titleTab = this.getAttribute("title");
+	function clickAction(titleTab) {
+		//var titleTab = this.getAttribute("title");
 		console.log("Clicked Page Name (via Spotfire native tabbed navigation): " + titleTab);
 
 		// Update fdnCurrentPage Document Property with selected Page Name
@@ -740,7 +740,7 @@ function foundationNavigationInteractivity() {
 	// loop through html dom elements of each page
 	for(var i = 0; i < titleTabs.length; i++) {
 		//titleTabs[i].addEventListener('click', clickAction, false);
-		titleTabs[i].onclick = function() { clickAction(); }
+		titleTabs[i].onclick = function() { clickAction(titleTabs[i].getAttribute("title")); }
 	}
 	
 	/*function removeClickListenersUponPageChange() {
