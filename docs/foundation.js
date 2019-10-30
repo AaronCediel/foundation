@@ -695,7 +695,8 @@ function foundationNavigationInteractivity() {
 	var htmlPageList = document.getElementsByClassName("fdnNavPageLink");
 	// loop through html dom elements of each page
 	for(var i = 0; i < htmlPageList.length; i++) {
-		htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
+		//htmlPageList[i].addEventListener('click', clickOnSelectedPage, false);
+		htmlPageList[i].onclick = function() { clickOnSelectedPage(); }
 	}
 	
 	
@@ -738,10 +739,11 @@ function foundationNavigationInteractivity() {
 	var titleTabs = document.getElementsByClassName("sf-element-page-tab");
 	// loop through html dom elements of each page
 	for(var i = 0; i < titleTabs.length; i++) {
-		titleTabs[i].addEventListener('click', clickAction, false);
+		//titleTabs[i].addEventListener('click', clickAction, false);
+		titleTabs[i].onclick = function() { clickAction(); }
 	}
 	
-	function removeClickListenersUponPageChange() {
+	/*function removeClickListenersUponPageChange() {
 		// Foundation Navigation
 		var fdnHtmlPageList = document.getElementsByClassName("fdnNavPageLink");
 		// loop through html dom elements of each page
@@ -753,7 +755,7 @@ function foundationNavigationInteractivity() {
 		for(var i = 0; i < sfTitleTabs.length; i++) {
 			sfTitleTabs[i].removeEventListener('click', clickAction);
 		}
-	}
+	}*/
 }
 
 
