@@ -103,15 +103,6 @@ function getCss(url, cssId, callback){
 }
 
 
-// Append Pseudo class styles to <head> if they do not exist yet:
-function appendStylesToHead(id, styles) {
-	var elementExists = $("#"+id).length;
-	if (elementExists === 0) {
-		$('<style id="'+id+'" type="text/css">'+styles+'</style>').appendTo('head');
-	}
-}
-
-
 // Dynamic sorting for nested JSON object by key
 // Source: https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/
 function compareValues(key, order='asc') {
@@ -618,24 +609,36 @@ function constructFoundation() {
 	
 	// Foundation Toolbar Functionality
 	// Default Reset:
-	document.querySelector("#toolbarItemResetDefault").onclick = function() {
-		setDocPropViaInput("#fdnFunction input", "fdnDefaultReset|"+getTimestamp());
-		detectToolbarItemStates();
+	var toolbarItemResetDefaultExists = document.querySelector("#toolbarItemResetDefault");
+	if(typeof(toolbarItemResetDefaultExists) != 'undefined' && toolbarItemResetDefaultExists != null) {
+		document.querySelector("#toolbarItemResetDefault").onclick = function() {
+			setDocPropViaInput("#fdnFunction input", "fdnDefaultReset|"+getTimestamp());
+			detectToolbarItemStates();
+		}
 	}
 	// Reload:
-	document.querySelector("#toolbarItemReloadData").onclick = function() {
-		setDocPropViaInput("#fdnFunction input", "fdnReloadDataConnections|"+getTimestamp());
-		detectToolbarItemStates();
+	var toolbarItemReloadDataExists = document.querySelector("#toolbarItemReloadData");
+	if(typeof(toolbarItemReloadDataExists) != 'undefined' && toolbarItemReloadDataExists != null) {
+		document.querySelector("#toolbarItemReloadData").onclick = function() {
+			setDocPropViaInput("#fdnFunction input", "fdnReloadDataConnections|"+getTimestamp());
+			detectToolbarItemStates();
+		}
 	}
 	// Open Bookmark Panel:
-	document.querySelector("#toolbarItemBookmarkPanel").onclick = function() {
-		setDocPropViaInput("#fdnFunction input", "fdnToggleBookmarkPane|"+getTimestamp());
-		detectToolbarItemStates();
+	var toolbarItemBookmarkPanelExists = document.querySelector("#toolbarItemBookmarkPanel");
+	if(typeof(toolbarItemBookmarkPanelExists) != 'undefined' && toolbarItemBookmarkPanelExists != null) {
+		document.querySelector("#toolbarItemBookmarkPanel").onclick = function() {
+			setDocPropViaInput("#fdnFunction input", "fdnToggleBookmarkPane|"+getTimestamp());
+			detectToolbarItemStates();
+		}
 	}
 	// Open Filters Panel:
-	document.querySelector("#toolbarItemFilterPanel").onclick = function() {
-		setDocPropViaInput("#fdnFunction input", "fdnToggleFilterPane|"+getTimestamp());
-		detectToolbarItemStates();
+	var toolbarItemFilterPanelExists = document.querySelector("#toolbarItemFilterPanel");
+	if(typeof(toolbarItemFilterPanelExists) != 'undefined' && toolbarItemFilterPanelExists != null) {
+		document.querySelector("#toolbarItemFilterPanel").onclick = function() {
+			setDocPropViaInput("#fdnFunction input", "fdnToggleFilterPane|"+getTimestamp());
+			detectToolbarItemStates();
+		}
 	}
 }
 
