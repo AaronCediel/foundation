@@ -602,7 +602,7 @@ function constructFoundation() {
 		<!-- Commands: -->\n\
 		<div id="coverCommands" class="content fullWidth">\n\
 			<!-- Open Report: -->\n\
-			<div id="fdnCoverButtonOpenReport" class="button large" style="display: inline-block;">Open Report</div>\n\
+			<div id="fdnCoverButtonOpenReport" class="button large" style="display: inline-block;" title="Open Report Page: \''+navigationMainPage+'\'">Open Report</div>\n\
 			<!-- Reset Default: -->\n\
 			<div id="fdnCoverButtonResetDefault" class="button large" style="display: inline-block;">Reset to Default</div>\n\
 		</div>\n\
@@ -809,19 +809,59 @@ function foundationNavigationInteractivity() {
 		titleTabs[i].onclick = clickAction;
 	}
 	
-	/*function removeClickListenersUponPageChange() {
-		// Foundation Navigation
-		var fdnHtmlPageList = document.getElementsByClassName("fdnNavPageLink");
-		// loop through html dom elements of each page
-		for(var i = 0; i < fdnHtmlPageList.length; i++) {
-			fdnHtmlPageList[i].removeEventListener('click', clickOnSelectedPage);
+	
+	function clickOnCoverOpenReport() {
+		var pageSelected = prepareConfiguration().NAVIGATION_MAIN_PAGE;
+		console.log("Clicked Page Name: " + pageSelected);
+		// create array of titled tabs
+		var titleTabs = document.getElementsByClassName("sf-element-page-tab");
+		// loop through all titled tabs searching for the title attribute within
+		// and looking for the clciked element's name
+		for (var i = 0, len = titleTabs.length; i < len; i++) {
+			console.log("Tab Name: " + titleTab);
+			var titleTab = titleTabs[i];
+			var titleTab = titleTab.getAttribute("title");
+			if (titleTab == pageSelected) {
+				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)")
+				
+				// Update fdnCurrentPage Document Property with selected Page Name
+				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
+
+				// Remove Click Event Listeners before changing the page for reloading on next page
+				//removeClickListenersUponPageChange();
+				
+				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
+				var fdnJS = document.querySelector("#FoundationJS");
+				if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
+					document.querySelector('#FoundationJS').remove();
+				}
+				var fdnCSS = document.querySelector("#FoundationCSS");
+				if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
+					document.querySelector('#FoundationCSS').remove();
+				}
+				
+				// Simulate click on the tab to trigger opening the selected Page
+				titleTabs[i].click();
+				
+				console.log("Transfering Click to Spotfire Native Tabbed Navigation Page Name: " + titleTab);
+				
+				// Reload the JS & CSS Foundation Libraries after the page had changed
+				var pageChangeDate = new Date();
+				var pageChangeTimeStamp = pageChangeDate.valueOf();
+				getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+					console.log('Foundation Framework - JS initialized');
+				});
+				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+					console.log('Foundation Framework - CSS initialized');
+				});
+				
+				break;
+			}
 		}
-		// Spotfire Native Tabbed Navigation
-		var sfTitleTabs = document.getElementsByClassName("sf-element-page-tab");
-		for(var i = 0; i < sfTitleTabs.length; i++) {
-			sfTitleTabs[i].removeEventListener('click', clickAction);
-		}
-	}*/
+	}
+	
+	var coverOpenReportButton = document.getElementById("fdnCoverButtonOpenReport");
+	coverOpenReportButton.onclick = clickOnCoverOpenReport;
 }
 
 
