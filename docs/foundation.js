@@ -323,9 +323,9 @@ function constructFoundation() {
 	console.log("reportSpotfireEnvironment: "+reportSpotfireEnvironment);
 	
 	// Detect Spotfire Version
-	if (reportType.match(/\\\\TIBCO Spotfire X\\\\/i)) {
+	if (reportType.match(/\\TIBCO Spotfire X\\/i)) {
 		var reportSpotfireVersion = 'Spotfire X';
-	} else if (reportType.match(/\\\\TIBCO\\\\Spotfire\\\\7.0.0\\\\/i)) {
+	} else if (reportType.match(/\\TIBCO\\Spotfire\\7.0.0\\/i)) {
 		var reportSpotfireVersion = 'Spotfire 7.11';
 	} else {
 		var reportSpotfireVersion = null;
