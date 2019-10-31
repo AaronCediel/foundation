@@ -320,7 +320,7 @@ function constructFoundation() {
 	} else {
 		var reportSpotfireEnvironment = 'Client';
 	}
-	console.log("reportSpotfireEnvironment: "+reportSpotfireEnvironment);
+	console.log("> reportSpotfireEnvironment: "+reportSpotfireEnvironment);
 	
 	// Detect Spotfire Version
 	if (spotfireEnvironment.match(/\\TIBCO Spotfire X\\/i)) {
@@ -330,7 +330,7 @@ function constructFoundation() {
 	} else {
 		var reportSpotfireVersion = null;
 	}
-	console.log("reportSpotfireVersion: "+reportSpotfireVersion);
+	console.log("> reportSpotfireVersion: "+reportSpotfireVersion);
 	
 	
 	// Foundation Navigation
@@ -878,6 +878,7 @@ docReady(function() {
 	convertToDraggable(document.querySelector("#dataIntegrity"));
 	detectToolbarItemStates();
 	foundationNavigationInteractivity();
+	validatePage();
 });
 
 
