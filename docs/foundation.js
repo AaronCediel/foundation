@@ -275,7 +275,8 @@ function constructFoundation() {
 	
 	// Foundation Configuration:
 	var foundationConfig = prepareConfiguration();
-	//console.log(foundationConfig);
+	console.log("> foundationConfig:");
+	console.log(JSON.stringify(foundationConfig));
 	
 	var reportType = foundationConfig.REPORT_TYPE
 		, navigationHideIcons = foundationConfig.NAVIGATION_HIDE_ICONS
@@ -294,7 +295,8 @@ function constructFoundation() {
 		, reportRefreshTime = foundationConfig.REPORT_REFRESH_TIME
 		, reportVersion = foundationConfig.REPORT_VERSION
 		, departmentName = foundationConfig.DEPARTMENT_NAME
-		, linkOpenJiraTicket = foundationConfig.LINK_OPEN_JIRA_TICKET;
+		, linkOpenJiraTicket = foundationConfig.LINK_OPEN_JIRA_TICKET
+		, spotfireEnvironment = foundationConfig.SPOTFIRE_ENVIRONMENT;
 	
 	// Report Type:
 	var urlReportTypeDraft = "https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857155/DAM/BI%20Reporting/Report%20Type/draft.png";
