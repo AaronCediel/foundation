@@ -314,6 +314,24 @@ function constructFoundation() {
 		var reportTypeImageURL = urlReportTypeDraft;
 	}
 	
+	// Detect Report Spotfire Environment
+	if (reportType.match(/SpotFire\.Dxp\.Worker\.Host\.exe/i)) {
+		var reportSpotfireEnvironment = 'WebPlayer';
+	} else {
+		var reportSpotfireEnvironment = 'Client';
+	}
+	console.log("reportSpotfireEnvironment: "+reportSpotfireEnvironment);
+	
+	// Detect Spotfire Version
+	if (reportType.match(/\\\\TIBCO Spotfire X\\\\/i)) {
+		var reportSpotfireVersion = 'Spotfire X';
+	} else if (reportType.match(/\\\\TIBCO\\\\Spotfire\\\\7.0.0\\\\/i)) {
+		var reportSpotfireVersion = 'Spotfire 7.11';
+	} else {
+		var reportSpotfireVersion = null;
+	}
+	console.log("reportSpotfireVersion: "+reportSpotfireVersion);
+	
 	
 	// Foundation Navigation
 	var foundationNavigation = prepareNavigation();
