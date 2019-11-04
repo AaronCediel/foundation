@@ -312,7 +312,7 @@ function constructFoundation() {
 		var reportTypeImageURL = urlReportTypeDraft;
 	}
 	
-	// Detect Report Spotfire Environment
+	// Detect Report Spotfire Environment foundationConfig.SPOTFIRE_ENVIRONMENT
 	if (spotfireEnvironment.match(/SpotFire\.Dxp\.Worker\.Host\.exe/i)) {
 		var reportSpotfireEnvironment = 'WebPlayer';
 	} else {
@@ -708,6 +708,13 @@ function constructFoundation() {
 
 
 function foundationNavigationInteractivity() {
+	// Detect Report Spotfire Environment
+	if (prepareConfiguration().SPOTFIRE_ENVIRONMENT.match(/SpotFire\.Dxp\.Worker\.Host\.exe/i)) {
+		var reportSpotfireEnvironment = 'WebPlayer';
+	} else {
+		var reportSpotfireEnvironment = 'Client';
+	}
+	
 	function clickOnSelectedPage() {
 		var pageSelected = this.innerText;
 		console.log("Clicked Page Name: " + pageSelected);
@@ -728,27 +735,29 @@ function foundationNavigationInteractivity() {
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
-				/*
-				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
-				var fdnJS = document.querySelector("#FoundationJS");
-				if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
-					document.querySelector('#FoundationJS').remove();
-				}
-				var fdnCSS = document.querySelector("#FoundationCSS");
-				if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
-					document.querySelector('#FoundationCSS').remove();
+				
+				if (reportSpotfireEnvironment === 'Client') {
+					// Remove JS & CSS Foundation Libraries to force reloading after changing the page
+					var fdnJS = document.querySelector("#FoundationJS");
+					if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
+						document.querySelector('#FoundationJS').remove();
+					}
+					var fdnCSS = document.querySelector("#FoundationCSS");
+					if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
+						document.querySelector('#FoundationCSS').remove();
+					}
+
+					// Reload the JS & CSS Foundation Libraries after the page had changed
+					var pageChangeDate = new Date();
+					var pageChangeTimeStamp = pageChangeDate.valueOf();
+					getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+						console.log('Foundation Framework - JS initialized');
+					});
+					getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+						console.log('Foundation Framework - CSS initialized');
+					});
 				}
 				
-				// Reload the JS & CSS Foundation Libraries after the page had changed
-				var pageChangeDate = new Date();
-				var pageChangeTimeStamp = pageChangeDate.valueOf();
-				getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
-					console.log('Foundation Framework - JS initialized');
-				});
-				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
-					console.log('Foundation Framework - CSS initialized');
-				});
-				*/
 				break;
 			}
 		}
@@ -774,27 +783,29 @@ function foundationNavigationInteractivity() {
 
 		// Update fdnCurrentPage Document Property with selected Page Name
 		setDocPropViaInput("#fdnCurrentPage input", titleTab);
-		/*
-		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
-		var fdnJS = document.querySelector("#FoundationJS");
-		if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
-			document.querySelector('#FoundationJS').remove();
-		}
-		var fdnCSS = document.querySelector("#FoundationCSS");
-		if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
-			document.querySelector('#FoundationCSS').remove();
-		}
+		
+		if (reportSpotfireEnvironment === 'Client') {
+			// Remove JS & CSS Foundation Libraries to force reloading after changing the page
+			var fdnJS = document.querySelector("#FoundationJS");
+			if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
+				document.querySelector('#FoundationJS').remove();
+			}
+			var fdnCSS = document.querySelector("#FoundationCSS");
+			if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
+				document.querySelector('#FoundationCSS').remove();
+			}
 
-		// Reload the JS & CSS Foundation Libraries after the page had changed
-		var pageChangeDate = new Date();
-		var pageChangeTimeStamp = pageChangeDate.valueOf();
-		getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
-			console.log('Foundation Framework - JS initialized');
-		});
-		getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
-			console.log('Foundation Framework - CSS initialized');
-		});
-		*/
+			// Reload the JS & CSS Foundation Libraries after the page had changed
+			var pageChangeDate = new Date();
+			var pageChangeTimeStamp = pageChangeDate.valueOf();
+			getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+				console.log('Foundation Framework - JS initialized');
+			});
+			getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+				console.log('Foundation Framework - CSS initialized');
+			});
+		}
+		
 	}
 	
 	// Click Listener Logic Source: https://stackoverflow.com/a/19655662
@@ -828,27 +839,29 @@ function foundationNavigationInteractivity() {
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
-				/*
-				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
-				var fdnJS = document.querySelector("#FoundationJS");
-				if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
-					document.querySelector('#FoundationJS').remove();
-				}
-				var fdnCSS = document.querySelector("#FoundationCSS");
-				if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
-					document.querySelector('#FoundationCSS').remove();
+				
+				if (reportSpotfireEnvironment === 'Client') {
+					// Remove JS & CSS Foundation Libraries to force reloading after changing the page
+					var fdnJS = document.querySelector("#FoundationJS");
+					if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
+						document.querySelector('#FoundationJS').remove();
+					}
+					var fdnCSS = document.querySelector("#FoundationCSS");
+					if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
+						document.querySelector('#FoundationCSS').remove();
+					}
+
+					// Reload the JS & CSS Foundation Libraries after the page had changed
+					var pageChangeDate = new Date();
+					var pageChangeTimeStamp = pageChangeDate.valueOf();
+					getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+						console.log('Foundation Framework - JS initialized');
+					});
+					getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+						console.log('Foundation Framework - CSS initialized');
+					});
 				}
 				
-				// Reload the JS & CSS Foundation Libraries after the page had changed
-				var pageChangeDate = new Date();
-				var pageChangeTimeStamp = pageChangeDate.valueOf();
-				getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
-					console.log('Foundation Framework - JS initialized');
-				});
-				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
-					console.log('Foundation Framework - CSS initialized');
-				});
-				*/
 				break;
 			}
 		}
