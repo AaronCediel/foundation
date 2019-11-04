@@ -969,6 +969,8 @@ function reloadFoundationOnPageChange() {
 	
 	var observer = new MutationObserver(callback);
 	observer.observe(spotfireNativeNavigation, observerOptions);
+		
+	observer.disconnect();
 }
 
 
