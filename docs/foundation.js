@@ -905,14 +905,13 @@ function convertToDraggable(elmnt) {
 function reloadFoundationOnPageChange() {	
 	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 	
-	var observerOptions = {
-		childList: true
-		, subtree: true
-		, attributes: true
-		, characterData: true
-	};
-	
 	var spotfireNativeNavigation = document.getElementsByClassName("sf-element-tab-group"); //sf-element-page-navigation-bar (matches two elements)
+	if(!spotfireNativeNavigation) {
+		//The node we need does not exist yet, wait 500ms and try again
+		window.setTimeout(reloadFoundationOnPageChange, 500);
+		return;
+	}
+	
 	var callback = function(mutations) {
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 		var fdnJS = document.querySelector("#FoundationJS");
@@ -935,6 +934,13 @@ function reloadFoundationOnPageChange() {
 			console.log('Foundation Framework - CSS initialized');
 		});
 		console.log('Foundation Framework Libraries Successfully Added!');
+	};
+	
+	var observerOptions = {
+		childList: true
+		, subtree: true
+		, attributes: true
+		, characterData: true
 	};
 	
 	var observer = new MutationObserver(callback);
