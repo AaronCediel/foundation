@@ -716,7 +716,11 @@ function foundationNavigationInteractivity() {
 			var titleTab = titleTabs[i];
 			var titleTab = titleTab.getAttribute("title");
 			if (titleTab == pageSelected) {
-				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)")
+				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)");
+				
+				// Simulate click on the tab to trigger opening the selected Page
+				titleTabs[i].click();
+				console.log("Transfering Click to Spotfire Native Tabbed Navigation Page Name: " + titleTab);
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
@@ -731,22 +735,15 @@ function foundationNavigationInteractivity() {
 					document.querySelector('#FoundationCSS').remove();
 				}
 				
-				// Simulate click on the tab to trigger opening the selected Page
-				titleTabs[i].click();
-				
-				console.log("Transfering Click to Spotfire Native Tabbed Navigation Page Name: " + titleTab);
-				
 				// Reload the JS & CSS Foundation Libraries after the page had changed
 				var pageChangeDate = new Date();
 				var pageChangeTimeStamp = pageChangeDate.valueOf();
-				setTimeout(function(){
-					getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
-						console.log('Foundation Framework - JS initialized');
-					});
-					getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
-						console.log('Foundation Framework - CSS initialized');
-					});
-				}, 3000);
+				getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+					console.log('Foundation Framework - JS initialized');
+				});
+				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+					console.log('Foundation Framework - CSS initialized');
+				});
 				
 				break;
 			}
@@ -818,7 +815,7 @@ function foundationNavigationInteractivity() {
 			var titleTab = titleTabs[i];
 			var titleTab = titleTab.getAttribute("title");
 			if (titleTab == pageSelected) {
-				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)")
+				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)");
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
