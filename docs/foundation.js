@@ -981,7 +981,15 @@ docReady(function() {
 	constructFoundation();
 	
 	// WebPlayer requires MutationObserver logic to determine when to reload the Foundation library files:
-	reloadFoundationOnPageChange();
+	// Detect Report Spotfire Environment
+	if (prepareConfiguration().SPOTFIRE_ENVIRONMENT.match(/SpotFire\.Dxp\.Worker\.Host\.exe/i)) {
+		var reportSpotfireEnvironment = 'WebPlayer';
+	} else {
+		var reportSpotfireEnvironment = 'Client';
+	}
+	if (reportSpotfireEnvironment === 'WebPlayer') {
+		reloadFoundationOnPageChange();
+	}
 	
 	convertToDraggable(document.querySelector("#currentFilters")); //document.getElementById("currentFilters")
 	convertToDraggable(document.querySelector("#customOptions"));
