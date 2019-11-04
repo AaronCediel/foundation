@@ -903,7 +903,7 @@ function convertToDraggable(elmnt) {
 // Reload Foundation upon Page Change
 // https://stackoverflow.com/a/16726669 (https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists)
 function reloadFoundationOnPageChange() {
-	var spotfireNativeNavigation = document.getElementsByClassName("sf-element-page-navigation-bar");
+	var spotfireNativeNavigation = document.getElementsByClassName("sf-element-tab-group"); //sf-element-page-navigation-bar (matches two elements)
 	var observer = new MutationObserver(function(mutations) {
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 		var fdnJS = document.querySelector("#FoundationJS");
