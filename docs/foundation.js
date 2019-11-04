@@ -325,7 +325,7 @@ function constructFoundation() {
 	// Detect Spotfire Version
 	if (spotfireEnvironment.match(/\\TIBCO Spotfire X\\/i)) {
 		var reportSpotfireVersion = 'Spotfire X';
-	} else if ((spotfireEnvironment.match(/\\\\TIBCO\\\\Spotfire\\\\7.0.0\\\\/i)) || (spotfireEnvironment.match(/\\\\tibco\\\\tsnm\\\\7.11.0\\\\/i))) {
+	} else if (spotfireEnvironment.match(/7\.(0|11)\.0/i)) {
 		var reportSpotfireVersion = 'Spotfire 7.11';
 	} else {
 		var reportSpotfireVersion = null;
@@ -896,6 +896,42 @@ function convertToDraggable(elmnt) {
 		document.onmouseup = null;
 		document.onmousemove = null;
 	}
+}
+
+
+// Reload Foundation upon Page Change
+// https://stackoverflow.com/a/16726669 (https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists)
+function reloadFoundationOnPageChange() {
+	var spotfireNativeNavigation = document.getElementsByClassName("sf-element-page-navigation-bar");
+	var observer = new MutationObserver(function(mutations) {
+		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
+		var fdnJS = document.querySelector("#FoundationJS");
+		if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
+			document.querySelector('#FoundationJS').remove();
+		}
+		var fdnCSS = document.querySelector("#FoundationCSS");
+		if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
+			document.querySelector('#FoundationCSS').remove();
+		}
+		console.log('Foundation Framework Libraries Successfully Removed!');
+
+		// Reload the JS & CSS Foundation Libraries after the page had changed
+		var pageChangeDate = new Date();
+		var pageChangeTimeStamp = pageChangeDate.valueOf();
+		getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+			console.log('Foundation Framework - JS initialized');
+		});
+		getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+			console.log('Foundation Framework - CSS initialized');
+		});
+		console.log('Foundation Framework Libraries Successfully Added!');
+	});
+	observer.observe(spotfireNativeNavigation, {
+		childList: true
+		, subtree: true
+		, attributes: false
+		, characterData: false
+	});
 }
 
 
