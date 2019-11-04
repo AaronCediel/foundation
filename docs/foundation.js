@@ -910,11 +910,11 @@ function reloadFoundationOnPageChange() {
 	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 	
 	var spotfireNativeNavigation = document.getElementsByClassName("sf-element-tab-group")[0]; //sf-element-page-navigation-bar (matches two elements)
-	if(!spotfireNativeNavigation) {
+	/*if(!spotfireNativeNavigation) {
 		//The node we need does not exist yet, wait 500ms and try again
 		window.setTimeout(reloadFoundationOnPageChange, 500);
 		return;
-	}
+	}*/
 	
 	var callback = function(mutations) {
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
