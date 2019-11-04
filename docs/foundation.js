@@ -325,7 +325,7 @@ function constructFoundation() {
 	// Detect Spotfire Version
 	if (spotfireEnvironment.match(/\\TIBCO Spotfire X\\/i)) {
 		var reportSpotfireVersion = 'Spotfire X';
-	} else if ((spotfireEnvironment.match(/\\\\TIBCO\\\\Spotfire\\\\7.0.0\\\\/i)) || (spotfireEnvironment.match(/\\\\tibco\\\\tsnm\\\\7.11.0\\\\/i)) {
+	} else if ((spotfireEnvironment.match(/\\\\TIBCO\\\\Spotfire\\\\7.0.0\\\\/i)) || (spotfireEnvironment.match(/\\\\tibco\\\\tsnm\\\\7.11.0\\\\/i))) {
 		var reportSpotfireVersion = 'Spotfire 7.11';
 	} else {
 		var reportSpotfireVersion = null;
