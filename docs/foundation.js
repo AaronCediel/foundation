@@ -765,6 +765,9 @@ function foundationNavigationInteractivity() {
 		var titleTab = this.getAttribute("title");
 		console.log("Clicked Spotfire Native Tabbed Navigation Page Name: " + titleTab);
 
+		// Simulate click on the tab to trigger opening the selected Page
+		//this.click();
+
 		// Update fdnCurrentPage Document Property with selected Page Name
 		setDocPropViaInput("#fdnCurrentPage input", titleTab);
 
@@ -777,9 +780,6 @@ function foundationNavigationInteractivity() {
 		if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
 			document.querySelector('#FoundationCSS').remove();
 		}
-
-		// Simulate click on the tab to trigger opening the selected Page
-		//this.click();
 
 		// Reload the JS & CSS Foundation Libraries after the page had changed
 		var pageChangeDate = new Date();
@@ -817,6 +817,10 @@ function foundationNavigationInteractivity() {
 			if (titleTab == pageSelected) {
 				console.log("Match Found: '"+pageSelected+"' (pageSelected) = '"+titleTab+"' (titleTab)");
 				
+				// Simulate click on the tab to trigger opening the selected Page
+				titleTabs[i].click();
+				console.log("Transfering Click to Spotfire Native Tabbed Navigation Page Name: " + titleTab);
+				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
 				
@@ -829,11 +833,6 @@ function foundationNavigationInteractivity() {
 				if(typeof(fdnCSS) != 'undefined' && fdnCSS != null) {
 					document.querySelector('#FoundationCSS').remove();
 				}
-				
-				// Simulate click on the tab to trigger opening the selected Page
-				titleTabs[i].click();
-				
-				console.log("Transfering Click to Spotfire Native Tabbed Navigation Page Name: " + titleTab);
 				
 				// Reload the JS & CSS Foundation Libraries after the page had changed
 				var pageChangeDate = new Date();
