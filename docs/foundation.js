@@ -724,7 +724,7 @@ function foundationNavigationInteractivity() {
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
-				
+				/*
 				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 				var fdnJS = document.querySelector("#FoundationJS");
 				if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
@@ -744,7 +744,7 @@ function foundationNavigationInteractivity() {
 				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
 					console.log('Foundation Framework - CSS initialized');
 				});
-				
+				*/
 				break;
 			}
 		}
@@ -770,7 +770,7 @@ function foundationNavigationInteractivity() {
 
 		// Update fdnCurrentPage Document Property with selected Page Name
 		setDocPropViaInput("#fdnCurrentPage input", titleTab);
-
+		/*
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 		var fdnJS = document.querySelector("#FoundationJS");
 		if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
@@ -790,6 +790,7 @@ function foundationNavigationInteractivity() {
 		getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
 			console.log('Foundation Framework - CSS initialized');
 		});
+		*/
 	}
 	
 	// Click Listener Logic Source: https://stackoverflow.com/a/19655662
@@ -823,7 +824,7 @@ function foundationNavigationInteractivity() {
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
-				
+				/*
 				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 				var fdnJS = document.querySelector("#FoundationJS");
 				if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
@@ -843,7 +844,7 @@ function foundationNavigationInteractivity() {
 				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
 					console.log('Foundation Framework - CSS initialized');
 				});
-				
+				*/
 				break;
 			}
 		}
