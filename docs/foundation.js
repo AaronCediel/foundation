@@ -938,6 +938,7 @@ function reloadFoundationOnPageChange() {
 // Run Foundation
 docReady(function() {
 	constructFoundation();
+	reloadFoundationOnPageChange();
 	convertToDraggable(document.querySelector("#currentFilters")); //document.getElementById("currentFilters")
 	convertToDraggable(document.querySelector("#customOptions"));
 	convertToDraggable(document.querySelector("#dataIntegrity"));
