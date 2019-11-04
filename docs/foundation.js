@@ -936,7 +936,7 @@ function reloadFoundationOnPageChange() {
 		return;
 	}*/
 	
-	var callback = function(mutations) {
+	var observer = new MutationObserver(function(mutations) {
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 		var fdnJS = document.querySelector("#FoundationJS");
 		if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
@@ -958,7 +958,9 @@ function reloadFoundationOnPageChange() {
 			console.log('Foundation Framework - CSS initialized');
 		});
 		console.log('Foundation Framework Libraries Successfully Added!');
-	};
+		
+		observer.disconnect();
+	});
 	
 	var observerOptions = {
 		childList: true
@@ -967,10 +969,8 @@ function reloadFoundationOnPageChange() {
 		, characterData: true
 	};
 	
-	var observer = new MutationObserver(callback);
 	observer.observe(spotfireNativeNavigation, observerOptions);
-		
-	observer.disconnect();
+	
 }
 
 
