@@ -902,9 +902,18 @@ function convertToDraggable(elmnt) {
 
 // Reload Foundation upon Page Change
 // https://stackoverflow.com/a/16726669 (https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists)
-function reloadFoundationOnPageChange() {
-	//var spotfireNativeNavigation = document.getElementsByClassName("sf-element-tab-group"); //sf-element-page-navigation-bar (matches two elements)
-	var observer = new MutationObserver(function(mutations) {
+function reloadFoundationOnPageChange() {	
+	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+	
+	var observerOptions = {
+		childList: true
+		, subtree: true
+		, attributes: true
+		, characterData: true
+	};
+	
+	var spotfireNativeNavigation = document.getElementsByClassName("sf-element-tab-group"); //sf-element-page-navigation-bar (matches two elements)
+	var callback = function(mutations) {
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 		var fdnJS = document.querySelector("#FoundationJS");
 		if(typeof(fdnJS) != 'undefined' && fdnJS != null) {
@@ -926,13 +935,10 @@ function reloadFoundationOnPageChange() {
 			console.log('Foundation Framework - CSS initialized');
 		});
 		console.log('Foundation Framework Libraries Successfully Added!');
-	});
-	observer.observe(document.getElementsByClassName("sf-element-tab-group"), {
-		childList: true
-		, subtree: true
-		, attributes: true
-		, characterData: true
-	});
+	};
+	
+	var observer = new MutationObserver(callback);
+	observer.observe(spotfireNativeNavigation, observerOptions);
 }
 
 
