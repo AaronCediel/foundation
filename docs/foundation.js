@@ -810,6 +810,8 @@ function foundationNavigationInteractivity() {
 			});
 		}
 		
+		console.log("Page Name ('fdnCurrentPage') set to: " + titleTab);
+		
 	}
 	
 	// Click Listener Logic Source: https://stackoverflow.com/a/19655662
