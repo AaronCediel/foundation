@@ -707,6 +707,10 @@ function constructFoundation() {
 }
 
 
+// Responsible for updating the "fdnCurrentPage" Document Property for page validation purposes
+// and triggers reloading of Foundation Library files specificly within the Client,
+// validating on "(reportSpotfireEnvironment === 'Client')"; this functionality is handeled
+// by the "MutationObserver" for the WebPlayer, and is therefore only triggered here for the Client.
 function foundationNavigationInteractivity() {
 	// Detect Report Spotfire Environment
 	if (prepareConfiguration().SPOTFIRE_ENVIRONMENT.match(/SpotFire\.Dxp\.Worker\.Host\.exe/i)) {
@@ -919,6 +923,9 @@ function convertToDraggable(elmnt) {
 
 // Reload Foundation upon Page Change
 // https://stackoverflow.com/a/16726669 (https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists)
+// Note: This functionality is WebPlayer-specific; it does not function for Client,
+// where an alternative solution is implemented within the individual click-action-functions
+// of "foundationNavigationInteractivity()"
 function reloadFoundationOnPageChange() {	
 	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 	
@@ -968,10 +975,14 @@ function reloadFoundationOnPageChange() {
 // Run Foundation
 docReady(function() {
 	constructFoundation();
+	
+	// WebPlayer requires MutationObserver logic to determine when to reload the Foundation library files:
 	reloadFoundationOnPageChange();
+	
 	convertToDraggable(document.querySelector("#currentFilters")); //document.getElementById("currentFilters")
 	convertToDraggable(document.querySelector("#customOptions"));
 	convertToDraggable(document.querySelector("#dataIntegrity"));
+	
 	detectToolbarItemStates();
 	foundationNavigationInteractivity();
 	validatePage();
