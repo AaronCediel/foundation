@@ -243,7 +243,6 @@ function validatePage() {
 
 // Foundation Toolbar Item State Detection
 function detectToolbarItemStates() {
-	//setTimeout(function(){
 	// Current Filters:
 	// Open Bookmark Panel:
 	if (document.querySelector(".sf-element-bookmark-list")) {
@@ -253,7 +252,6 @@ function detectToolbarItemStates() {
 	if (document.querySelector(".sfc-filter-panel")) {
 		toggleElementClass("#toolbarItemFilterPanel", "toolbarItemActive");
 	}
-	//}, 333);
 }
 
 
@@ -630,7 +628,6 @@ function constructFoundation() {
 |	Current Filters\n\
 ---------------------------------------------------------------- -->\n\
 <input type="checkbox" id="openCurrentFilters">\n\
-<!--<label id="buttonOpenCurrentFilters" for="openCurrentFilters">Open Current Filters</label>-->\n\
 <div id="currentFilters" class="modalContainer">\n\
 	<h4 id="currentFiltersHandle" class="modalDragHandle"><i id="modalDragIcon" class="material-icons faa-burst animated-hover">open_with</i>Current Filters<i id="modalRefreshButton" class="material-icons faa-spin animated-hover">refresh</i><i id="modalCloseButton" class="material-icons faa-burst animated-hover">close</i></h4>\n\
 	<div class="scrollArea">\n\
@@ -638,6 +635,7 @@ function constructFoundation() {
 	</div>\n\
 </div>\
 ';
+	//<!--<label id="buttonOpenCurrentFilters" for="openCurrentFilters">Open Current Filters</label>-->\n\
 	
 	// Insert Placeholder for Functional Input Boxes
 	document.querySelector("#fdnFunction input").setAttribute("placeholder", "fdnFunction");
@@ -646,21 +644,27 @@ function constructFoundation() {
 	// Compile foundation
 	foundation += toolbar + navigation + currentFilters;
 	
-	var dataIntegrityToggle = document.createElement('input');
-	dataIntegrityToggle.setAttribute("type", "checkbox");
-	dataIntegrityToggle.setAttribute("id", "openDataIntegrity");
-	var dataIntegrityParent = document.querySelector("#dataIntegrity").parentNode;
-	var dataIntegritySibling = document.querySelector("#dataIntegrity");
-	dataIntegrityParent.insertBefore(dataIntegrityToggle, dataIntegritySibling);
-	//document.querySelector("#dataIntegrityAreaBG").innerHTML = '<input type="checkbox" id="openDataIntegrity">';
+	var dataIntegrityInputToggleExists = document.querySelector("#openDataIntegrity");
+	if(typeof(dataIntegrityInputToggleExists) != 'undefined' && dataIntegrityInputToggleExists != null) {
+		var dataIntegrityToggle = document.createElement('input');
+		dataIntegrityToggle.setAttribute("type", "checkbox");
+		dataIntegrityToggle.setAttribute("id", "openDataIntegrity");
+		var dataIntegrityParent = document.querySelector("#dataIntegrity").parentNode;
+		var dataIntegritySibling = document.querySelector("#dataIntegrity");
+		dataIntegrityParent.insertBefore(dataIntegrityToggle, dataIntegritySibling);
+		//document.querySelector("#dataIntegrityAreaBG").innerHTML = '<input type="checkbox" id="openDataIntegrity">';
+	}
 	
-	var commandsToggle = document.createElement('input');
-	commandsToggle.setAttribute("type", "checkbox");
-	commandsToggle.setAttribute("id", "openCommands");
-	var commandsParent = document.querySelector("#customOptions").parentNode;
-	var commandsSibling = document.querySelector("#customOptions");
-	commandsParent.insertBefore(commandsToggle, commandsSibling);
-	//document.querySelector("#customOptionsAreaBG").innerHTML = '<input type="checkbox" id="openCommands">';
+	var commandsInputToggleExists = document.querySelector("#openCommands");
+	if(typeof(commandsInputToggleExists) != 'undefined' && commandsInputToggleExists != null) {
+		var commandsToggle = document.createElement('input');
+		commandsToggle.setAttribute("type", "checkbox");
+		commandsToggle.setAttribute("id", "openCommands");
+		var commandsParent = document.querySelector("#customOptions").parentNode;
+		var commandsSibling = document.querySelector("#customOptions");
+		commandsParent.insertBefore(commandsToggle, commandsSibling);
+		//document.querySelector("#customOptionsAreaBG").innerHTML = '<input type="checkbox" id="openCommands">';
+	}
 	
 	//document.getElementById("foundation").innerHTML = foundation;
 	document.querySelector("#foundation").innerHTML = foundation;
