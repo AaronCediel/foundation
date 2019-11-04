@@ -720,9 +720,6 @@ function foundationNavigationInteractivity() {
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
-
-				// Remove Click Event Listeners before changing the page for reloading on next page
-				//removeClickListenersUponPageChange();
 				
 				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 				var fdnJS = document.querySelector("#FoundationJS");
@@ -742,12 +739,14 @@ function foundationNavigationInteractivity() {
 				// Reload the JS & CSS Foundation Libraries after the page had changed
 				var pageChangeDate = new Date();
 				var pageChangeTimeStamp = pageChangeDate.valueOf();
-				getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
-					console.log('Foundation Framework - JS initialized');
-				});
-				getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
-					console.log('Foundation Framework - CSS initialized');
-				});
+				setTimeout(function(){
+					getScript("https://aaroncediel.github.io/foundation/foundation.js?"+pageChangeTimeStamp, "FoundationJS", function(){
+						console.log('Foundation Framework - JS initialized');
+					});
+					getCss("https://aaroncediel.github.io/foundation/foundation.css?"+pageChangeTimeStamp, "FoundationCSS", function(){
+						console.log('Foundation Framework - CSS initialized');
+					});
+				}, 3000);
 				
 				break;
 			}
@@ -771,9 +770,6 @@ function foundationNavigationInteractivity() {
 
 		// Update fdnCurrentPage Document Property with selected Page Name
 		setDocPropViaInput("#fdnCurrentPage input", titleTab);
-		
-		// Remove Click Event Listeners before changing the page for reloading on next page
-		//removeClickListenersUponPageChange();
 
 		// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 		var fdnJS = document.querySelector("#FoundationJS");
@@ -826,9 +822,6 @@ function foundationNavigationInteractivity() {
 				
 				// Update fdnCurrentPage Document Property with selected Page Name
 				setDocPropViaInput("#fdnCurrentPage input", pageSelected);
-
-				// Remove Click Event Listeners before changing the page for reloading on next page
-				//removeClickListenersUponPageChange();
 				
 				// Remove JS & CSS Foundation Libraries to force reloading after changing the page
 				var fdnJS = document.querySelector("#FoundationJS");
