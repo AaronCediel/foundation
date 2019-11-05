@@ -644,6 +644,12 @@ function constructFoundation() {
 	// Compile foundation
 	foundation += toolbar + navigation + currentFilters;
 	
+	//document.getElementById("foundation").innerHTML = foundation;
+	document.querySelector("#foundation").innerHTML = foundation;
+	document.querySelector("#foundationCover").innerHTML = cover;
+	document.querySelector("#foundationSettings").innerHTML = settings;
+	
+	// Add Input Check Boxes for Toggle Functionality of Data Integrity Area
 	var dataIntegrityInputToggleExists = document.querySelector("#openDataIntegrity");
 	if(typeof(dataIntegrityInputToggleExists) === 'undefined' || dataIntegrityInputToggleExists === null) {
 		var dataIntegrityToggle = document.createElement('input');
@@ -655,6 +661,7 @@ function constructFoundation() {
 		//document.querySelector("#dataIntegrityAreaBG").innerHTML = '<input type="checkbox" id="openDataIntegrity">';
 	}
 	
+	// Add Input Check Boxes for Toggle Functionality of Commands Area
 	var commandsInputToggleExists = document.querySelector("#openCommands");
 	if(typeof(commandsInputToggleExists) === 'undefined' || commandsInputToggleExists === null) {
 		var commandsToggle = document.createElement('input');
@@ -665,11 +672,6 @@ function constructFoundation() {
 		commandsParent.insertBefore(commandsToggle, commandsSibling);
 		//document.querySelector("#customOptionsAreaBG").innerHTML = '<input type="checkbox" id="openCommands">';
 	}
-	
-	//document.getElementById("foundation").innerHTML = foundation;
-	document.querySelector("#foundation").innerHTML = foundation;
-	document.querySelector("#foundationCover").innerHTML = cover;
-	document.querySelector("#foundationSettings").innerHTML = settings;
 	
 	// Foundation Toolbar Functionality
 	// Default Reset:
