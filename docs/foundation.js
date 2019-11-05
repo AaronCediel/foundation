@@ -645,7 +645,7 @@ function constructFoundation() {
 	foundation += toolbar + navigation + currentFilters;
 	
 	var dataIntegrityInputToggleExists = document.querySelector("#openDataIntegrity");
-	if(typeof(dataIntegrityInputToggleExists) != 'undefined' && dataIntegrityInputToggleExists != null) {
+	if(typeof(dataIntegrityInputToggleExists) === 'undefined' || dataIntegrityInputToggleExists === null) {
 		var dataIntegrityToggle = document.createElement('input');
 		dataIntegrityToggle.setAttribute("type", "checkbox");
 		dataIntegrityToggle.setAttribute("id", "openDataIntegrity");
@@ -656,7 +656,7 @@ function constructFoundation() {
 	}
 	
 	var commandsInputToggleExists = document.querySelector("#openCommands");
-	if(typeof(commandsInputToggleExists) != 'undefined' && commandsInputToggleExists != null) {
+	if(typeof(commandsInputToggleExists) === 'undefined' || commandsInputToggleExists === null) {
 		var commandsToggle = document.createElement('input');
 		commandsToggle.setAttribute("type", "checkbox");
 		commandsToggle.setAttribute("id", "openCommands");
