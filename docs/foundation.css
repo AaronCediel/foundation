@@ -122,8 +122,10 @@
 }
 
 #infoCompanyLogo {
-	background: url("https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857274/DAM/BI%20Reporting/Foundation%20Framework/lmn_logo_toolbar.png") 0px 50% / auto 40px no-repeat;
-	width: 185px;
+	/* https://res.cloudinary.com/lastminute-contenthub/image/upload/v1559857274/DAM/BI%20Reporting/Foundation%20Framework/lmn_logo_toolbar.png */
+	/* width: 185px; */
+	background: url("https://res.cloudinary.com/lastminute-contenthub/image/upload/v1572963335/DAM/BI%20Reporting/Foundation%20Framework/lm_logo_toolbar.png") 0px 50% / auto 40px no-repeat;
+	width: 85px;
 	height: 40px;
 	/*-moz-filter: none;
 	-o-filter: none;
