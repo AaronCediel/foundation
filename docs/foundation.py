@@ -1,1 +1,3 @@
-print "Hello World!"\nDocument.Properties["fdnReportId"] = "1234567"\nprint "'fdnReportId' updated to '1234567'"
+print "Hello World!"
+Document.Properties["fdnReportId"] = "1234567"
+print "'fdnReportId' updated to '1234567'"
